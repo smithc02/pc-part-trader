@@ -24,8 +24,7 @@ massive(process.env.CONNECTION_STRING)
 		app.set('db', dbInstance);
 		console.log('db connected');
 	})
-	.catch(err => console.log(err))
-	
+	.catch(err => console.log(err));
 
 //user endpoints
 app.post('/api/register', auth.register); // register a new user
