@@ -4,14 +4,14 @@ module.exports = {
 	register: async (req, res, next) => {
 		const { username, password, email, img_url, role } = req.body;
 		const db = req.app.get('db');
-		const result = await db.get_user([username]);
+		const result = await db.user_endpoints.get_user([username]);
 		const existingUser = result[0];
 		if (existingUser) {
 			return res.status(409).send('Username taken');
 		}
 		const salt = bcrypt.genSaltSync(12);
 		const hash = bcrypt.hashSync(password, salt);
-		const registeredUser = await db.add_user([
+		const registeredUser = await db.user_endpoints.add_user([
 			username,
 			hash,
 			email,
@@ -30,7 +30,9 @@ module.exports = {
 
 	login: async (req, res) => {
 		const { username, password } = req.body;
-		const foundUser = await req.app.get('db').get_user([username]);
+		const foundUser = await req.app
+			.get('db')
+			.user_endpoints.get_user([username]);
 		const user = foundUser[0];
 		if (!user) {
 			return res
