@@ -14,17 +14,19 @@ class Dashboard extends Component {
 			product_name: '',
 			info: '',
 			product_type: '',
+			user_id: '',
 			img_url: ''
 		};
 	}
 	componentDidMount() {
-		if (this.props.user.username) {
-			axios.get('/api/product').then(res => {
-				// console.log('Get all products', res);
-				this.setState({ products: res.data });
-			});
-		}
+		axios.get('/api/product').then(res => {
+			// console.log('Get all products', res);
+			this.setState({ products: res.data });
+		});
+
+		get_user();
 	}
+
 	handleLogout = () => {
 		if (this.props.user.username) {
 			axios.get('/api/logout');
@@ -32,28 +34,44 @@ class Dashboard extends Component {
 	};
 
 	handleSubmit = e => {
-		let { product_name, info, product_type, img_url } = this.state;
-		e.preventDefault();
-		this.props.new_product(product_name, info, product_type, img_url);
+		if (this.props.loggedIn === true) {
+			e.preventDefault();
+			this.props.new_product(
+				this.state.product_name,
+				this.state.info,
+				this.state.product_type,
+				this.state.img_url
+			);
 
-		this.setState({
-			product_name: '',
-			info: '',
-			product_type: '',
-			img_url: ''
-		});
+			this.setState({
+				product_name: '',
+				info: '',
+				product_type: '',
+				img_url: ''
+			});
+		} else {
+			alert('You are not logged in!');
+		}
 	};
 
 	render() {
+		console.log('username', this.props.user.username);
+		console.log('user_id', this.props.user.id);
+		console.log('products', this.state.products);
+
 		// console.log(this.props.user);
-		const { products } = this.state;
-		console.log('products list', this.state.products);
+		// console.log('products list', this.state.products);
 
 		if (!this.props.user.username) {
-			return <Link to="/login">Login</Link>;
+			return (
+				<div>
+					<h1>You are not logged in!</h1>{' '}
+					<Link to="/login">Login</Link>
+				</div>
+			);
 		}
 		if (this.props.user.role === 'Buyer') {
-			let productDisplay = products.map((product, i) => {
+			let productDisplay = this.state.products.map((product, i) => {
 				return (
 					<Products
 						key={i}
@@ -67,7 +85,7 @@ class Dashboard extends Component {
 			return (
 				<div>
 					<h1>
-						{this.props.user.username}'s Account
+						{this.props.user.username}: Buyer
 						<br />
 						<form action="/login">
 							<button onClick={this.handleLogout}>Logout</button>
@@ -85,7 +103,7 @@ class Dashboard extends Component {
 				</div>
 			);
 		} else {
-			let productDisplay = products.map((product, i) => {
+			let productDisplay = this.state.products.map((product, i) => {
 				return (
 					<Products
 						key={i}
@@ -97,18 +115,61 @@ class Dashboard extends Component {
 			});
 			return (
 				<div>
-					<h1>
-						{this.props.user.username}:
-						<br />
-						{this.props.user.role}
-					</h1>
-					<form action="/">
-						<button onClick={this.handleLogout}>Logout</button>
-					</form>
-
-					<h1> All parts for sale!</h1>
+					<header>
+						<h1>
+							{this.props.user.username}: Seller
+						</h1>
+					</header>
 					<div>
-						{productDisplay}
+						<form action="/">
+							<button onClick={this.handleLogout}>Logout</button>
+						</form>
+
+						<h1> All parts for sale!</h1>
+						<div>
+							{productDisplay}
+						</div>
+						<div>
+							<form onSubmit={this.handleSubmit}>
+								<input
+									value={this.state.product_name}
+									type="text"
+									placeholder="Product Name"
+									onChange={e =>
+										this.setState({
+											product_name: e.target.value
+										})}
+								/>
+								<input
+									value={this.state.info}
+									type="text"
+									placeholder="Product Information"
+									onChange={e =>
+										this.setState({
+											info: e.target.value
+										})}
+								/>
+								<input
+									value={this.state.product_type}
+									type="text"
+									placeholder="Product Type"
+									onChange={e =>
+										this.setState({
+											product_type: e.target.value
+										})}
+								/>
+								<input
+									value={this.state.img_url}
+									type="text"
+									placeholder="Image URL"
+									onChange={e =>
+										this.setState({
+											img_url: e.target.value
+										})}
+								/>
+								<button>List Item</button>
+							</form>
+						</div>
 					</div>
 				</div>
 			);

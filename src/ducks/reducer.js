@@ -2,7 +2,8 @@ import axios from 'axios';
 const initialState = {
 	products: {},
 	user: {},
-	error: ''
+	error: '',
+	loggedIn: false
 };
 
 //action types
@@ -11,6 +12,7 @@ const LOGIN = 'LOGIN';
 const REGISTER = 'REGISTER';
 const GET_PRODUCTS = 'GET_PRODUCTS';
 const NEW_PRODUCT = 'NEW_PRODUCT';
+const LOGOUT = 'LOGOUT';
 
 //action creators
 export function get_user() {
@@ -38,6 +40,13 @@ export function register(username, password, email, img_url, role) {
 		})
 	};
 }
+export function logout() {
+	return {
+		type: LOGOUT,
+		payload: axios.get('/api/logout')
+	};
+}
+
 export function get_products() {
 	return {
 		type: GET_PRODUCTS,
@@ -61,17 +70,16 @@ export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case `${GET_USER}_FULFILLED`:
 			return { ...state, user: action.payload.data };
-
 		case `${LOGIN}_FULFILLED`:
-			return { ...state, user: action.payload.data };
+			return { ...state, loggedIn: true, user: action.payload.data };
 		case `${LOGIN}_REJECTED`:
 			return { ...state, error: 'Username or password is incorrect ' };
-
+		case `${LOGOUT}_FULFILLED`:
+			return { ...state, loggedIn: false };
 		case `${REGISTER}_FULFILLED`:
 			return { ...state, user: action.payload.data };
 		case `${REGISTER}_REJECTED`:
 			return { ...state, error: 'Registration was not successfull' };
-
 		case `${GET_PRODUCTS}_FULFILLED`:
 			return { ...state, products: action.payload.data };
 		case `${GET_PRODUCTS}_REJECTED`:

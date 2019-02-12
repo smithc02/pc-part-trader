@@ -26,7 +26,7 @@ class Login extends Component {
 	render() {
 		console.log(this.props.user);
 		if (this.props.user.username) {
-			return <Redirect push to="/login" />;
+			return <Redirect push to="/dashboard" />;
 		}
 		return (
 			<div>
