@@ -6,6 +6,8 @@ const session = require('express-session');
 const { json } = require('body-parser');
 const auth = require('./authcontroller');
 const product = require('./productController');
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
 app.use(json());
 
@@ -27,6 +29,15 @@ massive(process.env.CONNECTION_STRING)
 	})
 	.catch(err => console.log(err));
 
+// app.get('/', function(req, res) {
+// 	res.sendFile(__dirname + '/index.html');
+// });
+// app.get('/', function(req, res) {
+// 	res.send('<h1>Hello world</h1>');
+// });
+
+
+
 //user endpoints
 app.post('/api/register', auth.register); // register a new user in db
 app.post('/api/login', auth.login); //login existing user
@@ -37,8 +48,8 @@ app.get('/api/logout', auth.logout); // logout session of current user
 app.post('/api/user/newproduct', product.new_product); // add new product to db
 app.put('/api/user/updateproduct/:id', product.update_product); //edit existing product in db
 app.get('/api/product', product.get_all_product); // get all existing products
-app.delete('/api/user/removeproduct/:id', product.remove_product); // remove prodcut from db
+app.delete('/api/user/removeproduct/:id', product.remove_product); // remove product from db
 
 app.listen(process.env.EXPRESS_PORT || 4000, () => {
-	console.log(`Listening on ${process.env.EXPRESS_PORT}`);
+	console.log(`Server - Listening on ${process.env.EXPRESS_PORT}`);
 });
