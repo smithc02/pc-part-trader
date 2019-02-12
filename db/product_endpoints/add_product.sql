@@ -1,3 +1,3 @@
-INSERT INTO product (product_name, info, product_type, user_id)
-VALUES ($1,$2,$3,$4)
+INSERT INTO product (product_name, info, product_type, user_id, img_url)
+VALUES ($1,$2,$3,$4,$5)
 RETURNING *

@@ -1,7 +1,7 @@
 module.exports = {
 	new_product: (req, res) => {
 		const dbInstance = req.app.get('db');
-		const { product_name, info, product_type } = req.body;
+		const { product_name, info, product_type, img_url } = req.body;
 
 		console.log(req.session.user.id);
 		if (req.session.user) {
@@ -10,7 +10,8 @@ module.exports = {
 					product_name,
 					info,
 					product_type,
-					req.session.user.id
+					req.session.user.id,
+					img_url
 				])
 				.then(() => res.sendStatus(200))
 				.catch(err => {
@@ -34,6 +35,7 @@ module.exports = {
 					product_name,
 					info,
 					product_type,
+					img_url,
 					req.session.user.id
 				])
 				.then(response => res.status(200).send(response))

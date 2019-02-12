@@ -1,5 +1,6 @@
 import axios from 'axios';
 const initialState = {
+	products: {},
 	user: {},
 	error: ''
 };
@@ -8,6 +9,8 @@ const initialState = {
 const GET_USER = 'GET_USER';
 const LOGIN = 'LOGIN';
 const REGISTER = 'REGISTER';
+const GET_PRODUCTS = 'GET_PRODUCTS';
+const NEW_PRODUCT = 'NEW_PRODUCT';
 
 //action creators
 export function get_user() {
@@ -16,7 +19,6 @@ export function get_user() {
 		payload: axios.get('/api/user')
 	};
 }
-
 export function login(username, password) {
 	return {
 		type: LOGIN,
@@ -36,8 +38,25 @@ export function register(username, password, email, img_url, role) {
 		})
 	};
 }
+export function get_products() {
+	return {
+		type: GET_PRODUCTS,
+		payload: axios.get('/api/product')
+	};
+}
+export function new_product(product_name, info, product_type, img_url) {
+	return {
+		type: NEW_PRODUCT,
+		payload: axios.post('/api/user/newproduct', {
+			product_name,
+			info,
+			product_type,
+			img_url
+		})
+	};
+}
 
-//export dfault function of each action type/creators
+//export default function of each action type/creators
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case `${GET_USER}_FULFILLED`:
@@ -51,7 +70,17 @@ export default function reducer(state = initialState, action) {
 		case `${REGISTER}_FULFILLED`:
 			return { ...state, user: action.payload.data };
 		case `${REGISTER}_REJECTED`:
-			return { ...state, error: 'Registeration was not successfull' };
+			return { ...state, error: 'Registration was not successfull' };
+
+		case `${GET_PRODUCTS}_FULFILLED`:
+			return { ...state, products: action.payload.data };
+		case `${GET_PRODUCTS}_REJECTED`:
+			return { ...state, error: 'Get_products was not successfull' };
+
+		case `${NEW_PRODUCT}_FULFILLED`:
+			return { ...state, products: action.payload.data };
+		case `${NEW_PRODUCT}_REJECTED`:
+			return { ...state, error: 'new_product was not successfull' };
 
 		default:
 			return state;

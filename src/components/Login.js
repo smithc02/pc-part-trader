@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../ducks/reducer';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Login extends Component {
 	constructor(props) {
@@ -25,7 +25,9 @@ class Login extends Component {
 
 	render() {
 		console.log(this.props.user);
-
+		if (this.props.user.username) {
+			return <Redirect push to="/login" />;
+		}
 		return (
 			<div>
 				<form onSubmit={this.handleSubmit}>
