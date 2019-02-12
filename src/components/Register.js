@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { register } from '../ducks/reducer';
 
 import { Link } from 'react-router-dom';
+// import Axios from 'axios';
 
 class Register extends Component {
 	constructor(props) {
@@ -37,6 +38,7 @@ class Register extends Component {
 			img_url: '',
 			role: ''
 		});
+
 	};
 
 	listHandle(value) {
@@ -48,6 +50,7 @@ class Register extends Component {
 
 	render() {
 		return (
+			
 			<div>
 				<form onSubmit={this.handleSubmit}>
 					<input

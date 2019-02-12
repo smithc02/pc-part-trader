@@ -1,20 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import { get_user } from '../../ducks/reducer';
 
-const Products = props => {
-	return (
-		<div className="product_container">
-			<div>
+class Products extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			products: []
+		};
+	}
+
+	componentDidMount() {
+		axios.get('/api/product').then(res => {
+			this.setState({ products: res.data });
+		});
+		get_user();
+	}
+
+	render() {
+		if(this.props.user.role === 'Buyer')
+		return (
+			<div className="product_container">
 				<div>
-					{props.product_name}
-				</div>
-				<div>
-					{props.info}
-				</div>
-				<div>
-					{props.product_type}
+					<div>
+						{this.props.product_name}
+					</div>
+					<div>
+						{this.props.info}
+					</div>
+					<div>
+						{this.props.product_type}
+					</div>
 				</div>
 			</div>
-		</div>
-	);
-};
-export default Products;
+		);
+	}
+}
+
+const mapStateToProps = state => state;
+
+export default connect(mapStateToProps, { get_user })(Products);

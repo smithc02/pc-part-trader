@@ -56,6 +56,7 @@ module.exports = {
 				.get_all_product()
 				.then(response => res.status(200).send(response))
 				.catch(err => {
+					console.log(response);
 					res
 						.status(500)
 						.send({ error: 'Error with get_all_product' });

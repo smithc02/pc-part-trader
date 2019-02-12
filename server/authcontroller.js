@@ -11,21 +11,13 @@ module.exports = {
 		}
 		const salt = bcrypt.genSaltSync(12);
 		const hash = bcrypt.hashSync(password, salt);
-		const registeredUser = await db.user_endpoints.add_user([
+		await db.user_endpoints.add_user([
 			username,
 			hash,
 			email,
 			img_url,
 			role
 		]);
-		const user = registeredUser[0];
-		req.session.user = {
-			username: user.username,
-			id: user.id,
-			email: user.email,
-			img_url: user.img_url,
-			role: user.role
-		};
 		console.log(req.session.user);
 		return res.status(201).send(req.session.user);
 	},
