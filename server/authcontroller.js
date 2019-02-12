@@ -23,8 +23,10 @@ module.exports = {
 			username: user.username,
 			id: user.id,
 			email: user.email,
-			img_url: user.img_url
+			img_url: user.img_url,
+			role: user.role
 		};
+		console.log(req.session.user);
 		return res.status(201).send(req.session.user);
 	},
 
@@ -47,7 +49,8 @@ module.exports = {
 		}
 		req.session.user = {
 			id: user.id,
-			username: user.username
+			username: user.username,
+			role: user.role
 		};
 		return res.send(req.session.user);
 	},

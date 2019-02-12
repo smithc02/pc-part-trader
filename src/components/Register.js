@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { register } from '../ducks/reducer';
-// import { Redirect } from 'react-router-dom';
+
 import { Link } from 'react-router-dom';
 
 class Register extends Component {
@@ -35,8 +35,7 @@ class Register extends Component {
 			password: '',
 			email: '',
 			img_url: '',
-			role: '',
-			redirect: false
+			role: ''
 		});
 	};
 
@@ -46,17 +45,6 @@ class Register extends Component {
 			role: value
 		});
 	}
-
-	// handleRedirect() {
-	// 	if (this.props.username) {
-	// 		this.setState({ redirect: true });
-	// 		if (this.state.redirect === true) {
-	// 			<Redirect push to="/dashboard" />;
-	// 		}
-	// 	} else {
-	// 		alert('Fillout all fields');
-	// 	}
-	// }
 
 	render() {
 		return (
