@@ -7,7 +7,7 @@ const { json } = require('body-parser');
 const auth = require('./authcontroller');
 const product = require('./productController');
 const http = require('http').Server(app);
-const io = require('socket.io')(http);
+// const io = require('socket.io')(http);
 
 app.use(json());
 

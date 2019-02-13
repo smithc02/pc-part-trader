@@ -30,7 +30,7 @@ export function login(username, password) {
 
 export function register(username, password, email, img_url, role) {
 	return {
-		type: LOGIN,
+		type: REGISTER,
 		payload: axios.post('/api/register', {
 			username,
 			password,
@@ -70,12 +70,17 @@ export default function reducer(state = initialState, action) {
 	switch (action.type) {
 		case `${GET_USER}_FULFILLED`:
 			return { ...state, user: action.payload.data };
+		case `${GET_USER}_REJECTED`:
+			return { ...state, error: 'incorrect username or password' };
+
 		case `${LOGIN}_FULFILLED`:
 			return { ...state, loggedIn: true, user: action.payload.data };
 		case `${LOGIN}_REJECTED`:
 			return { ...state, error: 'Username or password is incorrect ' };
+
 		case `${LOGOUT}_FULFILLED`:
 			return { ...state, loggedIn: false };
+
 		case `${REGISTER}_FULFILLED`:
 			return { ...state, user: action.payload.data };
 		case `${REGISTER}_REJECTED`:

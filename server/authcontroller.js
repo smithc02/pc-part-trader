@@ -22,29 +22,39 @@ module.exports = {
 		return res.status(201).send(req.session.user);
 	},
 
-	login: async (req, res) => {
+	login: (req, res) => {
 		const { username, password } = req.body;
-		const foundUser = await req.app
-			.get('db')
-			.user_endpoints.get_user([username]);
-		const user = foundUser[0];
-		if (!user) {
-			return res
-				.status(401)
-				.send(
-					'User not found. Please register as a new user before logging in'
-				);
-		}
-		const isAuthenticated = bcrypt.compare(password, user.hash);
-		if (!isAuthenticated) {
-			return res.status(403).send('Incorrect password');
-		}
-		req.session.user = {
-			id: user.id,
-			username: user.username,
-			role: user.role
-		};
-		return res.send(req.session.user);
+		const db = req.app.get('db');
+		db.user_endpoints
+			.get_user(username)
+			.then(async response => {
+				console.log(response);
+				if (!response.length) {
+					res.status(401).json({ error: 'No user found' });
+				} else {
+					const isMatch = await bcrypt.compare(
+						password,
+						response[0].hash
+					);
+					if (!isMatch) {
+						res.status(401).json({ error: 'Shitty H4x0r' });
+					} else {
+						req.session.user = {
+							username: response[0].username,
+							email: response[0].email,
+							img_url: response[0].img_url,
+							role: response[0].role
+						};
+						res.status(200).json({
+							username: response[0].username,
+							email: response[0].email,
+							img_url: response[0].img_url,
+							role: response[0].role
+						});
+					}
+				}
+			})
+			.catch(err => console.log(err));
 	},
 
 	get_user: (req, res) => {
