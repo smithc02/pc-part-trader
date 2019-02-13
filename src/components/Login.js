@@ -19,12 +19,10 @@ class Login extends Component {
 	handleSubmit = e => {
 		e.preventDefault();
 		this.props.login(this.state.username, this.state.password);
-
-		// this.setState({ username: '', password: '' });
 	};
 
 	render() {
-		console.log(this.props.user);
+		// console.log(this.props.user);
 		if (this.props.user.username) {
 			return <Redirect push to="/dashboard" />;
 		}
@@ -36,14 +34,16 @@ class Login extends Component {
 						type="username"
 						name="username"
 						placeholder=" username"
-						onChange={this.handleChange}
+						onChange={e => this.handleChange(e)}
+						required
 					/>
 					<input
 						value={this.state.password}
 						type="password"
 						name="password"
 						placeholder=" password"
-						onChange={this.handleChange}
+						onChange={e => this.handleChange(e)}
+						required
 					/>
 
 					<button>Login</button>

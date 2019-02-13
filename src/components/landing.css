@@ -1,0 +1,31 @@
+.landing {
+	text-align: center;
+}
+.landingContainer {
+	margin: 0 auto;
+	padding: 0 auto;
+}
+.navBar {
+	background-color: #1488aa;
+	height: 50px;
+	width: 96vw;
+	opacity:.6
+}
+
+.loginLink{
+    opacity: 1;
+}
+
+.registerLink {
+    opacity: .9;
+}
+.landing {
+	background-image: url('../landing.jpg');
+
+	width: 96vw;
+	height: 100vh;
+	/* background-position: center; */
+	background-position: center;
+	margin: 0 auto;
+	padding: 0 auto;
+}

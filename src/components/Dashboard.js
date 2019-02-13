@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { get_user, new_product } from '../ducks/reducer';
+import { get_user, new_product, logout } from '../ducks/reducer';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Products from './productComponents/Products';
@@ -20,18 +20,11 @@ class Dashboard extends Component {
 	}
 	componentDidMount() {
 		axios.get('/api/product').then(res => {
-			// console.log('Get all products', res);
+			console.log('Get all products (dashboard', res);
 			this.setState({ products: res.data });
 		});
-
-		get_user();
+		// this.props.get_user();
 	}
-
-	handleLogout = () => {
-		if (this.props.user.username) {
-			axios.get('/api/logout');
-		}
-	};
 
 	handleSubmit = e => {
 		if (this.props.loggedIn === true) {
@@ -55,14 +48,16 @@ class Dashboard extends Component {
 	};
 
 	render() {
-		console.log('username', this.props.user.username);
-		console.log('user_id', this.props.user.id);
-		console.log('products', this.state.products);
+		// console.log('username', this.props.user.username);
+		// console.log('role', this.props.user.role);
 
-		// console.log(this.props.user);
+		// console.log('products', this.props.products);
+		// console.log('Dashboard state: products', this.state.products);
+
+		// console.log('user', this.props.user);
 		// console.log('products list', this.state.products);
 
-		if (!this.props.user.username) {
+		if (this.props.loggedIn === false) {
 			return (
 				<div>
 					<h1>You are not logged in!</h1>{' '}
@@ -70,7 +65,7 @@ class Dashboard extends Component {
 				</div>
 			);
 		}
-		if (this.props.user.role === 'Buyer') {
+		if (this.props.user.role === 'Buyer' && this.props.user.username) {
 			let productDisplay = this.state.products.map((product, i) => {
 				return (
 					<Products
@@ -78,6 +73,7 @@ class Dashboard extends Component {
 						product_name={product.product_name}
 						info={product.info}
 						product_type={product.product_type}
+						img_url={product.img_url}
 					/>
 				);
 			});
@@ -88,21 +84,20 @@ class Dashboard extends Component {
 						{this.props.user.username}: Buyer
 						<br />
 						<form action="/login">
-							<button onClick={this.handleLogout}>Logout</button>
+							<button onClick={() => this.props.logout()}>
+								Logout
+							</button>
 						</form>
 					</h1>
 
 					<div>
-						<div>
-							<h1 className="parts_for_sale">
-								All parts for sale!
-							</h1>
-						</div>
-						{productDisplay}
+						<h1 className="parts_for_sale">All parts for sale!</h1>
 					</div>
+					{productDisplay}
 				</div>
 			);
-		} else {
+		}
+		if (this.props.user.role === 'Seller') {
 			let productDisplay = this.state.products.map((product, i) => {
 				return (
 					<Products
@@ -110,6 +105,7 @@ class Dashboard extends Component {
 						product_name={product.product_name}
 						info={product.info}
 						product_type={product.product_type}
+						img_url={product.img_url}
 					/>
 				);
 			});
@@ -121,8 +117,10 @@ class Dashboard extends Component {
 						</h1>
 					</header>
 					<div>
-						<form action="/">
-							<button onClick={this.handleLogout}>Logout</button>
+						<form action="/login">
+							<button onClick={() => this.props.logout()}>
+								Logout
+							</button>
 						</form>
 
 						<h1> All parts for sale!</h1>
@@ -179,4 +177,8 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { get_user, new_product })(Dashboard);
+export default connect(mapStateToProps, {
+	get_user,
+	new_product,
+	logout
+})(Dashboard);
