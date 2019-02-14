@@ -53,13 +53,20 @@ export function get_products() {
 		payload: axios.get('/api/product')
 	};
 }
-export function new_product(product_name, info, product_type, img_url) {
+export function new_product(
+	product_name,
+	info,
+	product_type,
+	user_id,
+	img_url
+) {
 	return {
 		type: NEW_PRODUCT,
 		payload: axios.post('/api/user/newproduct', {
 			product_name,
 			info,
 			product_type,
+			user_id,
 			img_url
 		})
 	};
@@ -79,7 +86,7 @@ export default function reducer(state = initialState, action) {
 			return { ...state, error: 'Username or password is incorrect ' };
 
 		case `${LOGOUT}_FULFILLED`:
-		console.log('logout as been triggered')
+			console.log('logout has been triggered');
 			return { ...state, loggedIn: false };
 
 		case `${REGISTER}_FULFILLED`:
