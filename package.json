@@ -12,6 +12,7 @@
 		"express": "^4.16.4",
 		"express-session": "^1.15.6",
 		"massive": "^5.7.5",
+		"nodemailer": "^5.1.1",
 		"react": "^16.8.1",
 		"react-dom": "^16.8.1",
 		"react-redux": "^6.0.0",

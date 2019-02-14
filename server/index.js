@@ -6,7 +6,7 @@ const session = require('express-session');
 const { json } = require('body-parser');
 const auth = require('./authcontroller');
 const product = require('./productController');
-const http = require('http').Server(app);
+// const http = require('http').Server(app);
 // const io = require('socket.io')(http);
 
 app.use(json());
@@ -28,15 +28,6 @@ massive(process.env.CONNECTION_STRING)
 		console.log('db connected');
 	})
 	.catch(err => console.log(err));
-
-// app.get('/', function(req, res) {
-// 	res.sendFile(__dirname + '/index.html');
-// });
-// app.get('/', function(req, res) {
-// 	res.send('<h1>Hello world</h1>');
-// });
-
-
 
 //user endpoints
 app.post('/api/register', auth.register); // register a new user in db

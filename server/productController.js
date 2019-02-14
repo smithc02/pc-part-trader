@@ -3,7 +3,7 @@ module.exports = {
 		const dbInstance = req.app.get('db');
 		const { product_name, info, product_type, img_url } = req.body;
 
-		console.log(req.session.user.id);
+		console.log(req.session.user);
 		if (req.session.user) {
 			dbInstance.product_endpoints
 				.add_product([

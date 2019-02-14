@@ -22,17 +22,14 @@ class Dashboard extends Component {
 			console.log('Get all products (dashboard', res);
 			this.setState({ products: res.data });
 		});
-
-		// console.log('this is all stufffs', this.props.products);
-		// console.log(this.props.loggedIn);
-		// this.props.get_user().then(res => {
-		// 	console.log('userId', res, this.props.get_user());
-		// });
+		this.props.get_user().then(res => {
+			console.log('userId', res, this.props.get_user());
+		});
 	}
-
-	componentDidUpdate(prevProps, prevState) {
+	// change to redux if time permits
+	componentDidUpdate(prevProps) {
 		console.log('componentDidUpdate');
-		if (prevState.products.length !== this.state.products.length) {
+		if (prevProps.products !== this.props.products) {
 			axios.get('/api/product').then(res => {
 				console.log('Get all products (dashboard', res);
 				this.setState({ products: res.data });
@@ -48,7 +45,6 @@ class Dashboard extends Component {
 			this.state.product_name,
 			this.state.info,
 			this.state.product_type,
-			this.props.user.user_id,
 			this.state.img_url
 		);
 		axios.get('/api/product').then(res => {
