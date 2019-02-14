@@ -3,7 +3,8 @@ const initialState = {
 	products: {},
 	user: {},
 	error: '',
-	loggedIn: false
+	loggedIn: false,
+	user_products: {}
 };
 
 //action types
@@ -13,6 +14,7 @@ const REGISTER = 'REGISTER';
 const GET_PRODUCTS = 'GET_PRODUCTS';
 const NEW_PRODUCT = 'NEW_PRODUCT';
 const LOGOUT = 'LOGOUT';
+const GET_USER_PRODUCT = 'GET_USER_PRODUCT';
 
 //action creators
 export function get_user() {
@@ -53,6 +55,7 @@ export function get_products() {
 		payload: axios.get('/api/product')
 	};
 }
+
 export function new_product(
 	product_name,
 	info,
@@ -69,6 +72,12 @@ export function new_product(
 			user_id,
 			img_url
 		})
+	};
+}
+export function get_user_product() {
+	return {
+		type: GET_USER_PRODUCT,
+		payload: axios.get('/api/user/user&product')
 	};
 }
 
@@ -103,6 +112,10 @@ export default function reducer(state = initialState, action) {
 		case `${NEW_PRODUCT}_FULFILLED`:
 			return { ...state, products: action.payload.data };
 		case `${NEW_PRODUCT}_REJECTED`:
+			return { ...state, error: 'new_product was not successfull' };
+		case `${GET_USER_PRODUCT}_FULFILLED`:
+			return { ...state, user_products: action.payload.data };
+		case `${GET_USER_PRODUCT}_REJECTED`:
 			return { ...state, error: 'new_product was not successfull' };
 
 		default:

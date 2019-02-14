@@ -95,9 +95,11 @@ module.exports = {
 	},
 
 	logout: async (req, res) => {
-		req.session.destroy();
-		return res
-			.status(200)
-			.json({ Update: 'You have logged out successfully' });
+		if (req.session.destroy()) {
+			console.log('You have logged out successfully');
+			return res
+				.status(200)
+				.json({ Update: 'You have logged out successfully' });
+		}
 	}
 };
