@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { get_user, new_product, logout } from '../ducks/reducer';
+import { get_user, new_product, logout, get_products } from '../ducks/reducer';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Products from './productComponents/Products';
@@ -23,7 +23,20 @@ class Dashboard extends Component {
 			console.log('Get all products (dashboard', res);
 			this.setState({ products: res.data });
 		});
-		// this.props.get_user();
+		// console.log(this.props.loggedIn);
+		this.props.get_user();
+		console.log(this.props.get_user());
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		console.log('componentDidUpdate');
+		if (this.state.products.length !== prevState.products.length) {
+			axios.get('/api/product').then(res => {
+				console.log('Get all products (dashboard', res);
+				this.setState({ products: res.data });
+			});
+		}
+		// console.log(this.state.products);
 	}
 
 	handleSubmit = e => {
@@ -45,7 +58,17 @@ class Dashboard extends Component {
 		} else {
 			alert('You are not logged in!');
 		}
+		axios.get('/api/product').then(res => {
+			console.log('Get all products (dashboard', res);
+			this.setState({ products: res.data });
+		});
 	};
+	listHandle(value) {
+		console.log(value);
+		this.setState({
+			product_type: value
+		});
+	}
 
 	render() {
 		// console.log('username', this.props.user.username);
@@ -65,7 +88,7 @@ class Dashboard extends Component {
 				</div>
 			);
 		}
-		if (this.props.user.role === 'Buyer' && this.props.user.username) {
+		if (this.props.user.role === 'Buyer' && this.props.loggedIn === true) {
 			let productDisplay = this.state.products.map((product, i) => {
 				return (
 					<Products
@@ -97,7 +120,7 @@ class Dashboard extends Component {
 				</div>
 			);
 		}
-		if (this.props.user.role === 'Seller') {
+		if (this.props.user.role === 'Seller' && this.props.loggedIn === true) {
 			let productDisplay = this.state.products.map((product, i) => {
 				return (
 					<Products
@@ -124,9 +147,7 @@ class Dashboard extends Component {
 						</form>
 
 						<h1> All parts for sale!</h1>
-						<div>
-							{productDisplay}
-						</div>
+
 						<div>
 							<form onSubmit={this.handleSubmit}>
 								<input
@@ -147,15 +168,7 @@ class Dashboard extends Component {
 											info: e.target.value
 										})}
 								/>
-								<input
-									value={this.state.product_type}
-									type="text"
-									placeholder="Product Type"
-									onChange={e =>
-										this.setState({
-											product_type: e.target.value
-										})}
-								/>
+
 								<input
 									value={this.state.img_url}
 									type="text"
@@ -165,8 +178,26 @@ class Dashboard extends Component {
 											img_url: e.target.value
 										})}
 								/>
+
+								<select
+									onChange={e =>
+										this.listHandle(e.target.value)}
+								>
+									<option value=""> Please Select</option>
+									<option value="CPU">CPU</option>
+									<option value="Motherboard">
+										Motherboard
+									</option>
+									<option value="RAMM">RAMM</option>
+									<option value="GPU">GPU</option>
+									<option value="HardDrive">HardDrive</option>
+									<option value="Monitor">Monitor</option>
+								</select>
 								<button>List Item</button>
 							</form>
+							<div>
+								{productDisplay}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -180,5 +211,6 @@ const mapStateToProps = state => state;
 export default connect(mapStateToProps, {
 	get_user,
 	new_product,
-	logout
+	logout,
+	get_products
 })(Dashboard);

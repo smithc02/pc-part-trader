@@ -69,6 +69,6 @@ module.exports = {
 		req.session.destroy();
 		return res
 			.status(200)
-			.send({ Update: 'You have logged out successfully' });
+			.json({ Update: 'You have logged out successfully' });
 	}
 };

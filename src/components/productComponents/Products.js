@@ -23,6 +23,13 @@ class Products extends Component {
 						<div>
 							{this.props.product_type}
 						</div>
+						<div>
+							<img
+								className="sellerProductImages"
+								src={this.props.img_url}
+								alt={this.props.product_type}
+							/>
+						</div>
 					</div>
 				</div>
 			);
@@ -41,10 +48,11 @@ class Products extends Component {
 								{this.props.product_type}
 							</div>
 							<div>
-								{/* <img
+								<img
+									className="sellerProductImages"
 									src={this.props.img_url}
 									alt={this.props.product_type}
-								/> */}
+								/>
 							</div>
 						</div>
 					</div>

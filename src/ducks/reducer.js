@@ -79,6 +79,7 @@ export default function reducer(state = initialState, action) {
 			return { ...state, error: 'Username or password is incorrect ' };
 
 		case `${LOGOUT}_FULFILLED`:
+		console.log('logout as been triggered')
 			return { ...state, loggedIn: false };
 
 		case `${REGISTER}_FULFILLED`:
