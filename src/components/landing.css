@@ -9,18 +9,18 @@
 	background-color: #1488aa;
 	height: 50px;
 	width: 96vw;
-	opacity:.6
+	opacity: .6;
 }
 
-.loginLink{
-    opacity: 1;
+.loginLink {
+	opacity: 1;
 }
 
 .registerLink {
-    opacity: .9;
+	opacity: .9;
 }
 .landing {
-	background-image: url('../landing.jpg');
+	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/landing.jpg');
 
 	width: 96vw;
 	height: 100vh;
