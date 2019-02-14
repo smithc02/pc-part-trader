@@ -14,7 +14,6 @@ class Dashboard extends Component {
 			product_name: '',
 			info: '',
 			product_type: '',
-			user_id: 0,
 			img_url: ''
 		};
 	}
@@ -26,9 +25,9 @@ class Dashboard extends Component {
 
 		// console.log('this is all stufffs', this.props.products);
 		// console.log(this.props.loggedIn);
-		this.props.get_user().then(res => {
-			console.log('userId', res, this.props.get_user());
-		});
+		// this.props.get_user().then(res => {
+		// 	console.log('userId', res, this.props.get_user());
+		// });
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -38,7 +37,6 @@ class Dashboard extends Component {
 				console.log('Get all products (dashboard', res);
 				this.setState({ products: res.data });
 			});
-			this.listHandle();
 		}
 		// console.log(this.state.products);222
 	}
@@ -85,15 +83,7 @@ class Dashboard extends Component {
 		// console.log('user', this.props.user);
 		// console.log('products list', this.state.products);
 
-		if (this.props.loggedIn === false) {
-			return (
-				<div>
-					<h1>You are not logged in!</h1>{' '}
-					<Link to="/login">Login</Link>
-				</div>
-			);
-		}
-		if (this.props.user.role === 'Buyer' && this.props.loggedIn === true) {
+		if (this.props.user.role === 'Buyer') {
 			let productDisplay = this.state.products.map((product, i) => {
 				return (
 					<Products
@@ -125,7 +115,7 @@ class Dashboard extends Component {
 				</div>
 			);
 		}
-		if (this.props.user.role === 'Seller' && this.props.loggedIn === true) {
+		if (this.props.user.role === 'Seller') {
 			let productDisplay = this.state.products.map((product, i) => {
 				return (
 					<Products
@@ -205,6 +195,14 @@ class Dashboard extends Component {
 							</div>
 						</div>
 					</div>
+				</div>
+			);
+		}
+		if (!this.props.loggedIn) {
+			return (
+				<div>
+					<h1>You are not logged in!</h1>{' '}
+					<Link to="/login">Login</Link>
 				</div>
 			);
 		}
