@@ -63,7 +63,7 @@ module.exports = {
 					console.log(err);
 				});
 		} else {
-			console.log('Please log in! (get_all_product');
+			console.log('Please log in! (get_all_product)');
 		}
 	},
 
