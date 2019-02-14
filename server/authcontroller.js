@@ -1,4 +1,13 @@
+require('dotenv').config();
 const bcrypt = require('bcryptjs');
+const nodemailer = require('nodemailer');
+const transporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+		user: process.env.DB_USER,
+		pass: process.env.DB_PASS
+	}
+});
 
 module.exports = {
 	register: async (req, res, next) => {
@@ -18,6 +27,24 @@ module.exports = {
 			img_url,
 			role
 		]);
+
+		const mailOptions = {
+			from: 'pcpartstraders@gmail.com',
+			to: req.body.email,
+			subject: 'New Account',
+			text: `Thank you ${req.body.username} for signing up as a ${req.body
+				.role}! We look forward to working with you!`
+		};
+		console.log(req.body.role);
+
+		transporter.sendMail(mailOptions, function(error, info) {
+			if (error) {
+				console.log(error);
+			} else {
+				console.log('Email send:' + info.response);
+			}
+		});
+
 		console.log(req.session.user);
 		return res.status(201).send(req.session.user);
 	},
