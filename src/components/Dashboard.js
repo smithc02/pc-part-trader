@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { get_user, new_product, logout, get_products } from '../ducks/reducer';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Products from './productComponents/Products';
+import SellerProducts from './productComponents/SellerProducts';
+import BuyerProducts from './productComponents/BuyerProducts';
 import './dashboard.css';
 
 class Dashboard extends Component {
@@ -37,9 +38,7 @@ class Dashboard extends Component {
 		}
 		// console.log(this.state.products);222
 	}
-
 	handleSubmit = e => {
-		// if (this.props.loggedIn === true) {
 		e.preventDefault();
 		this.props.new_product(
 			this.state.product_name,
@@ -51,16 +50,12 @@ class Dashboard extends Component {
 			console.log('Get all products (dashboard', res.data);
 			this.setState({ products: res.data });
 		});
-
 		this.setState({
 			product_name: '',
 			info: '',
 			product_type: '',
 			img_url: ''
 		});
-		// } else {
-		// 	alert('You are not logged in!');
-		// }
 	};
 	listHandle(value) {
 		console.log(value);
@@ -68,21 +63,18 @@ class Dashboard extends Component {
 			product_type: value
 		});
 	}
-
 	render() {
 		// console.log('username', this.props.user.username);
 		// console.log('role', this.props.user.role);
-
-		console.log('products', this.state.products);
+		// console.log('products', this.state.products);
 		// console.log('Dashboard state: products', this.state.products);
-
 		// console.log('user', this.props.user);
 		// console.log('products list', this.state.products);
 
 		if (this.props.user.role === 'Buyer') {
 			let productDisplay = this.state.products.map((product, i) => {
 				return (
-					<Products
+					<BuyerProducts
 						key={i}
 						product_name={product.product_name}
 						info={product.info}
@@ -91,7 +83,6 @@ class Dashboard extends Component {
 					/>
 				);
 			});
-
 			return (
 				<div>
 					<h1>
@@ -114,7 +105,7 @@ class Dashboard extends Component {
 		if (this.props.user.role === 'Seller') {
 			let productDisplay = this.state.products.map((product, i) => {
 				return (
-					<Products
+					<SellerProducts
 						key={i}
 						product_name={product.product_name}
 						info={product.info}

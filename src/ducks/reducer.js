@@ -92,7 +92,9 @@ export default function reducer(state = initialState, action) {
 		case `${REGISTER}_FULFILLED`:
 			return { ...state, user: action.payload.data };
 		case `${REGISTER}_REJECTED`:
+			alert('Email has already been taken, please try again');
 			return { ...state, error: 'Registration was not successfull' };
+
 		case `${GET_PRODUCTS}_FULFILLED`:
 			return { ...state, products: action.payload.data };
 		case `${GET_PRODUCTS}_REJECTED`:
