@@ -43,13 +43,15 @@ module.exports = {
 							username: response[0].username,
 							email: response[0].email,
 							img_url: response[0].img_url,
-							role: response[0].role
+							role: response[0].role,
+							user_id: response[0].id
 						};
 						res.status(200).json({
 							username: response[0].username,
 							email: response[0].email,
 							img_url: response[0].img_url,
-							role: response[0].role
+							role: response[0].role,
+							user_id: response[0].idß
 						});
 					}
 				}

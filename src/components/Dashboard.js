@@ -14,7 +14,7 @@ class Dashboard extends Component {
 			product_name: '',
 			info: '',
 			product_type: '',
-			user_id: '',
+			user_id: 0,
 			img_url: ''
 		};
 	}
@@ -23,45 +23,50 @@ class Dashboard extends Component {
 			console.log('Get all products (dashboard', res);
 			this.setState({ products: res.data });
 		});
+
+		// console.log('this is all stufffs', this.props.products);
 		// console.log(this.props.loggedIn);
-		this.props.get_user();
-		console.log(this.props.get_user());
+		this.props.get_user().then(res => {
+			console.log('userId', res, this.props.get_user());
+		});
 	}
 
 	componentDidUpdate(prevProps, prevState) {
 		console.log('componentDidUpdate');
-		if (this.state.products.length !== prevState.products.length) {
+		if (prevState.products.length !== this.state.products.length) {
 			axios.get('/api/product').then(res => {
 				console.log('Get all products (dashboard', res);
 				this.setState({ products: res.data });
 			});
+			this.listHandle();
 		}
-		// console.log(this.state.products);
+		// console.log(this.state.products);222
 	}
 
 	handleSubmit = e => {
-		if (this.props.loggedIn === true) {
-			e.preventDefault();
-			this.props.new_product(
-				this.state.product_name,
-				this.state.info,
-				this.state.product_type,
-				this.state.img_url
-			);
-
-			this.setState({
-				product_name: '',
-				info: '',
-				product_type: '',
-				img_url: ''
-			});
-		} else {
-			alert('You are not logged in!');
-		}
+		// if (this.props.loggedIn === true) {
+		e.preventDefault();
+		this.props.new_product(
+			this.state.product_name,
+			this.state.info,
+			this.state.product_type,
+			this.props.user.user_id,
+			this.state.img_url
+		);
 		axios.get('/api/product').then(res => {
-			console.log('Get all products (dashboard', res);
+			console.log('Get all products (dashboard', res.data);
 			this.setState({ products: res.data });
 		});
+
+		this.setState({
+			product_name: '',
+			info: '',
+			product_type: '',
+			img_url: ''
+		});
+		// } else {
+		// 	alert('You are not logged in!');
+		// }
 	};
 	listHandle(value) {
 		console.log(value);
@@ -74,7 +79,7 @@ class Dashboard extends Component {
 		// console.log('username', this.props.user.username);
 		// console.log('role', this.props.user.role);
 
-		// console.log('products', this.props.products);
+		console.log('products', this.state.products);
 		// console.log('Dashboard state: products', this.state.products);
 
 		// console.log('user', this.props.user);
