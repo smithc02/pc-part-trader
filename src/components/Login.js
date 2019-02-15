@@ -2,15 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../ducks/reducer';
 import { Link, Redirect } from 'react-router-dom';
+import Modal from 'react-modal';
+import './login.css';
+Modal.setAppElement('#root');
 
 class Login extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			username: '',
-			password: ''
+			password: '',
+			showModal: false
 		};
 	}
+
+	
+
+	handleOpenModal = () => {
+		this.setState({ showModal: true });
+	};
+
+	handleCloseModal = () => {
+		this.setState({ showModal: false });
+	};
 
 	handleChange = e => {
 		this.setState({ [e.target.name]: e.target.value });
@@ -28,26 +42,34 @@ class Login extends Component {
 		}
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit}>
-					<input
-						value={this.state.username}
-						type="username"
-						name="username"
-						placeholder=" username"
-						onChange={e => this.handleChange(e)}
-						required
-					/>
-					<input
-						value={this.state.password}
-						type="password"
-						name="password"
-						placeholder=" password"
-						onChange={e => this.handleChange(e)}
-						required
-					/>
+				<button onClick={this.handleOpenModal}>Login</button>
+				<Modal
+					className="modal"
+					isOpen={this.state.showModal}
+					contentLabel="Login Modal"
+					onRequestClose={this.handleCloseModal}
+				>
+					<form onSubmit={this.handleSubmit}>
+						<input
+							value={this.state.username}
+							type="username"
+							name="username"
+							placeholder=" username"
+							onChange={e => this.handleChange(e)}
+							required
+						/>
+						<input
+							value={this.state.password}
+							type="password"
+							name="password"
+							placeholder=" password"
+							onChange={e => this.handleChange(e)}
+							required
+						/>
 
-					<button>Login</button>
-				</form>
+						<input type="submit" value="Login" />
+					</form>
+				</Modal>
 
 				<p>
 					No login?

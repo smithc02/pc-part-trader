@@ -78,8 +78,12 @@ module.exports = {
 							email: response[0].email,
 							img_url: response[0].img_url,
 							role: response[0].role,
-							user_id: response[0].idß
+							user_id: response[0].id
 						});
+						console.log(
+							'Checking user session info',
+							req.session.user
+						);
 					}
 				}
 			})
