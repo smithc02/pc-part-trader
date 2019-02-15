@@ -4,7 +4,7 @@ const initialState = {
 	user: {},
 	error: '',
 	loggedIn: false,
-	user_products: {}
+	user_product: {}
 };
 
 //action types
@@ -114,7 +114,7 @@ export default function reducer(state = initialState, action) {
 		case `${NEW_PRODUCT}_REJECTED`:
 			return { ...state, error: 'new_product was not successfull' };
 		case `${GET_USER_PRODUCT}_FULFILLED`:
-			return { ...state, user_products: action.payload.data };
+			return { ...state, user_product: action.payload.data };
 		case `${GET_USER_PRODUCT}_REJECTED`:
 			return { ...state, error: 'new_product was not successfull' };
 

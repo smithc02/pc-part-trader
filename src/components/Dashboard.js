@@ -20,7 +20,7 @@ class Dashboard extends Component {
 	}
 	componentDidMount() {
 		axios.get('/api/product').then(res => {
-			console.log('Get all products (dashboard', res);
+			// console.log('Get all products (dashboard', res);
 			this.setState({ products: res.data });
 		});
 		this.props.get_user().then(res => {
@@ -32,7 +32,7 @@ class Dashboard extends Component {
 		console.log('componentDidUpdate');
 		if (prevProps.products !== this.props.products) {
 			axios.get('/api/product').then(res => {
-				console.log('Get all products (dashboard', res);
+				// console.log('Get all products (dashboard', res);
 				this.setState({ products: res.data });
 			});
 		}
@@ -111,6 +111,7 @@ class Dashboard extends Component {
 						info={product.info}
 						product_type={product.product_type}
 						img_url={product.img_url}
+						user_id={product.user_id}
 					/>
 				);
 			});

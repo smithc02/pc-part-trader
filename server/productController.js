@@ -89,22 +89,18 @@ module.exports = {
 			console.log('Please log in! (remove_product');
 		}
 	},
-	get_user_product: (req, res) => {
-		const dbInstance = req.app.get('db');
-		if (req.session.user) {
-			dbInstance.product_endpoints
-				.get_user_product()
-				.then(response => {
-					res.status(500).send(response);
-				})
-				.catch(erro => {
-					console.log(response);
-					res.status(500).send({
-						error: 'Error getting products specific to users'
-					});
-				});
-		} else {
-			console.log('Unable to get all products for specific users.');
-		}
-	}
+	// get_user_product: (req, res) => {
+	// 	const dbInstance = req.app.get('db');
+	// 	dbInstance.product_endpoints
+	// 		.get_user_product()
+	// 		.then(response => {
+	// 			res.status(200).send(response);
+	// 		})
+	// 		.catch(response => {
+	// 			console.log(response);
+	// 			res.status(500).send({
+	// 				error: 'Error getting products specific to users'
+	// 			});
+	// 		});
+	// }
 };
