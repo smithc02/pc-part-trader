@@ -15,35 +15,40 @@ module.exports = {
 		const db = req.app.get('db');
 		const result = await db.user_endpoints.get_user([username]);
 		const existingUser = result[0];
-		if (existingUser) {
-			return res.status(409).send('Username taken');
-		}
-		const salt = bcrypt.genSaltSync(12);
-		const hash = bcrypt.hashSync(password, salt);
-		await db.user_endpoints.add_user([
-			username,
-			hash,
-			email,
-			img_url,
-			role
-		]);
-
-		const mailOptions = {
-			from: 'pcpartstraders@gmail.com',
-			to: req.body.email,
-			subject: 'New Account',
-			text: `Thank you ${req.body.username} for signing up as a ${req.body
-				.role}! We look forward to working with you!`
-		};
-		console.log(req.body.role);
-
-		transporter.sendMail(mailOptions, function(error, info) {
-			if (error) {
-				console.log(error);
-			} else {
-				console.log('Email send:' + info.response);
+		try {
+			if (existingUser) {
+				return res.status(409).send('Username taken');
 			}
-		});
+			const salt = bcrypt.genSaltSync(12);
+			const hash = bcrypt.hashSync(password, salt);
+			await db.user_endpoints.add_user([
+				username,
+				hash,
+				email,
+				img_url,
+				role
+			]);
+
+			const mailOptions = {
+				from: 'pcpartstraders@gmail.com',
+				to: req.body.email,
+				subject: 'New Account',
+				text: `Thank you ${req.body.username} for signing up as a ${req
+					.body.role}! We look forward to working with you!`
+			};
+			console.log(req.body.role);
+
+			transporter.sendMail(mailOptions, function(error, info) {
+				if (error) {
+					console.log(error);
+				} else {
+					console.log('Email send:' + info.response);
+				}
+			});
+		} catch (err) {
+			console.log(err);
+			res.status(401).json('Register Failed');
+		}
 
 		console.log(req.session.user);
 		return res.status(201).send(req.session.user);
