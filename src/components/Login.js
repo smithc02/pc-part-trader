@@ -16,8 +16,6 @@ class Login extends Component {
 		};
 	}
 
-	
-
 	handleOpenModal = () => {
 		this.setState({ showModal: true });
 	};
@@ -42,15 +40,18 @@ class Login extends Component {
 		}
 		return (
 			<div>
-				<button onClick={this.handleOpenModal}>Login</button>
+				<button className="open-button" onClick={this.handleOpenModal}>
+					Login
+				</button>
 				<Modal
 					className="modal"
 					isOpen={this.state.showModal}
 					contentLabel="Login Modal"
 					onRequestClose={this.handleCloseModal}
 				>
-					<form onSubmit={this.handleSubmit}>
+					<form className="login-input-form" onSubmit={this.handleSubmit}>
 						<input
+							className="username-modal-input"
 							value={this.state.username}
 							type="username"
 							name="username"
@@ -59,6 +60,7 @@ class Login extends Component {
 							required
 						/>
 						<input
+							className="password-modal-input"
 							value={this.state.password}
 							type="password"
 							name="password"
@@ -67,7 +69,11 @@ class Login extends Component {
 							required
 						/>
 
-						<input type="submit" value="Login" />
+						<input
+							className="login-button"
+							type="submit"
+							value="Login"
+						/>
 					</form>
 				</Modal>
 
