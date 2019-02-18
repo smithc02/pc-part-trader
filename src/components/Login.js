@@ -49,31 +49,51 @@ class Login extends Component {
 					contentLabel="Login Modal"
 					onRequestClose={this.handleCloseModal}
 				>
-					<form className="login-input-form" onSubmit={this.handleSubmit}>
-						<input
-							className="username-modal-input"
-							value={this.state.username}
-							type="username"
-							name="username"
-							placeholder=" username"
-							onChange={e => this.handleChange(e)}
-							required
-						/>
-						<input
-							className="password-modal-input"
-							value={this.state.password}
-							type="password"
-							name="password"
-							placeholder=" password"
-							onChange={e => this.handleChange(e)}
-							required
-						/>
-
-						<input
-							className="login-button"
-							type="submit"
-							value="Login"
-						/>
+					<form
+						className="login-input-form"
+						onSubmit={this.handleSubmit}
+					>
+						<div className="modal-form-container">
+							<div>
+								<input
+									className="username-modal-input"
+									value={this.state.username}
+									type="username"
+									name="username"
+									placeholder=" username"
+									onChange={e => this.handleChange(e)}
+									required
+								/>
+							</div>
+							<div>
+								<div className="password-modal-container">
+									<input
+										className="password-modal-input"
+										value={this.state.password}
+										type="password"
+										name="password"
+										placeholder=" password"
+										onChange={e => this.handleChange(e)}
+										required
+									/>
+								</div>
+								<div>
+									<input
+										className="login-button"
+										type="submit"
+										value="Login"
+									/>
+								</div>
+								<div>
+									<p className="register-link">
+										No login?
+										<Link to="/Register">
+											{' '}Register Here!
+										</Link>
+									</p>
+								</div>
+							</div>
+						</div>
 					</form>
 				</Modal>
 
