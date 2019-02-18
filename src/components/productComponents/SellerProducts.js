@@ -23,50 +23,31 @@ class SellerProducts extends Component {
 		// console.log('sellerproduct component mount user', this.props.user);
 	}
 	render() {
-		if (this.props.user_id === this.props.user.user_id) {
-			return (
-				<div className="seller_specific_products">
-					<div>
-						{this.props.product_name}
-					</div>
-					<div>
-						{this.props.info}
-					</div>
-					<div>
-						{this.props.product_type}
-					</div>
-					<div>
-						<img
-							src={this.props.img_url}
-							alt={this.props.product_type}
-						/>
-					</div>
-				</div>
-			);
-		}
 		return (
 			<div className="seller_product_container">
-				<div>
-					<div>
-						{this.props.user_id}
-					</div>
-					<div>
-						{this.props.product_name}
-					</div>
-					<div>
-						{this.props.info}
-					</div>
-					<div>
-						{this.props.product_type}
-					</div>
-					<div>
-						<img
-							className="sellerProductImages"
-							src={this.props.img_url}
-							alt={this.props.product_type}
-						/>
-					</div>
-				</div>
+				{!this.props.loading
+					? <div>
+							<div>
+								{this.props.user_id}
+							</div>
+							<div>
+								{this.props.product_name}
+							</div>
+							<div>
+								{this.props.info}
+							</div>
+							<div>
+								{this.props.product_type}
+							</div>
+							<div>
+								<img
+									className="sellerProductImages"
+									src={this.props.img_url}
+									alt={this.props.product_type}
+								/>
+							</div>
+						</div>
+					: <h1>loading</h1>}
 			</div>
 		);
 	}

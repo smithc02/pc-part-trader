@@ -4,3 +4,82 @@
 .productContainer {
 	border: 1px solid black;
 }
+
+.dashboard-login-button {
+	border: 0;
+	background: lightgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+}
+.dashboard-login-button:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+}
+.dashboard-logout-button {
+	border: 0;
+	background: lightgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+}
+.dashboard-logout-button:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+}
+
+.dashboard-modal {
+	display: block;
+	padding: 10px;
+	width: 60%;
+	height: 200px;
+	max-width: 35%;
+	position: fixed;
+	z-index: 100;
+	left: 50%;
+	top: 20%;
+	transform: translate(-50%, -50%);
+	background: white;
+	box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.9);
+	outline: none;
+	border-style: none;
+	border-radius: 15px;
+}
+.dashboard-modal-form {
+	width: 100%;
+	clear: both;
+}
+.dashboard-modal-open {
+	border: 0;
+	background: lightgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+}
+.dashboard-modal-open:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+}
+.dashboard-list-item-button {
+	border: 0;
+	background: lightgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+}
+.dashboard-list-item-button:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+}

@@ -4,7 +4,8 @@ const initialState = {
 	user: {},
 	error: '',
 	loggedIn: false,
-	user_product: {}
+	user_product: {},
+	loading: false
 };
 
 //action types
@@ -84,13 +85,27 @@ export function get_user_product() {
 //export default function of each action type/creators
 export default function reducer(state = initialState, action) {
 	switch (action.type) {
+		case `${GET_USER}_PENDING`:
+			return { ...state, loading: true };
 		case `${GET_USER}_FULFILLED`:
-			return { ...state, user: action.payload.data };
+			return { ...state, user: action.payload.data, loading: false };
 		case `${GET_USER}_REJECTED`:
 			return { ...state, error: 'incorrect username or password' };
 
+		case `${LOGIN}_PENDING`:
+			return {
+				...state,
+				loggedIn: true,
+
+				loading: true
+			};
 		case `${LOGIN}_FULFILLED`:
-			return { ...state, loggedIn: true, user: action.payload.data };
+			return {
+				...state,
+				loggedIn: true,
+				user: action.payload.data,
+				loading: false
+			};
 		case `${LOGIN}_REJECTED`:
 			return { ...state, error: 'Username or password is incorrect ' };
 
@@ -98,23 +113,40 @@ export default function reducer(state = initialState, action) {
 			console.log('logout has been triggered');
 			return { ...state, loggedIn: false };
 
+		case `${REGISTER}_PENDING`:
+			return { ...state, loading: true };
 		case `${REGISTER}_FULFILLED`:
-			return { ...state, user: action.payload.data };
+			return { ...state, user: action.payload.data, loading: false };
 		case `${REGISTER}_REJECTED`:
 			alert('Email has already been taken, please try again');
 			return { ...state, error: 'Registration was not successfull' };
 
+		case `${GET_PRODUCTS}_PENDING`:
+			return { ...state, loading: true };
 		case `${GET_PRODUCTS}_FULFILLED`:
-			return { ...state, products: action.payload.data };
+			return { ...state, products: action.payload.data, loading: false };
 		case `${GET_PRODUCTS}_REJECTED`:
 			return { ...state, error: 'Get_products was not successfull' };
 
+		case `${NEW_PRODUCT}_PENDING`:
+			return { ...state, loading: true };
 		case `${NEW_PRODUCT}_FULFILLED`:
-			return { ...state, products: action.payload.data };
+			return { ...state, products: action.payload.data, loading: false };
 		case `${NEW_PRODUCT}_REJECTED`:
 			return { ...state, error: 'new_product was not successfull' };
+
+		case `${GET_USER_PRODUCT}_PENDING`:
+			return {
+				...state,
+
+				loading: true
+			};
 		case `${GET_USER_PRODUCT}_FULFILLED`:
-			return { ...state, user_product: action.payload.data };
+			return {
+				...state,
+				user_product: action.payload.data,
+				loading: false
+			};
 		case `${GET_USER_PRODUCT}_REJECTED`:
 			return { ...state, error: 'new_product was not successfull' };
 

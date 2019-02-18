@@ -6,6 +6,8 @@ import axios from 'axios';
 import SellerProducts from './productComponents/SellerProducts';
 import BuyerProducts from './productComponents/BuyerProducts';
 import './dashboard.css';
+import Modal from 'react-modal';
+Modal.setAppElement('#root');
 
 class Dashboard extends Component {
 	constructor() {
@@ -15,7 +17,8 @@ class Dashboard extends Component {
 			product_name: '',
 			info: '',
 			product_type: '',
-			img_url: ''
+			img_url: '',
+			showModal: false
 		};
 	}
 	componentDidMount() {
@@ -63,6 +66,13 @@ class Dashboard extends Component {
 			product_type: value
 		});
 	}
+	handleOpenModal = () => {
+		this.setState({ showModal: true });
+	};
+
+	handleCloseModal = () => {
+		this.setState({ showModal: false });
+	};
 	render() {
 		// console.log('username', this.props.user.username);
 		// console.log('role', this.props.user.role);
@@ -89,7 +99,10 @@ class Dashboard extends Component {
 						{this.props.user.username}: Buyer
 						<br />
 						<form action="/login">
-							<button onClick={() => this.props.logout()}>
+							<button
+								className="dashboard-login-button"
+								onClick={() => this.props.logout()}
+							>
 								Logout
 							</button>
 						</form>
@@ -124,7 +137,10 @@ class Dashboard extends Component {
 					</header>
 					<div>
 						<form action="/login">
-							<button onClick={() => this.props.logout()}>
+							<button
+								className="dashboard-logout-button"
+								onClick={() => this.props.logout()}
+							>
 								Logout
 							</button>
 						</form>
@@ -132,52 +148,88 @@ class Dashboard extends Component {
 						<h1> All parts for sale!</h1>
 
 						<div>
-							<form onSubmit={this.handleSubmit}>
-								<input
-									value={this.state.product_name}
-									type="text"
-									placeholder="Product Name"
-									onChange={e =>
-										this.setState({
-											product_name: e.target.value
-										})}
-								/>
-								<input
-									value={this.state.info}
-									type="text"
-									placeholder="Product Information"
-									onChange={e =>
-										this.setState({
-											info: e.target.value
-										})}
-								/>
-
-								<input
-									value={this.state.img_url}
-									type="text"
-									placeholder="Image URL"
-									onChange={e =>
-										this.setState({
-											img_url: e.target.value
-										})}
-								/>
-
-								<select
-									onChange={e =>
-										this.listHandle(e.target.value)}
+							<div>
+								<button
+									className="dashboard-modal-open"
+									onClick={this.handleOpenModal}
 								>
-									<option value=""> Please Select</option>
-									<option value="CPU">CPU</option>
-									<option value="Motherboard">
-										Motherboard
-									</option>
-									<option value="RAMM">RAMM</option>
-									<option value="GPU">GPU</option>
-									<option value="HardDrive">HardDrive</option>
-									<option value="Monitor">Monitor</option>
-								</select>
-								<button>List Item</button>
-							</form>
+									{' '}Register a new product
+								</button>
+							</div>
+							<Modal
+								className="dashboard-modal"
+								isOpen={this.state.showModal}
+								contentLabel="Login Modal"
+								onRequestClose={this.handleCloseModal}
+							>
+								<form
+									className="dashboard-modal-form"
+									onSubmit={this.handleSubmit}
+								>
+									<div>
+										<input
+											className="dashboard-product-name"
+											value={this.state.product_name}
+											type="text"
+											placeholder="Product Name"
+											onChange={e =>
+												this.setState({
+													product_name: e.target.value
+												})}
+										/>
+									</div>
+									<div>
+										<input
+											className="dasboard-product-info"
+											value={this.state.info}
+											type="text"
+											placeholder="Product Information"
+											onChange={e =>
+												this.setState({
+													info: e.target.value
+												})}
+										/>
+									</div>
+									<div>
+										<input
+											className="dashboard-product-img"
+											value={this.state.img_url}
+											type="text"
+											placeholder="Image URL"
+											onChange={e =>
+												this.setState({
+													img_url: e.target.value
+												})}
+										/>
+									</div>
+									<div>
+										<select
+
+											onChange={e =>
+												this.listHandle(e.target.value)}
+										>
+											<option value="">
+												{' '}Please Select
+											</option>
+											<option value="CPU">CPU</option>
+											<option value="Motherboard">
+												Motherboard
+											</option>
+											<option value="RAMM">RAMM</option>
+											<option value="GPU">GPU</option>
+											<option value="HardDrive">
+												HardDrive
+											</option>
+											<option value="Monitor">
+												Monitor
+											</option>
+										</select>
+									</div>
+									<div>
+										<button className="dashboard-list-item-button" >List Item</button>
+									</div>
+								</form>
+							</Modal>
 							<div>
 								{productDisplay}
 							</div>
