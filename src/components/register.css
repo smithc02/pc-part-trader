@@ -1,4 +1,5 @@
 .register-button {
+	display: block;	
 	border: 0;
 	background: lightgreen;
 	color: white;
@@ -28,6 +29,7 @@
 	box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
 }
 .register-modal-username {
+	display: block;	
 	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/usericon.png');
 	background-color: white;
 	background-position: 2px 1px;
@@ -37,6 +39,7 @@
 	height: 20px;
 }
 .register-modal-password {
+	display: block;	
 	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/passwordicon.png');
 	background-color: white;
 	background-position: 1px;
@@ -44,9 +47,11 @@
 	background-size: 19%;
 	padding-left: 30px;
 	height: 20px;
+	margin-left: 5px;
 }
 
 .register-modal-email {
+	display: block;	
 	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/emailicon.png');
 	background-color: white;
 	background-position: 1px;
@@ -54,9 +59,11 @@
 	background-size: 19%;
 	padding-left: 35px;
 	height: 20px;
+	margin-left: 5px;
 }
 
 .register-modal-img {
+	display: block;	
 	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/photoicon.png');
 	background-color: white;
 	background-position: 1px;
@@ -64,17 +71,22 @@
 	background-size: 19%;
 	padding-left: 35px;
 	height: 20px;
+	margin-left: 5px;
 }
 .register-select {
+	display: block;	
 	width: 90px;
 	height: 25px;
 	padding: 0px;
 	border: none;
-
 	background-color: lightgreen;
 	margin-left: 5px;
 	margin-right: 5px;
 }
+.register-select select {
+	display: none;
+}
+
 @media (max-width: 987px) {
 	.register-button {
 		margin-top: 5px;
