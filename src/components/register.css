@@ -1,5 +1,5 @@
 .register-button {
-	display: block;	
+	margin: 10px;
 	border: 0;
 	background: lightgreen;
 	color: white;
@@ -10,85 +10,127 @@
 	outline: none;
 }
 .register-button:hover {
-	box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.9);
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+}
+.register-button-modal {
+	border: 0;
+	background: lightgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-size: 21px;
+	transition: all .03s linear;
+	outline: none;
+	margin-top: 6px;
+}
+.register-button-modal:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
 	transform: scale(1.1);
 }
 
-.register_modal {
+.register-modal {
 	display: block;
-	width: 600px;
-	max-width: 100%;
-	height: 400px;
-	max-height: 100%;
+	padding: 10px;
+	width: 60%;
+	max-width: 35%;
+	height: 270px;
 	position: fixed;
 	z-index: 100;
 	left: 50%;
-	top: 50%;
+	top: 25%;
 	transform: translate(-50%, -50%);
 	background: white;
-	box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+	box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.9);
+	border-style: none;
+	border-radius: 15px;
+	outline: none;
+}
+.register-input-form {
+	margin: 0 auto;
+	width: 100%;
 }
 .register-modal-username {
-	display: block;	
+	padding: 15px 50px;
 	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/usericon.png');
 	background-color: white;
-	background-position: 2px 1px;
+	background-position: 10px 2px;
 	background-repeat: no-repeat;
-	background-size: 15%;
-	padding-left: 30px;
+	background-size: 20px;
+	/* padding-left: 30px; */
 	height: 20px;
+	margin-top: 10px;
+	border-style: none;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
+	width: 100%;
+	box-sizing: border-box;
 }
 .register-modal-password {
-	display: block;	
+	padding: 15px 50px;
 	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/passwordicon.png');
 	background-color: white;
-	background-position: 1px;
+	background-position: 7px 2px;
 	background-repeat: no-repeat;
-	background-size: 19%;
-	padding-left: 30px;
+	background-size: 25px;
+	/* padding-left: 30px; */
 	height: 20px;
-	margin-left: 5px;
+	margin-top: 10px;
+	border-style: none;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .register-modal-email {
-	display: block;	
+	padding: 15px 50px;
 	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/emailicon.png');
 	background-color: white;
-	background-position: 1px;
+	background-position: 10px 2px;
 	background-repeat: no-repeat;
-	background-size: 19%;
-	padding-left: 35px;
+	background-size: 20px;
+	/* padding-left: 30px; */
 	height: 20px;
-	margin-left: 5px;
+	margin-top: 10px;
+	border-style: none;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 .register-modal-img {
-	display: block;	
+	padding: 15px 50px;
 	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/photoicon.png');
 	background-color: white;
-	background-position: 1px;
+	background-position: 10px 2px;
 	background-repeat: no-repeat;
-	background-size: 19%;
-	padding-left: 35px;
+	background-size: 20px;
+	/* padding-left: 30px; */
 	height: 20px;
-	margin-left: 5px;
+	margin-top: 10px;
+	border-style: none;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
+	width: 100%;
+	box-sizing: border-box;
 }
 .register-select {
-	display: block;	
+	margin-top: 10px;
 	width: 90px;
 	height: 25px;
-	padding: 0px;
-	border: none;
+	border-style: none;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
 	background-color: lightgreen;
-	margin-left: 5px;
-	margin-right: 5px;
 }
 .register-select select {
 	display: none;
 }
 
 @media (max-width: 987px) {
-	.register-button {
+	/* .register-button {
 		margin-top: 5px;
 	}
 	.register-select {
@@ -105,5 +147,5 @@
 	}
 	.register-modal-img {
 		max-width: 100%;
-	}
+	} */
 }
