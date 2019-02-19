@@ -47,12 +47,10 @@ class Login extends Component {
 					className="modal"
 					isOpen={this.state.showModal}
 					contentLabel="Login Modal"
-					onRequestClose={this.handleCloseModal}
-				>
+					onRequestClose={this.handleCloseModal}>
 					<form
 						className="login-input-form"
-						onSubmit={this.handleSubmit}
-					>
+						onSubmit={this.handleSubmit}>
 						<div className="modal-form-container">
 							<div>
 								<input
@@ -83,14 +81,6 @@ class Login extends Component {
 										type="submit"
 										value="Login"
 									/>
-								</div>
-								<div>
-									<p className="register-link">
-										No login?
-										<Link to="/Register">
-											{' '}Register Here!
-										</Link>
-									</p>
 								</div>
 							</div>
 						</div>

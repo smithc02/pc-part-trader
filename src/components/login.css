@@ -3,7 +3,7 @@
 	border: 0;
 	background: lightgreen;
 	color: white;
-	padding: 10px 20px;
+	padding: 10px 30px;
 	border-radius: 10px;
 	font-size: 21px;
 	transition: all .2s linear;
@@ -14,15 +14,13 @@
 	transform: scale(1.1);
 }
 .login-button {
-	border: 0;
 	background: lightgreen;
 	color: white;
-	padding: 11px 15px;
+	padding: 10px 40px;
 	border-radius: 10px;
 	font-size: 18px;
 	transition: all .03s linear;
 	outline: none;
-	margin-left: 15px;
 	margin-top: 20px;
 }
 .login-button:hover {
@@ -53,7 +51,6 @@
 	background-position: 10px 2px;
 	background-repeat: no-repeat;
 	background-size: 20px;
-	/* padding-left: 30px; */
 	height: 20px;
 	margin-top: 10px;
 	border-style: none;

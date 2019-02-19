@@ -1,6 +1,6 @@
 import axios from 'axios';
 const initialState = {
-	products: {},
+	products: [],
 	user: {},
 	error: '',
 	loggedIn: false,
@@ -78,7 +78,9 @@ export function new_product(
 export function get_user_product() {
 	return {
 		type: GET_USER_PRODUCT,
-		payload: axios.get('/api/user/user&product')
+		payload: axios.get('/api/user/user&product', {
+			 
+		})
 	};
 }
 
@@ -124,6 +126,7 @@ export default function reducer(state = initialState, action) {
 		case `${GET_PRODUCTS}_PENDING`:
 			return { ...state, loading: true };
 		case `${GET_PRODUCTS}_FULFILLED`:
+			console.log('ducks shit', action.payload.data);
 			return { ...state, products: action.payload.data, loading: false };
 		case `${GET_PRODUCTS}_REJECTED`:
 			return { ...state, error: 'Get_products was not successfull' };
