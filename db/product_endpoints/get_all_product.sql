@@ -1,1 +1,2 @@
-SELECT * FROM product;
+SELECT * FROM product
+ORDER BY id DESC

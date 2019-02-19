@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { get_user, new_product, logout, get_products } from '../ducks/reducer';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { get_user, new_product, logout, get_products } from '../ducks/reducer';
 import SellerProducts from './productComponents/SellerProducts';
 import BuyerProducts from './productComponents/BuyerProducts';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSync } from '@fortawesome/free-solid-svg-icons';
 import './dashboard.css';
 import Modal from 'react-modal';
 Modal.setAppElement('#root');
@@ -22,10 +24,11 @@ class Dashboard extends Component {
 		};
 	}
 	componentDidMount() {
-		axios.get('/api/product').then(res => {
-			// console.log('Get all products (dashboard', res);
-			this.setState({ products: res.data });
-		});
+		// axios.get('/api/product').then(res => {
+		// 	console.log('Get all products (dashboard', res);
+		// 	this.setState({ products: res.data });
+		// });
+		this.props.get_products();
 		this.props.get_user().then(res => {
 			console.log('userId', res, this.props.get_user());
 		});
@@ -33,13 +36,14 @@ class Dashboard extends Component {
 	// change to redux if time permits
 	componentDidUpdate(prevProps) {
 		console.log('componentDidUpdate');
-		if (prevProps.products !== this.props.products) {
-			axios.get('/api/product').then(res => {
-				// console.log('Get all products (dashboard', res);
-				this.setState({ products: res.data });
-			});
+		if (prevProps.products.length !== this.props.products.length) {
+			// axios.get('/api/product').then(res => {
+			// 	console.log('Get all products (dashboard', res);
+			// 	this.setState({ products: res.data });
+			// });
+			this.props.get_products();
 		}
-		// console.log(this.state.products);222
+		console.log(this.state.products);
 	}
 	handleSubmit = e => {
 		e.preventDefault();
@@ -49,10 +53,12 @@ class Dashboard extends Component {
 			this.state.product_type,
 			this.state.img_url
 		);
-		axios.get('/api/product').then(res => {
-			console.log('Get all products (dashboard', res.data);
-			this.setState({ products: res.data });
-		});
+		// axios.get('/api/product').then(res => {
+		// 	console.log('Get all products (dashboard', res.data);
+		// 	this.setState({ products: res.data });
+		// });
+		this.props.get_products();
+
 		this.setState({
 			product_name: '',
 			info: '',
@@ -82,17 +88,20 @@ class Dashboard extends Component {
 		// console.log('products list', this.state.products);
 
 		if (this.props.user.role === 'Buyer') {
-			let productDisplay = this.state.products.map((product, i) => {
-				return (
-					<BuyerProducts
-						key={i}
-						product_name={product.product_name}
-						info={product.info}
-						product_type={product.product_type}
-						img_url={product.img_url}
-					/>
-				);
-			});
+			console.log('dashboard products redux', this.props.products);
+			let productDisplay = this.props.products
+				.sort((x, y) => x.id < y.id)
+				.map((product, i) => {
+					return (
+						<BuyerProducts
+							key={i}
+							product_name={product.product_name}
+							info={product.info}
+							product_type={product.product_type}
+							img_url={product.img_url}
+						/>
+					);
+				});
 			return (
 				<div>
 					<h1>
@@ -115,20 +124,26 @@ class Dashboard extends Component {
 			);
 		}
 		if (this.props.user.role === 'Seller') {
-			let productDisplay = this.state.products.map((product, i) => {
-				return (
-					<SellerProducts
-						key={i}
-						product_name={product.product_name}
-						info={product.info}
-						product_type={product.product_type}
-						img_url={product.img_url}
-						user_id={product.user_id}
-					/>
-				);
-			});
+			console.log('dashboard products redux', this.props.products);
+			console.log('dashboard shit', this.props.products);
+			let productDisplay = this.props.products
+				.map((product, i) => {
+					return (
+						<SellerProducts
+							key={i}
+							product_name={product.product_name}
+							info={product.info}
+							product_type={product.product_type}
+							img_url={product.img_url}
+							user_id={product.user_id}
+						/>
+					);
+				});
 			return (
 				<div>
+					<div>
+						<Link to="/sellerspecific">My Products</Link>
+					</div>
 					<header>
 						<h1>
 							{this.props.user.username}: Seller
@@ -241,6 +256,18 @@ class Dashboard extends Component {
 				<div>
 					<h1>You are not logged in!</h1>{' '}
 					<Link to="/login">Login</Link>
+				</div>
+			);
+		}
+		if (!this.props.loading) {
+			return (
+				<div>
+					<FontAwesomeIcon
+						color="lightgreen"
+						icon={faSync}
+						spin
+						size="8x"
+					/>;
 				</div>
 			);
 		}
