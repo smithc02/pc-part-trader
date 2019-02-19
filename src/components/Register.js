@@ -4,6 +4,8 @@ import { register } from '../ducks/reducer';
 import Modal from 'react-modal';
 import { Link, Redirect } from 'react-router-dom';
 import './register.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 Modal.setAppElement('#root');
 
 class Register extends Component {
@@ -65,8 +67,7 @@ class Register extends Component {
 				<div>
 					<button
 						className="register-button"
-						onClick={this.handleOpenModal}
-					>
+						onClick={this.handleOpenModal}>
 						Register
 					</button>
 
@@ -74,13 +75,17 @@ class Register extends Component {
 						className="register-modal"
 						isOpen={this.state.showModal}
 						contentLabel="Register Modal"
-						onRequestClose={this.handleCloseModal}
-					>
+						onRequestClose={this.handleCloseModal}>
 						<form
 							className="register-input-form"
-							onSubmit={this.handleSubmit}
-						>
+							onSubmit={this.handleSubmit}>
 							<div>
+								<div>
+									<FontAwesomeIcon icon={faUser} size="5x" />
+								</div>
+								<div>
+									<h1 className="modal-title" >REGISTER</h1>
+								</div>
 								<input
 									className="register-modal-username"
 									value={this.state.username}
@@ -124,8 +129,7 @@ class Register extends Component {
 								<select
 									className="register-select"
 									onChange={e =>
-										this.listHandle(e.target.value)}
-								>
+										this.listHandle(e.target.value)}>
 									<option value=""> Please Select</option>
 									<option value="Buyer">Buyer</option>
 									<option value="Seller">Seller</option>

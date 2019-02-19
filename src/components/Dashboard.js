@@ -101,8 +101,7 @@ class Dashboard extends Component {
 						<form action="/login">
 							<button
 								className="dashboard-login-button"
-								onClick={() => this.props.logout()}
-							>
+								onClick={() => this.props.logout()}>
 								Logout
 							</button>
 						</form>
@@ -139,8 +138,7 @@ class Dashboard extends Component {
 						<form action="/login">
 							<button
 								className="dashboard-logout-button"
-								onClick={() => this.props.logout()}
-							>
+								onClick={() => this.props.logout()}>
 								Logout
 							</button>
 						</form>
@@ -151,8 +149,7 @@ class Dashboard extends Component {
 							<div>
 								<button
 									className="dashboard-modal-open"
-									onClick={this.handleOpenModal}
-								>
+									onClick={this.handleOpenModal}>
 									{' '}Register a new product
 								</button>
 							</div>
@@ -160,12 +157,10 @@ class Dashboard extends Component {
 								className="dashboard-modal"
 								isOpen={this.state.showModal}
 								contentLabel="Login Modal"
-								onRequestClose={this.handleCloseModal}
-							>
+								onRequestClose={this.handleCloseModal}>
 								<form
 									className="dashboard-modal-form"
-									onSubmit={this.handleSubmit}
-								>
+									onSubmit={this.handleSubmit}>
 									<div>
 										<input
 											className="dashboard-product-name"
@@ -180,7 +175,7 @@ class Dashboard extends Component {
 									</div>
 									<div>
 										<input
-											className="dasboard-product-info"
+											className="dashboard-product-info"
 											value={this.state.info}
 											type="text"
 											placeholder="Product Information"
@@ -204,10 +199,11 @@ class Dashboard extends Component {
 									</div>
 									<div>
 										<select
-
+											className="dashboard-modal-select"
 											onChange={e =>
-												this.listHandle(e.target.value)}
-										>
+												this.listHandle(
+													e.target.value
+												)}>
 											<option value="">
 												{' '}Please Select
 											</option>
@@ -226,7 +222,9 @@ class Dashboard extends Component {
 										</select>
 									</div>
 									<div>
-										<button className="dashboard-list-item-button" >List Item</button>
+										<button className="dashboard-list-item-button">
+											List Item
+										</button>
 									</div>
 								</form>
 							</Modal>
