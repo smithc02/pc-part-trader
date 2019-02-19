@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { get_user, get_products } from '../../ducks/reducer';
 import axios from 'axios';
 import './sellerProducts.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSync } from '@fortawesome/free-solid-svg-icons';
 
 class SellerProducts extends Component {
 	constructor() {
@@ -47,7 +49,12 @@ class SellerProducts extends Component {
 								/>
 							</div>
 						</div>
-					: <h1>loading</h1>}
+					: <FontAwesomeIcon
+							color="lightgreen"
+							icon={faSync}
+							spin
+							size="8x"
+						/>}
 			</div>
 		);
 	}
