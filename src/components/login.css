@@ -68,13 +68,12 @@
 	background-color: lightblue;
 }
 .password-modal-input {
-	padding: 15px 50px;
 	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/passwordicon.png');
+	padding: 15px 50px;
 	background-color: white;
 	background-position: 4px;
 	background-repeat: no-repeat;
 	background-size: 30px;
-	/* padding-left: 35px; */
 	height: 20px;
 	margin-top: 10px;
 	border-style: none;

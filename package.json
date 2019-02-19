@@ -5,6 +5,9 @@
 	"proxy": "http://localhost:4000",
 	"main": "server/index.js",
 	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^1.2.15",
+		"@fortawesome/free-solid-svg-icons": "^5.7.2",
+		"@fortawesome/react-fontawesome": "^0.1.4",
 		"axios": "^0.18.0",
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.18.3",
@@ -41,6 +44,7 @@
 		"not op_mini all"
 	],
 	"devDependencies": {
+		"@fortawesome/fontawesome-free": "^5.7.2",
 		"concurrently": "^4.1.0",
 		"nodemon": "^1.18.10"
 	}
