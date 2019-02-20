@@ -1,0 +1,14 @@
+.seller-specific-container {
+	text-align: center;
+	border: 2px solid black;
+}
+.seller-specific-dashboard-button {
+	border: 0;
+	background: lightgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+}

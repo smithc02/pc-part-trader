@@ -58,7 +58,7 @@ app.post('/api/user/newproduct', product.new_product); // add new product to db
 app.put('/api/user/updateproduct/:id', product.update_product); //edit existing product in db
 app.get('/api/product', product.get_all_product); // get all existing products
 app.delete('/api/user/removeproduct/:id', product.remove_product); // remove product from db
-// app.get('/api/user/user&product', product.get_user_product);
+app.get('/api/user/userproduct', product.get_user_product);
 
 http.listen(process.env.EXPRESS_PORT, () => {
 	console.log(`Server - Listening on ${process.env.EXPRESS_PORT}`);

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { get_user, new_product, logout, get_products } from '../ducks/reducer';
 import SellerProducts from './productComponents/SellerProducts';
 import BuyerProducts from './productComponents/BuyerProducts';
@@ -24,10 +23,6 @@ class Dashboard extends Component {
 		};
 	}
 	componentDidMount() {
-		// axios.get('/api/product').then(res => {
-		// 	console.log('Get all products (dashboard', res);
-		// 	this.setState({ products: res.data });
-		// });
 		this.props.get_products();
 		this.props.get_user().then(res => {
 			console.log('userId', res, this.props.get_user());
@@ -35,15 +30,11 @@ class Dashboard extends Component {
 	}
 	// change to redux if time permits
 	componentDidUpdate(prevProps) {
-		console.log('componentDidUpdate');
+		// console.log('componentDidUpdate');
 		if (prevProps.products.length !== this.props.products.length) {
-			// axios.get('/api/product').then(res => {
-			// 	console.log('Get all products (dashboard', res);
-			// 	this.setState({ products: res.data });
-			// });
 			this.props.get_products();
 		}
-		console.log(this.state.products);
+		// console.log(this.state.products);
 	}
 	handleSubmit = e => {
 		e.preventDefault();
@@ -53,10 +44,6 @@ class Dashboard extends Component {
 			this.state.product_type,
 			this.state.img_url
 		);
-		// axios.get('/api/product').then(res => {
-		// 	console.log('Get all products (dashboard', res.data);
-		// 	this.setState({ products: res.data });
-		// });
 		this.props.get_products();
 
 		this.setState({
@@ -67,7 +54,7 @@ class Dashboard extends Component {
 		});
 	};
 	listHandle(value) {
-		console.log(value);
+		// console.log(value);
 		this.setState({
 			product_type: value
 		});
@@ -88,20 +75,18 @@ class Dashboard extends Component {
 		// console.log('products list', this.state.products);
 
 		if (this.props.user.role === 'Buyer') {
-			console.log('dashboard products redux', this.props.products);
-			let productDisplay = this.props.products
-				.sort((x, y) => x.id < y.id)
-				.map((product, i) => {
-					return (
-						<BuyerProducts
-							key={i}
-							product_name={product.product_name}
-							info={product.info}
-							product_type={product.product_type}
-							img_url={product.img_url}
-						/>
-					);
-				});
+			// console.log('dashboard products redux', this.props.products);
+			let productDisplay = this.props.products.map((product, i) => {
+				return (
+					<BuyerProducts
+						key={i}
+						product_name={product.product_name}
+						info={product.info}
+						product_type={product.product_type}
+						img_url={product.img_url}
+					/>
+				);
+			});
 			return (
 				<div>
 					<h1>
@@ -122,12 +107,11 @@ class Dashboard extends Component {
 					{productDisplay}
 				</div>
 			);
-		}
-		if (this.props.user.role === 'Seller') {
-			console.log('dashboard products redux', this.props.products);
-			console.log('dashboard shit', this.props.products);
-			let productDisplay = this.props.products
-				.map((product, i) => {
+		} else {
+			if (this.props.user.role === 'Seller') {
+				// console.log('dashboard products redux', this.props.products);
+				// console.log('dashboard shit', this.props.products);
+				let productDisplay = this.props.products.map((product, i) => {
 					return (
 						<SellerProducts
 							key={i}
@@ -139,117 +123,121 @@ class Dashboard extends Component {
 						/>
 					);
 				});
-			return (
-				<div>
+				return (
 					<div>
-						<Link to="/sellerspecific">My Products</Link>
-					</div>
-					<header>
-						<h1>
-							{this.props.user.username}: Seller
-						</h1>
-					</header>
-					<div>
-						<form action="/login">
-							<button
-								className="dashboard-logout-button"
-								onClick={() => this.props.logout()}>
-								Logout
-							</button>
-						</form>
-
-						<h1> All parts for sale!</h1>
-
 						<div>
-							<div>
+							<Link to="/sellerspecific">My Products</Link>
+						</div>
+						<header>
+							<h1>
+								{this.props.user.username}: Seller
+							</h1>
+						</header>
+						<div>
+							<form action="/login">
 								<button
-									className="dashboard-modal-open"
-									onClick={this.handleOpenModal}>
-									{' '}Register a new product
+									className="dashboard-logout-button"
+									onClick={() => this.props.logout()}>
+									Logout
 								</button>
-							</div>
-							<Modal
-								className="dashboard-modal"
-								isOpen={this.state.showModal}
-								contentLabel="Login Modal"
-								onRequestClose={this.handleCloseModal}>
-								<form
-									className="dashboard-modal-form"
-									onSubmit={this.handleSubmit}>
-									<div>
-										<input
-											className="dashboard-product-name"
-											value={this.state.product_name}
-											type="text"
-											placeholder="Product Name"
-											onChange={e =>
-												this.setState({
-													product_name: e.target.value
-												})}
-										/>
-									</div>
-									<div>
-										<input
-											className="dashboard-product-info"
-											value={this.state.info}
-											type="text"
-											placeholder="Product Information"
-											onChange={e =>
-												this.setState({
-													info: e.target.value
-												})}
-										/>
-									</div>
-									<div>
-										<input
-											className="dashboard-product-img"
-											value={this.state.img_url}
-											type="text"
-											placeholder="Image URL"
-											onChange={e =>
-												this.setState({
-													img_url: e.target.value
-												})}
-										/>
-									</div>
-									<div>
-										<select
-											className="dashboard-modal-select"
-											onChange={e =>
-												this.listHandle(
-													e.target.value
-												)}>
-											<option value="">
-												{' '}Please Select
-											</option>
-											<option value="CPU">CPU</option>
-											<option value="Motherboard">
-												Motherboard
-											</option>
-											<option value="RAMM">RAMM</option>
-											<option value="GPU">GPU</option>
-											<option value="HardDrive">
-												HardDrive
-											</option>
-											<option value="Monitor">
-												Monitor
-											</option>
-										</select>
-									</div>
-									<div>
-										<button className="dashboard-list-item-button">
-											List Item
-										</button>
-									</div>
-								</form>
-							</Modal>
+							</form>
+
+							<h1> All parts for sale!</h1>
+
 							<div>
-								{productDisplay}
+								<div>
+									<button
+										className="dashboard-modal-open"
+										onClick={this.handleOpenModal}>
+										{' '}Register a new product
+									</button>
+								</div>
+								<Modal
+									className="dashboard-modal"
+									isOpen={this.state.showModal}
+									contentLabel="Login Modal"
+									onRequestClose={this.handleCloseModal}>
+									<form
+										className="dashboard-modal-form"
+										onSubmit={this.handleSubmit}>
+										<div>
+											<input
+												className="dashboard-product-name"
+												value={this.state.product_name}
+												type="text"
+												placeholder="Product Name"
+												onChange={e =>
+													this.setState({
+														product_name:
+															e.target.value
+													})}
+											/>
+										</div>
+										<div>
+											<input
+												className="dashboard-product-info"
+												value={this.state.info}
+												type="text"
+												placeholder="Product Information"
+												onChange={e =>
+													this.setState({
+														info: e.target.value
+													})}
+											/>
+										</div>
+										<div>
+											<input
+												className="dashboard-product-img"
+												value={this.state.img_url}
+												type="text"
+												placeholder="Image URL"
+												onChange={e =>
+													this.setState({
+														img_url: e.target.value
+													})}
+											/>
+										</div>
+										<div>
+											<select
+												className="dashboard-modal-select"
+												onChange={e =>
+													this.listHandle(
+														e.target.value
+													)}>
+												<option value="">
+													{' '}Please Select
+												</option>
+												<option value="CPU">CPU</option>
+												<option value="Motherboard">
+													Motherboard
+												</option>
+												<option value="RAMM">
+													RAMM
+												</option>
+												<option value="GPU">GPU</option>
+												<option value="HardDrive">
+													HardDrive
+												</option>
+												<option value="Monitor">
+													Monitor
+												</option>
+											</select>
+										</div>
+										<div>
+											<button className="dashboard-list-item-button">
+												List Item
+											</button>
+										</div>
+									</form>
+								</Modal>
+								<div>
+									{productDisplay}
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			);
+				);
+			}
 		}
 		if (!this.props.loggedIn) {
 			return (
@@ -259,7 +247,7 @@ class Dashboard extends Component {
 				</div>
 			);
 		}
-		if (!this.props.loading) {
+		if (this.props.loading) {
 			return (
 				<div>
 					<FontAwesomeIcon
