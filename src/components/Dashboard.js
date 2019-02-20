@@ -107,137 +107,133 @@ class Dashboard extends Component {
 					{productDisplay}
 				</div>
 			);
-		} else {
-			if (this.props.user.role === 'Seller') {
-				// console.log('dashboard products redux', this.props.products);
-				// console.log('dashboard shit', this.props.products);
-				let productDisplay = this.props.products.map((product, i) => {
-					return (
-						<SellerProducts
-							key={i}
-							product_name={product.product_name}
-							info={product.info}
-							product_type={product.product_type}
-							img_url={product.img_url}
-							user_id={product.user_id}
-						/>
-					);
-				});
+		}
+		if (this.props.user.role === 'Seller') {
+			// console.log('dashboard products redux', this.props.products);
+			// console.log('dashboard shit', this.props.products);
+			let productDisplay = this.props.products.map((product, i) => {
 				return (
+					<SellerProducts
+						key={i}
+						product_name={product.product_name}
+						info={product.info}
+						product_type={product.product_type}
+						img_url={product.img_url}
+						user_id={product.user_id}
+					/>
+				);
+			});
+			return (
+				<div>
 					<div>
-						<div>
-							<Link to="/sellerspecific">My Products</Link>
-						</div>
-						<header>
-							<h1>
-								{this.props.user.username}: Seller
-							</h1>
-						</header>
-						<div>
-							<form action="/login">
-								<button
-									className="dashboard-logout-button"
-									onClick={() => this.props.logout()}>
-									Logout
-								</button>
-							</form>
+						<Link to="/sellerspecific">My Products</Link>
+					</div>
+					<header>
+						<h1>
+							{this.props.user.username}: Seller
+						</h1>
+					</header>
+					<div>
+						<form action="/login">
+							<button
+								className="dashboard-logout-button"
+								onClick={() => this.props.logout()}>
+								Logout
+							</button>
+						</form>
 
-							<h1> All parts for sale!</h1>
+						<h1> All parts for sale!</h1>
 
+						<div>
 							<div>
-								<div>
-									<button
-										className="dashboard-modal-open"
-										onClick={this.handleOpenModal}>
-										{' '}Register a new product
-									</button>
-								</div>
-								<Modal
-									className="dashboard-modal"
-									isOpen={this.state.showModal}
-									contentLabel="Login Modal"
-									onRequestClose={this.handleCloseModal}>
-									<form
-										className="dashboard-modal-form"
-										onSubmit={this.handleSubmit}>
-										<div>
-											<input
-												className="dashboard-product-name"
-												value={this.state.product_name}
-												type="text"
-												placeholder="Product Name"
-												onChange={e =>
-													this.setState({
-														product_name:
-															e.target.value
-													})}
-											/>
-										</div>
-										<div>
-											<input
-												className="dashboard-product-info"
-												value={this.state.info}
-												type="text"
-												placeholder="Product Information"
-												onChange={e =>
-													this.setState({
-														info: e.target.value
-													})}
-											/>
-										</div>
-										<div>
-											<input
-												className="dashboard-product-img"
-												value={this.state.img_url}
-												type="text"
-												placeholder="Image URL"
-												onChange={e =>
-													this.setState({
-														img_url: e.target.value
-													})}
-											/>
-										</div>
-										<div>
-											<select
-												className="dashboard-modal-select"
-												onChange={e =>
-													this.listHandle(
-														e.target.value
-													)}>
-												<option value="">
-													{' '}Please Select
-												</option>
-												<option value="CPU">CPU</option>
-												<option value="Motherboard">
-													Motherboard
-												</option>
-												<option value="RAMM">
-													RAMM
-												</option>
-												<option value="GPU">GPU</option>
-												<option value="HardDrive">
-													HardDrive
-												</option>
-												<option value="Monitor">
-													Monitor
-												</option>
-											</select>
-										</div>
-										<div>
-											<button className="dashboard-list-item-button">
-												List Item
-											</button>
-										</div>
-									</form>
-								</Modal>
-								<div>
-									{productDisplay}
-								</div>
+								<button
+									className="dashboard-modal-open"
+									onClick={this.handleOpenModal}>
+									{' '}Register a new product
+								</button>
+							</div>
+							<Modal
+								className="dashboard-modal"
+								isOpen={this.state.showModal}
+								contentLabel="Login Modal"
+								onRequestClose={this.handleCloseModal}>
+								<form
+									className="dashboard-modal-form"
+									onSubmit={this.handleSubmit}>
+									<div>
+										<input
+											className="dashboard-product-name"
+											value={this.state.product_name}
+											type="text"
+											placeholder="Product Name"
+											onChange={e =>
+												this.setState({
+													product_name: e.target.value
+												})}
+										/>
+									</div>
+									<div>
+										<input
+											className="dashboard-product-info"
+											value={this.state.info}
+											type="text"
+											placeholder="Product Information"
+											onChange={e =>
+												this.setState({
+													info: e.target.value
+												})}
+										/>
+									</div>
+									<div>
+										<input
+											className="dashboard-product-img"
+											value={this.state.img_url}
+											type="text"
+											placeholder="Image URL"
+											onChange={e =>
+												this.setState({
+													img_url: e.target.value
+												})}
+										/>
+									</div>
+									<div>
+										<select
+											className="dashboard-modal-select"
+											onChange={e =>
+												this.listHandle(
+													e.target.value
+												)}>
+											<option value="">
+												{' '}Please Select
+											</option>
+											<option value="CPU">CPU</option>
+											<option value="Motherboard">
+												Motherboard
+											</option>
+											<option value="RAMM">RAMM</option>
+											<option value="GPU">GPU</option>
+											<option value="HardDrive">
+												HardDrive
+											</option>
+											<option value="Monitor">
+												Monitor
+											</option>
+										</select>
+									</div>
+									<div>
+										<button className="dashboard-list-item-button">
+											List Item
+										</button>
+									</div>
+								</form>
+							</Modal>
+							<div>
+								{productDisplay}
 							</div>
 						</div>
 					</div>
-				);
-			}
+				</div>
+			);
 		}
 		if (!this.props.loggedIn) {
 			return (
