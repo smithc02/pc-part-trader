@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { get_user, get_products } from '../../ducks/reducer';
-import axios from 'axios';
 import './sellerProducts.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSync } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faSync } from '@fortawesome/free-solid-svg-icons';
 
 class SellerProducts extends Component {
 	constructor(props) {
@@ -15,13 +14,14 @@ class SellerProducts extends Component {
 	}
 	componentDidMount() {
 		this.props.get_user();
+		this.props.get_products();
 		// this.props.get_products();
 		// console.log('specific user product', this.props.get_products());
-		axios.get('/api/product').then(res => {
-			// console.log('Get all products (SellerProducts', res);
-			this.setState({ products: res.data });
-			// console.log('SellerProducts products', this.state.products);
-		});
+		// axios.get('/api/product').then(res => {
+		// console.log('Get all products (SellerProducts', res);
+		// this.setState({ products: res.data });
+		// console.log('SellerProducts products', this.state.products);
+		// });
 		// console.log('sellerproduct component mount user', this.props.user);
 	}
 	render() {

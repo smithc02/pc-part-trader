@@ -1,10 +1,10 @@
 import axios from 'axios';
 const initialState = {
 	products: [],
+	userProducts: [],
 	user: {},
 	error: '',
 	loggedIn: false,
-	user_product: {},
 	loading: false
 };
 
@@ -16,7 +16,7 @@ const GET_PRODUCTS = 'GET_PRODUCTS';
 const NEW_PRODUCT = 'NEW_PRODUCT';
 const LOGOUT = 'LOGOUT';
 const GET_USER_PRODUCT = 'GET_USER_PRODUCT';
-
+const DELETE_PRODUCT = 'DELETE_PRODUCT';
 //action creators
 export function get_user() {
 	return {
@@ -78,9 +78,13 @@ export function new_product(
 export function get_user_product() {
 	return {
 		type: GET_USER_PRODUCT,
-		payload: axios.get('/api/user/user&product', {
-			 
-		})
+		payload: axios.get('/api/user/userproduct', {})
+	};
+}
+export function delete_product(id) {
+	return {
+		type: DELETE_PRODUCT,
+		payload: axios.post(`/api/user/removeproduct/${id}`)
 	};
 }
 
@@ -126,7 +130,6 @@ export default function reducer(state = initialState, action) {
 		case `${GET_PRODUCTS}_PENDING`:
 			return { ...state, loading: true };
 		case `${GET_PRODUCTS}_FULFILLED`:
-			console.log('ducks shit', action.payload.data);
 			return { ...state, products: action.payload.data, loading: false };
 		case `${GET_PRODUCTS}_REJECTED`:
 			return { ...state, error: 'Get_products was not successfull' };
@@ -147,11 +150,19 @@ export default function reducer(state = initialState, action) {
 		case `${GET_USER_PRODUCT}_FULFILLED`:
 			return {
 				...state,
-				user_product: action.payload.data,
+
+				userProducts: action.payload.data,
 				loading: false
 			};
 		case `${GET_USER_PRODUCT}_REJECTED`:
 			return { ...state, error: 'new_product was not successfull' };
+
+		case `${DELETE_PRODUCT}_PENDING`:
+			return { ...state, loading: true };
+		case `${DELETE_PRODUCT}_FULFILLED`:
+			return { ...state, products: action.payload.data, loading: false };
+		case `${DELETE_PRODUCT}_REJECTED`:
+			return { ...state, error: 'Delete_product attempt failed.' };
 
 		default:
 			return state;
