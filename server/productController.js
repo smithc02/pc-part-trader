@@ -10,10 +10,13 @@ module.exports = {
 					product_name,
 					info,
 					product_type,
-					req.session.user.users_id,
+					req.session.user.user_id,
 					img_url
 				])
-				.then(data => res.status(200).json(data))
+				.then(data => {
+					console.log('response', data);
+					res.status(200).json(data);
+				})
 				.catch(err => {
 					res.status(500).send({ error: 'Error with new_product' });
 					console.log(err);
@@ -55,7 +58,7 @@ module.exports = {
 			dbInstance.product_endpoints
 				.get_all_product()
 				.then(response => {
-					// console.log('response', response);
+					console.log('response', response);
 
 					res.status(200).send(response);
 				})
@@ -111,7 +114,7 @@ module.exports = {
 			dbInstance.product_endpoints
 				.get_product_buyer()
 				.then(product => {
-					console.log('response', product);
+					// console.log('response', product);
 					res.status(200).send(product);
 				})
 				.catch(response => {

@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { get_user, get_products, get_user_product } from '../../ducks/reducer';
+import {
+	get_user,
+	get_products,
+	get_user_product,
+	delete_product
+} from '../../ducks/reducer';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faSync } from '@fortawesome/free-solid-svg-icons';
 import './sellerSpecific.css';
@@ -42,7 +47,7 @@ class SellerSpecific extends Component {
 					<div>
 						<button
 							className="seller-specific-remove-button"
-							onclick={this.handleDelete()}>
+							onClick={this.handleDelete(this.props.products.id)}>
 							Remove
 						</button>
 					</div>
@@ -71,5 +76,6 @@ const mapStateToProps = state => state;
 export default connect(mapStateToProps, {
 	get_user,
 	get_products,
-	get_user_product
+	get_user_product,
+	delete_product
 })(SellerSpecific);
