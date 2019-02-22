@@ -31,6 +31,7 @@ class SellerProducts extends Component {
 
 	componentDidUpdate(prevProps) {
 		// console.log('componentDidUpdate');
+		
 		if (prevProps.products.length !== this.props.products.length) {
 			this.props.get_products();
 		}
@@ -45,6 +46,12 @@ class SellerProducts extends Component {
 			this.state.product_type,
 			this.state.img_url
 		);
+		this.setState({
+			product_name: '',
+			info: '',
+			product_type: '',
+			img_url: ''
+		});
 		this.props.get_products();
 		this.setState({ showModal: false });
 	};

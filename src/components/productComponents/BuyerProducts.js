@@ -14,10 +14,6 @@ class BuyerProducts extends Component {
 		this.props.get_products();
 	}
 
-	handleDelete(id) {
-		this.props.delete_product();
-	}
-
 	render() {
 		let productDisplay = this.props.products.map((product, i) => {
 			console.log(i);

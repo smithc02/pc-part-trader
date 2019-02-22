@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport({
 		pass: process.env.DB_PASS
 	}
 });
-
+// add capitalized username later if time permits
 module.exports = {
 	register: async (req, res, next) => {
 		const { username, password, email, img_url, role } = req.body;

@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import { get_user } from '../ducks/reducer';
 import BuyerProducts from './productComponents/BuyerProducts';
 import SellerProducts from './productComponents/SellerProducts';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faUser } from '@fortawesome/free-solid-svg-icons';
 import './dashboard.css';
 import Modal from 'react-modal';
 Modal.setAppElement('#root');
