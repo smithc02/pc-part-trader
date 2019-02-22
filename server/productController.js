@@ -79,9 +79,13 @@ module.exports = {
 		const { params } = req;
 
 		if (req.session.user) {
+			// console.log('inside of remove product on server', req.session.user);
 			dbInstance.product_endpoints
 				.remove_product(params.id)
-				.then(product => res.status(200).send(product))
+				.then(response => {
+					console.log('remove product', response);
+					res.status(200).send(response);
+				})
 				.catch(err => {
 					res
 						.status(500)

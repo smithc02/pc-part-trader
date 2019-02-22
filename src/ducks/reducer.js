@@ -24,7 +24,7 @@ const LOGOUT = 'LOGOUT';
 const GET_USER_PRODUCT = 'GET_USER_PRODUCT';
 const DELETE_PRODUCT = 'DELETE_PRODUCT';
 const BUYER_PRODUCT = 'BUYER_PRODUCTS';
-
+const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 //action creators
 export function get_user() {
 	return {
@@ -85,13 +85,24 @@ export function get_user_product() {
 export function delete_product(id) {
 	return {
 		type: DELETE_PRODUCT,
-		payload: axios.post(`/api/user/removeproduct/${id}`)
+		payload: axios.delete(`/api/user/removeproduct/${id}`)
 	};
 }
 export function buyer_product() {
 	return {
 		type: BUYER_PRODUCT,
 		payload: axios.get('/api/user/productbuyer')
+	};
+}
+export function update_product(id, product_name, info, product_type, img_url) {
+	return {
+		type: UPDATE_PRODUCT,
+		payload: axios.put(`/api/user/updateproduct/${id}`, {
+			product_name,
+			info,
+			product_type,
+			img_url
+		})
 	};
 }
 
@@ -181,6 +192,17 @@ export default function reducer(state = initialState, action) {
 			};
 		case `${BUYER_PRODUCT}_REJECTED`:
 			return { ...state, error: 'Buyer_product attempt failed.' };
+
+		case `${UPDATE_PRODUCT}_PENDING`:
+			return { ...state, loading: true };
+		case `${UPDATE_PRODUCT}_FULFILLED`:
+			return {
+				...state,
+				userProducts: action.payload.data,
+				loading: false
+			};
+		case `${UPDATE_PRODUCT}_REJECTED`:
+			return { ...state, error: 'Update_product attempt failed.' };
 
 		default:
 			return state;

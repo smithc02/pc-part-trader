@@ -23,8 +23,18 @@ class SellerSpecific extends Component {
 		// console.log('seller specific products', this.props.userProducts);
 	}
 
+	componentDidUpdate(prevProps) {
+		console.log('componentdidmount', prevProps);
+		if (prevProps.userProducts.length !== this.props.userProducts.length) {
+			this.props.get_user_product();
+			// console.log('component update 2', this.props.userProducts);
+		}
+	}
+
 	handleDelete(id) {
-		// this.props.delete_product(id);
+		this.props.delete_product(id);
+		this.props.get_user_product();
+		this.props.get_products();
 	}
 
 	render() {
@@ -47,9 +57,12 @@ class SellerSpecific extends Component {
 					<div>
 						<button
 							className="seller-specific-remove-button"
-							onClick={this.handleDelete(this.props.products.id)}>
+							onClick={() => this.handleDelete(product.id)}>
 							Remove
 						</button>
+						<div>
+							<button> </button>
+						</div>
 					</div>
 				</div>
 			);
