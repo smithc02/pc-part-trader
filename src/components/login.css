@@ -31,12 +31,12 @@
 	display: block;
 	padding: 10px;
 	width: 60%;
-	height: 200px;
+	height: 285px;
 	max-width: 35%;
 	position: fixed;
 	z-index: 100;
 	left: 50%;
-	top: 20%;
+	top: 25%;
 	transform: translate(-50%, -50%);
 	background: white;
 	box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.9);

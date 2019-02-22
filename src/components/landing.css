@@ -20,11 +20,9 @@
 	opacity: .9;
 }
 .landing {
-	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/landing.jpg');
-
+	/* background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/landing.jpg'); */
 	width: 96vw;
 	height: 100vh;
-	/* background-position: center; */
 	background-position: center;
 	margin: 0 auto;
 	padding: 0 auto;

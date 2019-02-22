@@ -4,6 +4,8 @@ import { login } from '../ducks/reducer';
 import { Link, Redirect } from 'react-router-dom';
 import Modal from 'react-modal';
 import './login.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 Modal.setAppElement('#root');
 
 class Login extends Component {
@@ -52,6 +54,12 @@ class Login extends Component {
 						className="login-input-form"
 						onSubmit={this.handleSubmit}>
 						<div className="modal-form-container">
+							<div>
+								<FontAwesomeIcon icon={faUser} size="5x" />
+							</div>
+							<div>
+								<h1 className="login-modal-title">LOGIN</h1>
+							</div>
 							<div>
 								<input
 									className="username-modal-input"
@@ -102,4 +110,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { login: login })(Login);
+export default connect(mapStateToProps, { login })(Login);

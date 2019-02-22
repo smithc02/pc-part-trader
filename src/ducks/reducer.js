@@ -3,9 +3,15 @@ const initialState = {
 	products: [],
 	userProducts: [],
 	user: {},
+	product_name: '',
+	info: '',
+	product_type: '',
+	user_id: 0,
+	img_url: '',
 	error: '',
 	loggedIn: false,
-	loading: false
+	loading: false,
+	buyerProduct: []
 };
 
 //action types
@@ -17,6 +23,8 @@ const NEW_PRODUCT = 'NEW_PRODUCT';
 const LOGOUT = 'LOGOUT';
 const GET_USER_PRODUCT = 'GET_USER_PRODUCT';
 const DELETE_PRODUCT = 'DELETE_PRODUCT';
+const BUYER_PRODUCT = 'BUYER_PRODUCTS';
+
 //action creators
 export function get_user() {
 	return {
@@ -57,20 +65,13 @@ export function get_products() {
 	};
 }
 
-export function new_product(
-	product_name,
-	info,
-	product_type,
-	user_id,
-	img_url
-) {
+export function new_product(product_name, info, product_type, img_url) {
 	return {
 		type: NEW_PRODUCT,
 		payload: axios.post('/api/user/newproduct', {
 			product_name,
 			info,
 			product_type,
-			user_id,
 			img_url
 		})
 	};
@@ -87,6 +88,12 @@ export function delete_product(id) {
 		payload: axios.post(`/api/user/removeproduct/${id}`)
 	};
 }
+export function buyer_product() {
+	return {
+		type: BUYER_PRODUCT,
+		payload: axios.get('/api/user/productbuyer')
+	};
+}
 
 //export default function of each action type/creators
 export default function reducer(state = initialState, action) {
@@ -101,7 +108,7 @@ export default function reducer(state = initialState, action) {
 		case `${LOGIN}_PENDING`:
 			return {
 				...state,
-				loggedIn: true,
+				loggedIn: false,
 
 				loading: true
 			};
@@ -163,6 +170,17 @@ export default function reducer(state = initialState, action) {
 			return { ...state, products: action.payload.data, loading: false };
 		case `${DELETE_PRODUCT}_REJECTED`:
 			return { ...state, error: 'Delete_product attempt failed.' };
+
+		case `${BUYER_PRODUCT}_PENDING`:
+			return { ...state, loading: true };
+		case `${BUYER_PRODUCT}_FULFILLED`:
+			return {
+				...state,
+				buyerProduct: action.payload.data,
+				loading: false
+			};
+		case `${BUYER_PRODUCT}_REJECTED`:
+			return { ...state, error: 'Buyer_product attempt failed.' };
 
 		default:
 			return state;

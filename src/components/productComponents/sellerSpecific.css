@@ -3,7 +3,6 @@
 	border: 2px solid black;
 }
 .seller-specific-dashboard-button {
-	border: 0;
 	background: lightgreen;
 	color: white;
 	padding: 10px 20px;
@@ -11,4 +10,21 @@
 	font-size: 21px;
 	transition: all .2s linear;
 	outline: none;
+}
+.seller-specific-dashboard-button:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+}
+.seller-specific-remove-button {
+	background: lightgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+}
+.seller-specific-remove-button:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
 }

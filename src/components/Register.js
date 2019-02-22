@@ -84,7 +84,7 @@ class Register extends Component {
 									<FontAwesomeIcon icon={faUser} size="5x" />
 								</div>
 								<div>
-									<h1 className="modal-title" >REGISTER</h1>
+									<h1 className="-register-modal-title" >REGISTER</h1>
 								</div>
 								<input
 									className="register-modal-username"

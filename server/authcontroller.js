@@ -30,7 +30,7 @@ module.exports = {
 			]);
 
 			const mailOptions = {
-				from: 'pcpartstraders@gmail.com',
+				from: process.env.DB_USER,
 				to: req.body.email,
 				subject: 'New Account',
 				text: `Thank you ${req.body.username} for signing up as a ${req

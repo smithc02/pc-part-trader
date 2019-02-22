@@ -6,7 +6,6 @@
 }
 
 .dashboard-login-button {
-	border: 0;
 	background: lightgreen;
 	color: white;
 	padding: 10px 20px;
@@ -20,7 +19,7 @@
 	transform: scale(1.1);
 }
 .dashboard-logout-button {
-	border: 0;
+	border: 1px solid black;
 	background: lightgreen;
 	color: white;
 	padding: 10px 20px;
@@ -56,7 +55,6 @@
 	clear: both;
 }
 .dashboard-modal-open {
-	border: 0;
 	background: lightgreen;
 	color: white;
 	padding: 10px 20px;
@@ -70,7 +68,6 @@
 	transform: scale(1.1);
 }
 .dashboard-list-item-button {
-	border: 0;
 	background: lightgreen;
 	color: white;
 	padding: 10px 20px;
@@ -128,7 +125,6 @@
 }
 .dashboard-modal-select {
 	margin-top: 10px;
-	border: 0;
 	background: lightgreen;
 	color: white;
 	padding: 10px 20px;
@@ -136,4 +132,49 @@
 	font-size: 21px;
 	transition: all .2s linear;
 	outline: none;
+}
+.dashboard-myproducts-button {
+	background: lightgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+}
+
+.dashboard-myproducts-button:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+}
+.dashboard-loginpage-button {
+	background: lightgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+}
+.dashboard-loginpage-button:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+}
+.parts-for-sale {
+	border: 1px solid black;
+}
+.dashboard-username {
+	border: 1px solid black;
+}
+.dashboard-products-button-container {
+	border: 1px solid black;
+}
+.dashboard-products-username-container {
+	border: 1px solid black;
+}
+.dashboard-logout-button-container {
+	border: 1px solid black;
+}
+.parts-for-sale-container {
+	border: 1px solid black;
 }
