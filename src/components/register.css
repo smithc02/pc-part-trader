@@ -1,6 +1,6 @@
 .register-button {
 	margin: 10px;
-	border: 0;
+
 	background: lightgreen;
 	color: white;
 	padding: 10px 30px;
@@ -14,7 +14,6 @@
 	transform: scale(1.1);
 }
 .register-button-modal {
-	border: 0;
 	background: lightgreen;
 	color: white;
 	padding: 10px 30px;
@@ -114,7 +113,6 @@
 }
 .register-select {
 	margin-top: 10px;
-	border: 0;
 	background: lightgreen;
 	color: white;
 	padding: 10px 20px;

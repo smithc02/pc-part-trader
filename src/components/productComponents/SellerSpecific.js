@@ -18,14 +18,15 @@ class SellerSpecific extends Component {
 		// console.log('seller specific products', this.props.userProducts);
 	}
 
+	handleDelete(id) {
+		// this.props.delete_product(id);
+	}
+
 	render() {
 		// maps over user specific array brought in from props
 		let sellerSpecific = this.props.userProducts.map((product, i) => {
 			return (
-				<div>
-					<div>
-						{i}
-					</div>
+				<div key={product.id}>
 					<div>
 						{product.product_name}
 					</div>
@@ -37,6 +38,13 @@ class SellerSpecific extends Component {
 					</div>
 					<div>
 						<img src={product.img_url} alt="" />
+					</div>
+					<div>
+						<button
+							className="seller-specific-remove-button"
+							onclick={this.handleDelete()}>
+							Remove
+						</button>
 					</div>
 				</div>
 			);
