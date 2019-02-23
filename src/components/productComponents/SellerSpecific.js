@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import { Link } from 'react-router-dom';
+import UpdateProducts from './UpdateProducts';
 import {
 	get_user,
 	get_products,
@@ -24,7 +26,7 @@ class SellerSpecific extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		console.log('componentdidmount', prevProps);
+		// console.log('componentdidmount', prevProps);
 		if (prevProps.userProducts.length !== this.props.userProducts.length) {
 			this.props.get_user_product();
 			// console.log('component update 2', this.props.userProducts);
@@ -39,6 +41,7 @@ class SellerSpecific extends Component {
 
 	render() {
 		// maps over user specific array brought in from props
+
 		let sellerSpecific = this.props.userProducts.map((product, i) => {
 			return (
 				<div key={product.id}>
@@ -62,6 +65,9 @@ class SellerSpecific extends Component {
 						</button>
 						<div>
 							<button> </button>
+						</div>
+						<div>
+							<UpdateProducts key={product.id} />
 						</div>
 					</div>
 				</div>
