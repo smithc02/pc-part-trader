@@ -71,7 +71,7 @@ class SellerProducts extends Component {
 	}
 
 	render() {
-		console.log(this.props.products);
+		// console.log(this.props.products);
 		// if (this.props.products.length > 0) {
 		let productDisplay = this.props.products.map((product, i) => {
 			return (

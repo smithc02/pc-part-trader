@@ -1,0 +1,115 @@
+.update-product-modal-open {
+	background: lightgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+}
+.update-product-modal-open:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+}
+
+.update-product-modal {
+	display: block;
+	padding: 10px;
+	width: 60%;
+	height: 250px;
+	max-width: 35%;
+	position: fixed;
+	z-index: 100;
+	left: 50%;
+	top: 20%;
+	transform: translate(-50%, -50%);
+	background: white;
+	box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.9);
+	outline: none;
+	border-style: none;
+	border-radius: 15px;
+}
+.update-product-modal-form {
+	width: 100%;
+	clear: both;
+}
+.update-product-name {
+	padding: 15px 50px;
+	background-color: white;
+	background-position: 4px;
+	background-repeat: no-repeat;
+	background-size: 30px;
+	height: 20px;
+	margin-top: 10px;
+	border-style: none;
+	width: 100%;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
+	box-sizing: border-box;
+}
+.update-product-info {
+	padding: 15px 50px;
+	background-color: white;
+	background-position: 4px;
+	background-repeat: no-repeat;
+	background-size: 30px;
+	height: 20px;
+	margin-top: 10px;
+	border-style: none;
+	width: 100%;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
+	box-sizing: border-box;
+}
+.update-product-type {
+	padding: 15px 50px;
+	background-color: white;
+	background-position: 4px;
+	background-repeat: no-repeat;
+	background-size: 30px;
+	height: 20px;
+	margin-top: 10px;
+	border-style: none;
+	width: 100%;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
+	box-sizing: border-box;
+}
+.update-product-url {
+	padding: 15px 50px;
+	background-color: white;
+	background-position: 4px;
+	background-repeat: no-repeat;
+	background-size: 30px;
+	height: 20px;
+	margin-top: 10px;
+	border-style: none;
+	width: 100%;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
+	box-sizing: border-box;
+}
+.update-products-list-button {
+	background: lightgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+	margin-top: 10px;
+}
+.update-products-list-button:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+}
+.update-product-modal-select {
+	margin-top: 10px;
+	background: lightgreen;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+}

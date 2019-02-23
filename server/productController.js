@@ -27,7 +27,7 @@ module.exports = {
 	},
 	update_product: (req, res) => {
 		const dbInstance = req.app.get('db');
-		const { product_name, info, product_type } = req.body;
+		const { product_name, info, product_type, img_url } = req.body;
 		const { id } = req.params;
 		console.log(req.params.id);
 
@@ -39,9 +39,12 @@ module.exports = {
 					info,
 					product_type,
 					img_url,
-					req.session.user.id
+					req.session.user.user_id
 				])
-				.then(response => res.status(200).send(response))
+				.then(response => {
+					console.log(response);
+					res.status(200).send(response);
+				})
 				.catch(err => {
 					res
 						.status(500)
@@ -58,12 +61,12 @@ module.exports = {
 			dbInstance.product_endpoints
 				.get_all_product()
 				.then(response => {
-					console.log('response', response);
+					// console.log('response', response);
 
 					res.status(200).send(response);
 				})
 				.catch(err => {
-					console.log(response);
+					// console.log(response);
 					res
 						.status(500)
 						.send({ error: 'Error with get_all_product' });
@@ -102,7 +105,7 @@ module.exports = {
 		dbInstance.product_endpoints
 			.get_user_product(req.session.user.user_id)
 			.then(product => {
-				console.log('response', product);
+				// console.log('response', product);
 				res.status(200).send(product);
 			})
 			.catch(response => {
@@ -122,7 +125,7 @@ module.exports = {
 					res.status(200).send(product);
 				})
 				.catch(response => {
-					console.log(response);
+					// console.log(response);
 					res.status(500).send({
 						error: 'Error with get_product_buyer'
 					});
