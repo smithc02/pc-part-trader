@@ -46,6 +46,7 @@
 	border-radius: 15px;
 	border-bottom: 2px solid black;
 	box-sizing: border-box;
+	outline: none;
 }
 .update-product-info {
 	padding: 15px 50px;
@@ -60,6 +61,7 @@
 	border-radius: 15px;
 	border-bottom: 2px solid black;
 	box-sizing: border-box;
+	outline: none;
 }
 .update-product-type {
 	padding: 15px 50px;
@@ -88,6 +90,7 @@
 	border-radius: 15px;
 	border-bottom: 2px solid black;
 	box-sizing: border-box;
+	outline: none;
 }
 .update-products-list-button {
 	background: lightgreen;

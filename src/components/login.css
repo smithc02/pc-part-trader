@@ -58,6 +58,7 @@
 	border-bottom: 2px solid black;
 	width: 100%;
 	box-sizing: border-box;
+	outline: none;
 }
 
 .username-model-input:focus {
@@ -78,6 +79,7 @@
 	border-radius: 15px;
 	border-bottom: 2px solid black;
 	box-sizing: border-box;
+	outline: none;
 }
 .login-input-form {
 	width: 100%;
