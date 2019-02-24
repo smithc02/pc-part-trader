@@ -27,20 +27,20 @@ module.exports = {
 	},
 	update_product: (req, res) => {
 		const dbInstance = req.app.get('db');
-		const { product_name, info, product_type, img_url } = req.body;
+		const {product_name, info, product_type, img_url } = req.body;
 		const { id } = req.params;
 		console.log(req.params.id);
 
 		if (req.session.user) {
 			dbInstance.product_endpoints
-				.update_product(
+				.update_product([
 					id,
 					product_name,
 					info,
 					product_type,
 					img_url,
 					req.session.user.user_id
-				)
+				])
 				.then(response => {
 					console.log(response);
 					res.status(200).send(response);
