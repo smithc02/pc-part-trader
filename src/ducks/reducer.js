@@ -93,14 +93,14 @@ export function buyer_product() {
 		payload: axios.get('/api/user/productbuyer')
 	};
 }
-export function update_product(id, product_name, info, product_type, img_url) {
+export function update_product(id, content) {
 	return {
 		type: UPDATE_PRODUCT,
 		payload: axios.put(`/api/user/updateproduct/${id}`, {
-			product_name,
-			info,
-			product_type,
-			img_url
+			product_name: content.product_name,
+			info: content.info,
+			product_type: content.product_type,
+			img_url: content.img_url
 		})
 	};
 }

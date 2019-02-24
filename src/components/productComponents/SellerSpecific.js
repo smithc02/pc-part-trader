@@ -65,7 +65,7 @@ class SellerSpecific extends Component {
 						</button>
 					</div>
 					<div>
-						<UpdateProducts />
+						<UpdateProducts id={product.id} />
 					</div>
 				</div>
 			);
