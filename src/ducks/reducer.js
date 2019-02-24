@@ -6,7 +6,6 @@ const initialState = {
 	product_name: '',
 	info: '',
 	product_type: '',
-	user_id: 0,
 	img_url: '',
 	error: '',
 	loggedIn: false,
@@ -94,13 +93,7 @@ export function buyer_product() {
 		payload: axios.get('/api/user/productbuyer')
 	};
 }
-export function update_product(
-	id,
-	product_name,
-	info,
-	product_type,
-	img_url,
-) {
+export function update_product(id, product_name, info, product_type, img_url) {
 	return {
 		type: UPDATE_PRODUCT,
 		payload: axios.put(`/api/user/updateproduct/${id}`, {
