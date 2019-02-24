@@ -31,7 +31,7 @@ class SellerProducts extends Component {
 
 	componentDidUpdate(prevProps) {
 		// console.log('componentDidUpdate');
-		
+
 		if (prevProps.products.length !== this.props.products.length) {
 			this.props.get_products();
 		}

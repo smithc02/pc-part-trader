@@ -13,7 +13,6 @@ class UpdateProducts extends Component {
 			info: '',
 			product_type: '',
 			img_url: '',
-			users_id: 0,
 			showModal: false
 		};
 	}
@@ -22,19 +21,20 @@ class UpdateProducts extends Component {
 		this.props.get_user();
 	}
 	handleUpdate = (id, e) => {
-        console.log("handle update", id, e)
-		this.props.update_product(
-			this.props.user.users_id,
-			this.state.product_name,
-			this.state.info,
-			this.state.product_type,
-			this.state.img_url
-		);
+		// console.log('handle update', id, e);
+		let { product_name, info, product_type, img_url } = this.state;
+		this.props.update_product({
+			id,
+			product_name,
+			info,
+			product_type,
+			img_url
+		});
 		this.setState({
-			id: '',
 			product_name: '',
 			info: '',
 			product_type: '',
+
 			img_url: ''
 		});
 	};
@@ -67,7 +67,7 @@ class UpdateProducts extends Component {
 					onRequestClose={this.handleCloseModal}>
 					<form
 						className="update-product-modal-form"
-						onSubmit={() => this.handleUpdate(this.props.key)}>
+						onSubmit={() => this.handleUpdate()}>
 						<div>
 							<input
 								className="update-product-name"

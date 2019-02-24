@@ -63,12 +63,9 @@ class SellerSpecific extends Component {
 							onClick={() => this.handleDelete(product.id)}>
 							Remove
 						</button>
-						<div>
-							<button> </button>
-						</div>
-						<div>
-							<UpdateProducts key={product.id} />
-						</div>
+					</div>
+					<div>
+						<UpdateProducts />
 					</div>
 				</div>
 			);

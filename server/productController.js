@@ -33,14 +33,14 @@ module.exports = {
 
 		if (req.session.user) {
 			dbInstance.product_endpoints
-				.update_product([
-					+id,
+				.update_product(
+					id,
 					product_name,
 					info,
 					product_type,
 					img_url,
 					req.session.user.user_id
-				])
+				)
 				.then(response => {
 					console.log(response);
 					res.status(200).send(response);
@@ -100,7 +100,7 @@ module.exports = {
 		}
 	},
 	get_user_product: (req, res) => {
-		console.log('user id', req.session.user.user_id);
+		// console.log('user id', req.session.user.user_id);
 		const dbInstance = req.app.get('db');
 		dbInstance.product_endpoints
 			.get_user_product(req.session.user.user_id)
