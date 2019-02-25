@@ -3,22 +3,17 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { get_user } from '../ducks/reducer';
 import './landing.css';
-// import io from 'socket.io-client';
 
 class Landing extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			products: []
-			// socket: io()
 		};
 	}
 
 	componentDidMount() {
 		this.props.get_user();
-		// this.state.socket.on('connect', () => {
-		// 	console.log('Hello, im connected');
-		// });
 	}
 	render() {
 		if (this.props.user.username) {
@@ -28,7 +23,7 @@ class Landing extends Component {
 						<header className="navBar">
 							<div className="loginLink">
 								<div>
-									<Link to="/dashboard">User Dashboard </Link>
+									<Link className="user-dashboard-link" to="/dashboard">User Dashboard </Link>
 								</div>
 							</div>
 						</header>
@@ -41,12 +36,12 @@ class Landing extends Component {
 				<div>
 					<div className="landing">
 						<header className="navBar">
-							<div className="loginLink">
-								<Link to="/register">Register</Link>
+							<div>
+								<Link className="register-link" to="/register">Register</Link>
 							</div>
 
-							<div className="registerLink">
-								<Link to="/login">Login</Link>
+							<div >
+								<Link className='login-link' to="/login">Login</Link>
 							</div>
 						</header>
 						<div>ABOUT US</div>

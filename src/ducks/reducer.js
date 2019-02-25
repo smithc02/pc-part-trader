@@ -24,6 +24,7 @@ const GET_USER_PRODUCT = 'GET_USER_PRODUCT';
 const DELETE_PRODUCT = 'DELETE_PRODUCT';
 const BUYER_PRODUCT = 'BUYER_PRODUCTS';
 const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+const PURCHASE_CONFIRMATION = 'PURCHASE_CONFIRMATION';
 //action creators
 export function get_user() {
 	return {
@@ -101,6 +102,15 @@ export function update_product(id, content) {
 			info: content.info,
 			product_type: content.product_type,
 			img_url: content.img_url
+		})
+	};
+}
+export function purchase_confirmation(address, paymentID) {
+	return {
+		type: PURCHASE_CONFIRMATION,
+		payload: axios.post('/api/paypal/confirmation', {
+			address,
+			paymentID
 		})
 	};
 }
@@ -202,6 +212,16 @@ export default function reducer(state = initialState, action) {
 			};
 		case `${UPDATE_PRODUCT}_REJECTED`:
 			return { ...state, error: 'Update_product attempt failed.' };
+
+		case `${PURCHASE_CONFIRMATION}_PENDING`:
+			return { ...state, loading: true };
+		case `${PURCHASE_CONFIRMATION}_FULFILLED`:
+			return {
+				...state,
+				loading: false
+			};
+		case `${PURCHASE_CONFIRMATION}_REJECTED`:
+			return { ...state, error: 'Purchase failed' };
 
 		default:
 			return state;

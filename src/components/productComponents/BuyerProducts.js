@@ -5,8 +5,10 @@ import {
 	get_products,
 	logout,
 	buyer_product,
-	delete_product
+	delete_product,
+	purchase_confirmation
 } from '../../ducks/reducer';
+import PaypalExpressBtn from 'react-paypal-express-checkout';
 
 class BuyerProducts extends Component {
 	componentWillMount() {
@@ -15,6 +17,29 @@ class BuyerProducts extends Component {
 	}
 
 	render() {
+		const onSuccess = payment => {
+			this.props.purchase_confirmation(
+				payment.address,
+				payment.paymentID
+			);
+			window.alert('Your purchase was successful!');
+			console.log('Payment successful!', payment);
+			console.log('Payment address', payment.address);
+		};
+		const onCancel = data => {
+			console.log('Payment cancelled!', data);
+		};
+		const onError = err => {
+			console.log('Error!', err);
+		};
+		let env = 'sandbox';
+		let currency = 'USD';
+		let total = 1;
+
+		const client = {
+			sandbox:
+				'AVbl63z427KBmZVKdWnjO8vI4jLxQHI9oKyTro9G1YIalW4ztU-xe3GjrH_kWkp2ha0TYcAkN8DMUptN'
+		};
 		let productDisplay = this.props.products.map((product, i) => {
 			return (
 				<div key={product.id}>
@@ -33,6 +58,16 @@ class BuyerProducts extends Component {
 					<div>
 						{product.user_id}
 					</div>
+					<PaypalExpressBtn
+						className="Paypalbutton"
+						env={env}
+						client={client}
+						currency={currency}
+						total={total}
+						onError={onError}
+						onCancel={onCancel}
+						onSuccess={onSuccess}
+					/>
 				</div>
 			);
 		});
@@ -72,5 +107,6 @@ export default connect(mapStateToProps, {
 	get_products,
 	logout,
 	buyer_product,
-	delete_product
+	delete_product,
+	purchase_confirmation
 })(BuyerProducts);

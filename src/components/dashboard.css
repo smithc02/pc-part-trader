@@ -181,3 +181,6 @@
 .parts-for-sale-container {
 	border: 1px solid black;
 }
+.Paypalbutton {
+	outline: none;
+}

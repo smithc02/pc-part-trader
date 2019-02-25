@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { register } from '../ducks/reducer';
 import Modal from 'react-modal';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import './register.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -17,7 +17,7 @@ class Register extends Component {
 			email: '',
 			img_url: '',
 			role: '',
-			showModal: false,
+			showModal: true,
 			registered: false
 		};
 	}
@@ -62,22 +62,10 @@ class Register extends Component {
 	}
 
 	render() {
-		if (this.state.registered === false) {
+		if (this.state.showModal === true) {
 			return (
 				<div>
 					<div>
-						<div>
-							<Link to="/"> Home </Link>
-						</div>
-					</div>
-
-					<div>
-						<button
-							className="register-button"
-							onClick={this.handleOpenModal}>
-							Register
-						</button>
-
 						<Modal
 							className="register-modal"
 							isOpen={this.state.showModal}
@@ -156,20 +144,19 @@ class Register extends Component {
 								</div>
 							</form>
 						</Modal>
-						<div>
-							<h3>Already registered?</h3>
-							<Link to="/login">Login</Link>
-						</div>
 					</div>
 				</div>
 			);
-		} else {
-			return (
-				<div>
-					<Redirect push to="/login" />
-				</div>
-			);
 		}
+		return (
+			<div>
+				<div>
+					<div>
+						<Redirect to="/"> Home </Redirect>
+					</div>
+				</div>
+			</div>
+		);
 	}
 }
 const mapStateToProps = state => {

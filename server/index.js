@@ -6,6 +6,7 @@ const session = require('express-session');
 const { json } = require('body-parser');
 const auth = require('./authcontroller');
 const product = require('./productController');
+const paypal = require('./paypalController');
 
 app.use(json());
 
@@ -40,6 +41,8 @@ io.on('connection', socket => {
 	});
 });
 
+//paypal
+
 massive(process.env.CONNECTION_STRING)
 	.then(dbInstance => {
 		app.set('db', dbInstance);
@@ -59,7 +62,10 @@ app.put('/api/user/updateproduct/:id', product.update_product); //edit existing 
 app.get('/api/product', product.get_all_product); // get all existing products
 app.delete('/api/user/removeproduct/:id', product.remove_product); // remove product from db
 app.get('/api/user/userproduct', product.get_user_product); // get all active user products for seller specific page
-app.get('/api/user/productbuyer', product.get_product_buyer);// get joined statement of products with User Ids.
+app.get('/api/user/productbuyer', product.get_product_buyer); // get joined statement of products with User Ids.
+
+//paypal endpoints
+app.post('/api/paypal/confirmation', paypal.purchaseConfirmation);
 
 http.listen(process.env.EXPRESS_PORT, () => {
 	console.log(`Server - Listening on ${process.env.EXPRESS_PORT}`);
