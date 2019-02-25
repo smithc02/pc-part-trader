@@ -24,9 +24,11 @@ class Dashboard extends Component {
 				<div>
 					{' '}{this.props.user.role === 'Buyer'
 						? <div>
+							<Link to="/"> Home </Link>
 								<BuyerProducts />
 							</div>
 						: <div>
+							<Link to="/"> Home </Link>
 								<SellerProducts />
 							</div>}
 				</div>

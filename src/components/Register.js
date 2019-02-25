@@ -65,88 +65,101 @@ class Register extends Component {
 		if (this.state.registered === false) {
 			return (
 				<div>
-					<button
-						className="register-button"
-						onClick={this.handleOpenModal}>
-						Register
-					</button>
-
-					<Modal
-						className="register-modal"
-						isOpen={this.state.showModal}
-						contentLabel="Register Modal"
-						onRequestClose={this.handleCloseModal}>
-						<form
-							className="register-input-form"
-							onSubmit={this.handleSubmit}>
-							<div>
-								<div>
-									<FontAwesomeIcon icon={faUser} size="5x" />
-								</div>
-								<div>
-									<h1 className="-register-modal-title" >REGISTER</h1>
-								</div>
-								<input
-									className="register-modal-username"
-									value={this.state.username}
-									type="username"
-									name="username"
-									placeholder=" username"
-									onChange={this.handleChange}
-								/>
-							</div>
-							<div>
-								<input
-									className="register-modal-password"
-									value={this.state.password}
-									type="password"
-									name="password"
-									placeholder=" password"
-									onChange={this.handleChange}
-								/>
-							</div>
-							<div>
-								<input
-									className="register-modal-email"
-									value={this.state.email}
-									type="email"
-									name="email"
-									placeholder="email"
-									onChange={this.handleChange}
-								/>
-							</div>
-							<div>
-								<input
-									className="register-modal-img"
-									value={this.state.img_url}
-									type="img_url"
-									name="img_url"
-									placeholder="img_url"
-									onChange={this.handleChange}
-								/>
-							</div>
-							<div>
-								<select
-									className="register-select"
-									onChange={e =>
-										this.listHandle(e.target.value)}>
-									<option value=""> Please Select</option>
-									<option value="Buyer">Buyer</option>
-									<option value="Seller">Seller</option>
-								</select>
-							</div>
-							<div>
-								<input
-									className="register-button-modal"
-									type="submit"
-									value="Register"
-								/>
-							</div>
-						</form>
-					</Modal>
 					<div>
-						<h3>Already registered?</h3>
-						<Link to="/login">Login</Link>
+						<div>
+							<Link to="/"> Home </Link>
+						</div>
+					</div>
+
+					<div>
+						<button
+							className="register-button"
+							onClick={this.handleOpenModal}>
+							Register
+						</button>
+
+						<Modal
+							className="register-modal"
+							isOpen={this.state.showModal}
+							contentLabel="Register Modal"
+							onRequestClose={this.handleCloseModal}>
+							<form
+								className="register-input-form"
+								onSubmit={this.handleSubmit}>
+								<div>
+									<div>
+										<FontAwesomeIcon
+											icon={faUser}
+											size="5x"
+										/>
+									</div>
+									<div>
+										<h1 className="-register-modal-title">
+											REGISTER
+										</h1>
+									</div>
+									<input
+										className="register-modal-username"
+										value={this.state.username}
+										type="username"
+										name="username"
+										placeholder=" username"
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div>
+									<input
+										className="register-modal-password"
+										value={this.state.password}
+										type="password"
+										name="password"
+										placeholder=" password"
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div>
+									<input
+										className="register-modal-email"
+										value={this.state.email}
+										type="email"
+										name="email"
+										placeholder="email"
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div>
+									<input
+										className="register-modal-img"
+										value={this.state.img_url}
+										type="img_url"
+										name="img_url"
+										placeholder="img_url"
+										onChange={this.handleChange}
+									/>
+								</div>
+								<div>
+									<select
+										className="register-select"
+										onChange={e =>
+											this.listHandle(e.target.value)}>
+										<option value=""> Please Select</option>
+										<option value="Buyer">Buyer</option>
+										<option value="Seller">Seller</option>
+									</select>
+								</div>
+								<div>
+									<input
+										className="register-button-modal"
+										type="submit"
+										value="Register"
+									/>
+								</div>
+							</form>
+						</Modal>
+						<div>
+							<h3>Already registered?</h3>
+							<Link to="/login">Login</Link>
+						</div>
 					</div>
 				</div>
 			);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import UpdateProducts from './UpdateProducts';
 import {
 	get_user,
@@ -71,20 +71,33 @@ class SellerSpecific extends Component {
 			);
 		});
 		//returns the mapped array of seller specific products
-		return (
-			<div className="seller-specific-container">
-				<div>
-					<a href="/dashboard">
-						<button className="seller-specific-dashboard-button">
-							Dashboard
-						</button>
-					</a>
-					<div className="seller-specific-container">
-						{sellerSpecific}
+		if (this.props.user.username) {
+			return (
+				<div className="seller-specific-container">
+					<div>
+						<a href="/dashboard">
+							<button className="seller-specific-dashboard-button">
+								My Dashboard
+							</button>
+						</a>
+						<div className="seller-specific-container">
+							{sellerSpecific}
+						</div>
 					</div>
 				</div>
-			</div>
-		);
+			);
+		} else {
+			return (
+				<div>
+					<div>
+						<h1>You are not logged in!</h1>
+					</div>
+					<div>
+						<Link to="/login">Login</Link>
+					</div>
+				</div>
+			);
+		}
 	}
 }
 const mapStateToProps = state => state;

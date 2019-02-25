@@ -42,63 +42,71 @@ class Login extends Component {
 		}
 		return (
 			<div>
-				<button className="open-button" onClick={this.handleOpenModal}>
-					Login
-				</button>
-				<Modal
-					className="modal"
-					isOpen={this.state.showModal}
-					contentLabel="Login Modal"
-					onRequestClose={this.handleCloseModal}>
-					<form
-						className="login-input-form"
-						onSubmit={this.handleSubmit}>
-						<div className="modal-form-container">
-							<div>
-								<FontAwesomeIcon icon={faUser} size="5x" />
-							</div>
-							<div>
-								<h1 className="login-modal-title">LOGIN</h1>
-							</div>
-							<div>
-								<input
-									className="username-modal-input"
-									value={this.state.username}
-									type="username"
-									name="username"
-									placeholder=" username"
-									onChange={e => this.handleChange(e)}
-									required
-								/>
-							</div>
-							<div>
-								<div className="password-modal-container">
+				<div>
+					<Link to="/"> Home </Link>
+				</div>
+
+				<div>
+					<button
+						className="open-button"
+						onClick={this.handleOpenModal}>
+						Login
+					</button>
+					<Modal
+						className="modal"
+						isOpen={this.state.showModal}
+						contentLabel="Login Modal"
+						onRequestClose={this.handleCloseModal}>
+						<form
+							className="login-input-form"
+							onSubmit={this.handleSubmit}>
+							<div className="modal-form-container">
+								<div>
+									<FontAwesomeIcon icon={faUser} size="5x" />
+								</div>
+								<div>
+									<h1 className="login-modal-title">LOGIN</h1>
+								</div>
+								<div>
 									<input
-										className="password-modal-input"
-										value={this.state.password}
-										type="password"
-										name="password"
-										placeholder=" password"
+										className="username-modal-input"
+										value={this.state.username}
+										type="username"
+										name="username"
+										placeholder=" username"
 										onChange={e => this.handleChange(e)}
 										required
 									/>
 								</div>
 								<div>
-									<input
-										className="login-button"
-										type="submit"
-										value="Login"
-									/>
+									<div className="password-modal-container">
+										<input
+											className="password-modal-input"
+											value={this.state.password}
+											type="password"
+											name="password"
+											placeholder=" password"
+											onChange={e => this.handleChange(e)}
+											required
+										/>
+									</div>
+									<div>
+										<input
+											className="login-button"
+											type="submit"
+											value="Login"
+										/>
+									</div>
 								</div>
 							</div>
-						</div>
-					</form>
-				</Modal>
+						</form>
+					</Modal>
 
-				<p>
-					No login?
-					<Link to="/Register"> Register Here!</Link>
-				</p>
+					<p>
+						No login?
+						<Link to="/Register"> Register Here!</Link>
+					</p>
+				</div>
 			</div>
 		);
 	}

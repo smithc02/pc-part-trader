@@ -16,7 +16,6 @@ class BuyerProducts extends Component {
 
 	render() {
 		let productDisplay = this.props.products.map((product, i) => {
-			console.log(i);
 			return (
 				<div key={product.id}>
 					<div>
@@ -41,21 +40,27 @@ class BuyerProducts extends Component {
 		return (
 			<div>
 				<h1>
-					{this.props.user.username}: Buyer
-					<br />
-					<form action="/login">
-						<button
-							className="dashboard-logout-button"
-							onClick={() => this.props.logout()}>
-							Logout
-						</button>
-					</form>
+					<div>
+						<div>
+							{this.props.user.username}: Buyer
+						</div>
+						<div>
+							<form action="/login">
+								<button
+									className="dashboard-logout-button"
+									onClick={() => this.props.logout()}>
+									Logout
+								</button>
+							</form>
+						</div>
+					</div>
 				</h1>
-
 				<div>
 					<h1 className="parts_for_sale">All parts for sale!</h1>
 				</div>
-				{productDisplay}
+				<div>
+					{productDisplay}
+				</div>
 			</div>
 		);
 	}
