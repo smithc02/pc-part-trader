@@ -8,7 +8,7 @@ import Landing from './components/Landing';
 import SellerProducts from './components/productComponents/SellerProducts';
 import BuyerProducts from './components/productComponents/BuyerProducts';
 import SellerSpecific from './components/productComponents/SellerSpecific';
-import ChatRoomOne from './components/chatComponents/chatTest';
+
 // import Paypal from './components/paypal/PaypalButtonParent';
 export default (
 	<Switch>
@@ -19,8 +19,6 @@ export default (
 		<Route path="sellerdashboard" component={SellerProducts} />
 		<Route path="buyerdashboard" component={BuyerProducts} />
 		<Route path="/sellerspecific" component={SellerSpecific} />
-		<Route path="/chatroomone" component={ChatRoomOne} />
-		{/* <Route path="/paypal" component={Paypal} /> */}
 		<Route
 			path="*"
 			render={() =>

@@ -97,23 +97,23 @@ class SellerProducts extends Component {
 			<div>
 				<div>
 					<div>
-						<div className="dashboard-products-button-container">
+						<div className="seller-products-button-container">
 							<a href="/sellerspecific">
-								<button className="dashboard-myproducts-button">
+								<button className="seller-myproducts-button">
 									My Products
 								</button>
 							</a>
 						</div>
 					</div>
-					<div className="dashboard-products-username-container">
-						<h1 className="dashboard-username">
+					<div className="seller-products-username-container">
+						<h1 className="seller-username">
 							{this.props.user.username}: Seller
 						</h1>
 					</div>
-					<div className="dashboard-logout-button-container">
+					<div className="seller-logout-button-container">
 						<form action="/login">
 							<button
-								className="dashboard-logout-button"
+								className="seller-logout-button"
 								onClick={() => this.props.logout()}>
 								Logout
 							</button>
@@ -127,22 +127,22 @@ class SellerProducts extends Component {
 				<div>
 					<div>
 						<button
-							className="dashboard-modal-open"
+							className="seller-modal-open"
 							onClick={this.handleOpenModal}>
 							{' '}Register a new product
 						</button>
 					</div>
 					<Modal
-						className="dashboard-modal"
+						className="seller-modal"
 						isOpen={this.state.showModal}
 						contentLabel="Login Modal"
 						onRequestClose={this.handleCloseModal}>
 						<form
-							className="dashboard-modal-form"
+							className="seller-modal-form"
 							onSubmit={this.handleSubmit}>
 							<div>
 								<input
-									className="dashboard-product-name"
+									className="seller-product-name"
 									value={this.state.product_name}
 									type="text"
 									placeholder="Product Name"
@@ -154,7 +154,7 @@ class SellerProducts extends Component {
 							</div>
 							<div>
 								<input
-									className="dashboard-product-info"
+									className="seller-product-info"
 									value={this.state.info}
 									type="text"
 									placeholder="Product Information"
@@ -166,7 +166,7 @@ class SellerProducts extends Component {
 							</div>
 							<div>
 								<input
-									className="dashboard-product-img"
+									className="seller-product-img"
 									value={this.state.img_url}
 									type="text"
 									placeholder="Img_url"
@@ -178,7 +178,7 @@ class SellerProducts extends Component {
 							</div>
 							<div>
 								<select
-									className="dashboard-modal-select"
+									className="seller-modal-select"
 									onChange={e =>
 										this.listHandle(e.target.value)}>
 									<option value=""> Please Select</option>
@@ -193,7 +193,7 @@ class SellerProducts extends Component {
 								</select>
 							</div>
 							<div>
-								<button className="dashboard-list-item-button">
+								<button className="seller-list-item-button">
 									List Item
 								</button>
 							</div>

@@ -36,8 +36,8 @@ class Dashboard extends Component {
 		} else {
 			return (
 				<div>
-					<h1>You are not logged in!</h1>
-					<Link to="/login">Login</Link>
+					<h1 className="dashboard-logged-out">You are not logged in!</h1>
+					<Link className="dashboard-login-button" to="/login">Login</Link>
 				</div>
 			);
 		}

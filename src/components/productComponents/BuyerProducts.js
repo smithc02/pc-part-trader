@@ -58,6 +58,7 @@ class BuyerProducts extends Component {
 					<div>
 						{product.user_id}
 					</div>
+					<div>$1</div>
 					<PaypalExpressBtn
 						className="Paypalbutton"
 						env={env}

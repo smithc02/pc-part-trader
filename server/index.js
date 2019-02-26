@@ -21,25 +21,25 @@ app.use(
 	})
 );
 // io constants
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+// const http = require('http').Server(app);
+// const io = require('socket.io')(http);
 
-io.set('origins', '*:*');
+// io.set('origins', '*:*');
 
 // socket event listeners
-io.on('connection', socket => {
-	console.log('User connected'), socket.emit('Hello', { Hello: 'Hello!' });
+// io.on('connection', socket => {
+// 	console.log('User connected'), socket.emit('Hello', { Hello: 'Hello!' });
 
-	socket.on('disconnect', () => {
-		console.log('user disconnected');
-	});
-	socket.on('room', data => {
-		socket.join(data.room).emit('Joinedroom', data.room);
-	});
-	socket.on('leave', room => {
-		socket.emit('leave', room).leave(room);
-	});
-});
+// 	socket.on('disconnect', () => {
+// 		console.log('user disconnected');
+// 	});
+// 	socket.on('room', data => {
+// 		socket.join(data.room).emit('Joinedroom', data.room);
+// 	});
+// 	socket.on('leave', room => {
+// 		socket.emit('leave', room).leave(room);
+// 	});
+// });
 
 //paypal
 
@@ -67,6 +67,6 @@ app.get('/api/user/productbuyer', product.get_product_buyer); // get joined stat
 //paypal endpoints
 app.post('/api/paypal/confirmation', paypal.purchaseConfirmation);
 
-http.listen(process.env.EXPRESS_PORT, () => {
+app.listen(process.env.EXPRESS_PORT, () => {
 	console.log(`Server - Listening on ${process.env.EXPRESS_PORT}`);
 });

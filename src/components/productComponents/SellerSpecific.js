@@ -88,10 +88,10 @@ class SellerSpecific extends Component {
 			return (
 				<div>
 					<div>
-						<h1>You are not logged in!</h1>
+						<h1 className="seller-specific-logged-out">You are not logged in!</h1>
 					</div>
 					<div>
-						<Link to="/login">Login</Link>
+						<Link className="seller-specific-login" to="/login">Login</Link>
 					</div>
 				</div>
 			);

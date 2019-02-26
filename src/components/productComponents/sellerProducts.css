@@ -7,3 +7,202 @@
 div {
 	text-align: center;
 }
+.seller-logout-button {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 10px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.seller-logout-button:hover {
+	background-color: rgba(102, 102, 102);
+	transform: scale(1.1);
+}
+
+.seller-modal {
+	display: block;
+	padding: 10px;
+	width: 60%;
+	height: 250px;
+	max-width: 35%;
+	position: fixed;
+	z-index: 100;
+	left: 50%;
+	top: 20%;
+	transform: translate(-50%, -50%);
+	background: white;
+	box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.9);
+	outline: none;
+	border-style: none;
+	border-radius: 15px;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.seller-modal-form {
+	width: 100%;
+	clear: both;
+}
+.seller-modal-open {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 10px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.seller-modal-open:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+}
+.seller-list-item-button {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 10px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	margin-top: 10px;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.seller-list-item-button:hover {
+	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
+	transform: scale(1.1);
+}
+.seller-product-name {
+	padding: 15px 50px;
+	background-image: url("https://s3.us-east-2.amazonaws.com/pcpartstrader/productname.png");
+	background-color: white;
+	background-position: 4px;
+	background-repeat: no-repeat;
+	background-size: 30px;
+	height: 20px;
+	margin-top: 10px;
+	border-style: none;
+	width: 100%;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
+	box-sizing: border-box;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.seller-product-name:hover {
+	background-color: rgba(234, 234, 234, 0.9);
+}
+.seller-product-info {
+	padding: 15px 50px;
+	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/productInfo.png');
+	background-color: white;
+	background-position: 4px;
+	background-repeat: no-repeat;
+	background-size: 30px;
+	height: 20px;
+	margin-top: 10px;
+	border-style: none;
+	width: 100%;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
+	box-sizing: border-box;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.seller-product-info:hover {
+	background-color: rgba(234, 234, 234, 0.9);
+}
+.seller-product-img {
+	padding: 15px 50px;
+	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/photoicon.png');
+	background-color: white;
+	background-position: 10px 6px;
+	background-repeat: no-repeat;
+	background-size: 20px;
+	height: 20px;
+	margin-top: 10px;
+	border-style: none;
+	width: 100%;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
+	box-sizing: border-box;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.seller-product-img:hover {
+	background-color: rgba(234, 234, 234, 0.9);
+}
+.seller-modal-select {
+	margin-top: 10px;
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 10px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.seller-modal-select:select-items {
+	background-color: black;
+}
+.seller-myproducts-button {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 10px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+.seller-myproducts-button:hover {
+	background-color: rgba(102, 102, 102);
+	transform: scale(1.1);
+}
+
+.seller-loginpage-button:hover {
+	background-color: rgba(102, 102, 102);
+	transform: scale(1.1);
+}
