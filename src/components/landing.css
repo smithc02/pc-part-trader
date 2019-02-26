@@ -1,44 +1,80 @@
-* {
-	margin: 0 auto;
-	padding: 0 auto;
+.landing-background {
+	/* background-image: url("https://s3.us-east-2.amazonaws.com/pcpartstrader/landing.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center; */
 }
 .navBar {
 	display: flex;
-	justify-content: center;
+	flex-direction: row;
+	background: lightgray;
+	justify-content: space-evenly;
 	padding: 15px;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	height: 60px;
 	width: 100%;
+	border: 1px solid red;
+}
+.landing-register-container {
+	/* border: 1px solid pink; */
+}
+.landing-login-container {
+	/* border: 1px solid pink; */
 }
 
 .landing {
 	width: 100%;
 	height: 100vh;
-	border: 3px solid red;
+	border: 1px solid green;
+}
+.landing::after {
+	content: '';
+	background-image: url("https://s3.us-east-2.amazonaws.com/pcpartstrader/landing.jpg");
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+	opacity: .9;
+	filter: brightness(.7);
 }
 
 .register-link {
-	background: lightgreen;
+	background-color: rgba(102, 102, 102, .4);
+	border: 1px solid rgb(0, 112, 184);
 	color: white;
 	padding: 10px 20px;
-	border-radius: 10px;
+	border-radius: 4px;
 	font-size: 21px;
 	transition: all .2s linear;
 	outline: none;
 	text-decoration: none;
+	cursor: pointer;
+}
+.register-link:hover {
+	background-color: rgba(102, 102, 102);
 }
 .login-link {
-	background: lightgreen;
+	background-color: rgba(102, 102, 102, .4);
+	border: 2px solid rgb(0, 112, 184);
 	color: white;
 	padding: 10px 20px;
-	border-radius: 10px;
+	border-radius: 4px;
 	font-size: 21px;
 	transition: all .2s linear;
 	outline: none;
 	text-decoration: none;
+	cursor: pointer;
+}
+.login-link:hover {
+	background-color: rgba(102, 102, 102);
 }
 .user-dashboard-link {
-	background: lightgreen;
+	background: #666666;
 	color: white;
 	padding: 10px 20px;
 	border-radius: 10px;
@@ -47,7 +83,7 @@
 	outline: none;
 	text-decoration: none;
 }
-.user-dashboard-link.hover{
+.user-dashboard-link.hover {
 	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
 	transform: scale(1.1);
 }

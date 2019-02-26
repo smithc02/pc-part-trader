@@ -18,12 +18,17 @@ class Landing extends Component {
 	render() {
 		if (this.props.user.username) {
 			return (
-				<div>
+				<div className="landing-background">
 					<div className="landing">
 						<header className="navBar">
+							<div>PcPartsTraders</div>
 							<div className="loginLink">
 								<div>
-									<Link className="user-dashboard-link" to="/dashboard">User Dashboard </Link>
+									<Link
+										className="user-dashboard-link"
+										to="/dashboard">
+										User Dashboard{' '}
+									</Link>
 								</div>
 							</div>
 						</header>
@@ -33,15 +38,19 @@ class Landing extends Component {
 			);
 		} else {
 			return (
-				<div>
+				<div className="landing-background">
 					<div className="landing">
 						<header className="navBar">
-							<div>
-								<Link className="register-link" to="/register">Register</Link>
+							<div>PcPartsTraders</div>
+							<div className="landing-register-container">
+								<Link className="register-link" to="/register">
+									Register
+								</Link>
 							</div>
-
-							<div >
-								<Link className='login-link' to="/login">Login</Link>
+							<div className="landing-login-container">
+								<Link className="login-link" to="/login">
+									Login
+								</Link>
 							</div>
 						</header>
 						<div>ABOUT US</div>
