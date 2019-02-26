@@ -25,7 +25,7 @@ module.exports = {
 		const mailOptions = {
 			from: process.env.DB_USER,
 			to: req.session.user.email,
-			subject: 'Purchase Confirmation',
+			subject: 'Order Confirmation',
 			html: ` <h1>Thank you for your purchase! Your orders shipping information is as follows:</h1>
             <div>
             <h2> Buyer's name: ${recipient_name}</h2>

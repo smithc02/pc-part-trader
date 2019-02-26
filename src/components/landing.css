@@ -1,35 +1,32 @@
-.landing-background {
-	/* background-image: url("https://s3.us-east-2.amazonaws.com/pcpartstrader/landing.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center; */
-}
 .navBar {
 	display: flex;
 	flex-direction: row;
-	background: lightgray;
-	justify-content: space-evenly;
-	padding: 15px;
-	/* border: 1px solid black; */
+	justify-content: space-between;
+	background-image: linear-gradient(
+		rgb(177, 173, 173),
+		rgb(70, 66, 66),
+		rgb(5, 7, 11)
+	);
+	padding: 18px;
 	height: 60px;
-	width: 100%;
-	border: 1px solid red;
+	width: 100vw;
+	opacity: .5;
 }
-.landing-register-container {
-	/* border: 1px solid pink; */
-}
-.landing-login-container {
-	/* border: 1px solid pink; */
-}
-
 .landing {
 	width: 100%;
 	height: 100vh;
-	border: 1px solid green;
+}
+.landing-page-name {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	color: rgb(255, 255, 255);
+	text-shadow: 2px 2px rgb(23, 21, 21);
+	font-size: 40px;
+	font-weight: 200;
+	border-bottom: 1px solid rgb(255, 255, 255);
 }
 .landing::after {
 	content: '';
-	background-image: url("https://s3.us-east-2.amazonaws.com/pcpartstrader/landing.jpg");
+	background-image: url("https://s3.us-east-2.amazonaws.com/pcpartstrader/landing2.jpeg");
 	position: absolute;
 	z-index: -1;
 	top: 0;
@@ -38,13 +35,15 @@
 	right: 0;
 	background-repeat: no-repeat;
 	background-size: 100%;
-	background-position: center;
-	opacity: .9;
-	filter: brightness(.7);
+	background-position: center top;
 }
 
 .register-link {
-	background-color: rgba(102, 102, 102, .4);
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
 	border: 1px solid rgb(0, 112, 184);
 	color: white;
 	padding: 10px 20px;
@@ -54,13 +53,21 @@
 	outline: none;
 	text-decoration: none;
 	cursor: pointer;
+	margin-left: 1vw;
+	font-family: 'Sawarabi Mincho', sans-serif;
 }
 .register-link:hover {
 	background-color: rgba(102, 102, 102);
 }
 .login-link {
-	background-color: rgba(102, 102, 102, .4);
-	border: 2px solid rgb(0, 112, 184);
+	font-family: 'Sawarabi Mincho', sans-serif;
+
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
 	color: white;
 	padding: 10px 20px;
 	border-radius: 4px;
@@ -73,17 +80,80 @@
 .login-link:hover {
 	background-color: rgba(102, 102, 102);
 }
+.landing-link-box {
+	margin-top: 6px;
+}
 .user-dashboard-link {
-	background: #666666;
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
 	color: white;
 	padding: 10px 20px;
-	border-radius: 10px;
+	border-radius: 4px;
 	font-size: 21px;
 	transition: all .2s linear;
 	outline: none;
 	text-decoration: none;
+	cursor: pointer;
 }
-.user-dashboard-link.hover {
-	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
-	transform: scale(1.1);
+.user-dashboard-link:hover {
+	background-color: rgba(102, 102, 102);
+}
+.landing-dashboard-box {
+	margin-top: 14px;
+}
+
+.landing-info-box {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	color: rgb(183, 183, 183);
+}
+
+.landing-info-holder {
+	margin-top: 6vh;
+	width: 100%;
+}
+
+@media (max-width: 550px) {
+	.navBar {
+		display: flex;
+		flex-direction: column;
+
+		height: 50px;
+	}
+	.landing-dashboard-box {
+		margin-top: 15px;
+	}
+	.landing-link-box {
+		margin-top: 15px;
+	}
+	.login-link {
+		background-image: linear-gradient(
+			to bottom right,
+			rgba(193, 192, 192, 0.8),
+			black
+		);
+		color: rgb(255, 255, 255);
+	}
+	.register-link {
+		background-image: linear-gradient(
+			to bottom right,
+			rgba(193, 192, 192, 0.8),
+			black
+		);
+		color: rgb(255, 255, 255);
+	}
+	.user-dashboard-link {
+		background-image: linear-gradient(
+			to bottom right,
+			rgba(193, 192, 192, 0.8),
+			black
+		);
+		color: rgb(255, 255, 255);
+	}
+	.landing-info-box {
+		display: none;
+	}
 }

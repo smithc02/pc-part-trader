@@ -46,7 +46,7 @@ class Login extends Component {
 		}
 		if (this.state.showModal === true) {
 			return (
-				<div>
+				<div className="login-page">
 					<div>
 						<Modal
 							className="modal"
@@ -59,6 +59,7 @@ class Login extends Component {
 								<div className="modal-form-container">
 									<div>
 										<FontAwesomeIcon
+											className="-login-person-icon"
 											icon={faUser}
 											size="5x"
 										/>
@@ -74,7 +75,7 @@ class Login extends Component {
 											value={this.state.username}
 											type="username"
 											name="username"
-											placeholder=" username"
+											placeholder=" Username"
 											onChange={e => this.handleChange(e)}
 											required
 										/>
@@ -86,7 +87,7 @@ class Login extends Component {
 												value={this.state.password}
 												type="password"
 												name="password"
-												placeholder=" password"
+												placeholder=" Password"
 												onChange={e =>
 													this.handleChange(e)}
 												required

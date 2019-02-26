@@ -8,8 +8,6 @@ import {
 	get_user_product,
 	delete_product
 } from '../../ducks/reducer';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faSync } from '@fortawesome/free-solid-svg-icons';
 import './sellerSpecific.css';
 
 class SellerSpecific extends Component {

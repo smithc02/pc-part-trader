@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { get_user } from '../ducks/reducer';
 import './landing.css';
+import LandingProducts from './productComponents/LandingProducts';
 
 class Landing extends Component {
 	constructor(props) {
@@ -21,18 +22,26 @@ class Landing extends Component {
 				<div className="landing-background">
 					<div className="landing">
 						<header className="navBar">
-							<div>PcPartsTraders</div>
+							<div>
+								<h1 className="landing-page-name">
+									PcPartsTraders
+								</h1>
+							</div>
 							<div className="loginLink">
-								<div>
+								<div className="landing-dashboard-box">
 									<Link
 										className="user-dashboard-link"
 										to="/dashboard">
-										User Dashboard{' '}
+										User Dashboard
 									</Link>
 								</div>
 							</div>
 						</header>
-						<div>ABOUT US</div>
+						<div className="landing-info-holder">
+							<h1 className="landing-info-box">
+								{' '}Welcome to the future of PC parts!
+							</h1>
+						</div>
 					</div>
 				</div>
 			);
@@ -41,19 +50,28 @@ class Landing extends Component {
 				<div className="landing-background">
 					<div className="landing">
 						<header className="navBar">
-							<div>PcPartsTraders</div>
-							<div className="landing-register-container">
+							<div>
+								<h1 className="landing-page-name">
+									PcPartsTraders
+								</h1>
+							</div>
+							<div className="landing-link-box">
+								<Link className="login-link" to="/login">
+									Login
+								</Link>
 								<Link className="register-link" to="/register">
 									Register
 								</Link>
 							</div>
-							<div className="landing-login-container">
-								<Link className="login-link" to="/login">
-									Login
-								</Link>
-							</div>
 						</header>
-						<div>ABOUT US</div>
+						<div className="landing-info-holder">
+							<h1 className="landing-info-box">
+							Welcome to the Future of PC parts!
+							</h1>
+						</div>
+						<div className="landing-products">
+							{/* <LandingProducts /> */}
+						</div>
 					</div>
 				</div>
 			);

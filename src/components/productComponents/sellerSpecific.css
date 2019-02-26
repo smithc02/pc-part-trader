@@ -3,26 +3,42 @@
 	border: 2px solid black;
 }
 .seller-specific-dashboard-button {
-	background: lightgreen;
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
 	color: white;
 	padding: 10px 20px;
-	border-radius: 10px;
+	border-radius: 4px;
 	font-size: 21px;
 	transition: all .2s linear;
 	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	font-family: 'Sawarabi Mincho', sans-serif;
 }
 .seller-specific-dashboard-button:hover {
 	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
 	transform: scale(1.1);
 }
 .seller-specific-remove-button {
-	background: lightgreen;
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
 	color: white;
 	padding: 10px 20px;
-	border-radius: 10px;
+	border-radius: 4px;
 	font-size: 21px;
 	transition: all .2s linear;
 	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	font-family: 'Sawarabi Mincho', sans-serif;
 }
 .seller-specific-remove-button:hover {
 	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);

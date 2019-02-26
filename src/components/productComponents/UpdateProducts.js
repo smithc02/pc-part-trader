@@ -98,7 +98,7 @@ class UpdateProducts extends Component {
 								className="update-product-url"
 								value={this.state.img_url}
 								type="text"
-								placeholder="Img Url"
+								placeholder="Img_url"
 								onChange={e =>
 									this.setState({
 										img_url: e.target.value

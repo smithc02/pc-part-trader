@@ -27,7 +27,7 @@ module.exports = {
 	},
 	update_product: (req, res) => {
 		const dbInstance = req.app.get('db');
-		const {product_name, info, product_type, img_url } = req.body;
+		const { product_name, info, product_type, img_url } = req.body;
 		const { id } = req.params;
 		console.log(req.params.id);
 
@@ -117,21 +117,18 @@ module.exports = {
 	},
 	get_product_buyer: (req, res) => {
 		const dbInstance = req.app.get('db');
-		if (req.session.user) {
-			dbInstance.product_endpoints
-				.get_product_buyer()
-				.then(product => {
-					// console.log('response', product);
-					res.status(200).send(product);
-				})
-				.catch(response => {
-					// console.log(response);
-					res.status(500).send({
-						error: 'Error with get_product_buyer'
-					});
+
+		dbInstance.product_endpoints
+			.get_product_buyer()
+			.then(product => {
+				console.log('response', product);
+				res.status(200).send(product);
+			})
+			.catch(response => {
+				console.log(response);
+				res.status(500).send({
+					error: 'Error with get_product_buyer'
 				});
-		} else {
-			console.log('Please log in! (get_product_buyer');
-		}
+			});
 	}
 };

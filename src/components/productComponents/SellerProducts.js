@@ -9,8 +9,6 @@ import {
 import './sellerProducts.css';
 import Modal from 'react-modal';
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faSync } from '@fortawesome/free-solid-svg-icons';
 Modal.setAppElement('#root');
 
 class SellerProducts extends Component {
@@ -171,7 +169,7 @@ class SellerProducts extends Component {
 									className="dashboard-product-img"
 									value={this.state.img_url}
 									type="text"
-									placeholder="Image URL"
+									placeholder="Img_url"
 									onChange={e =>
 										this.setState({
 											img_url: e.target.value

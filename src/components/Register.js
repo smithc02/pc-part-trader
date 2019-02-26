@@ -91,7 +91,7 @@ class Register extends Component {
 										value={this.state.username}
 										type="username"
 										name="username"
-										placeholder=" username"
+										placeholder=" Username"
 										onChange={this.handleChange}
 									/>
 								</div>
@@ -101,7 +101,7 @@ class Register extends Component {
 										value={this.state.password}
 										type="password"
 										name="password"
-										placeholder=" password"
+										placeholder=" Password"
 										onChange={this.handleChange}
 									/>
 								</div>
@@ -111,7 +111,7 @@ class Register extends Component {
 										value={this.state.email}
 										type="email"
 										name="email"
-										placeholder="email"
+										placeholder="Email"
 										onChange={this.handleChange}
 									/>
 								</div>
@@ -121,7 +121,7 @@ class Register extends Component {
 										value={this.state.img_url}
 										type="img_url"
 										name="img_url"
-										placeholder="img_url"
+										placeholder="Img_url"
 										onChange={this.handleChange}
 									/>
 								</div>
