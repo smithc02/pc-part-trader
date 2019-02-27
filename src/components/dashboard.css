@@ -21,7 +21,7 @@
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
 
-.dashboard-home-link2 {
+/* .dashboard-home-link2 {
 	background-image: linear-gradient(
 		to bottom right,
 		rgba(102, 102, 102, .4),
@@ -38,8 +38,8 @@
 	text-decoration: none;
 	cursor: pointer;
 	font-family: 'Sawarabi Mincho', sans-serif;
-}
-.dashboard-buyer-display {
+} */
+/* .dashboard-buyer-display {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -53,8 +53,8 @@
 	height: 60px;
 	width: 100vw;
 	opacity: .9;
-}
-@media (max-width: 500px) {
+} */
+/* @media (max-width: 500px) {
 	.dashboard-buyer-display {
 		position: relative;
 		display: flex;
@@ -62,4 +62,90 @@
 		height: 50px
 	}
 	
+} */
+.dashboard-navBar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	background-image: linear-gradient(
+		rgb(77, 75, 75),
+		rgb(48, 47, 47),
+		rgb(0, 0, 0)
+	);
+
+	height: 90px;
+	width: 100%;
+	opacity: .9;
+}
+.dashboard-username-container {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	color: rgb(255, 255, 255);
+	text-shadow: 2px 2px rgb(23, 21, 21);
+	font-size: 40px;
+	font-weight: 200;
+	border-bottom: 1px solid rgb(255, 255, 255);
+}
+.dashboard-home-link {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 12px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.homeLink {
+	transition: all .2s linear;
+}
+.dashboard-logout-button {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .6),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 10px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	font-family: 'Sawarabi Mincho', sans-serif;
+	margin-left: 15px;
+}
+.buyer-logout-button:hover {
+	background-color: rgba(102, 102, 102);
+}
+.dashboard-link-login-box {
+	display: flex;
+	align-items: center;
+	margin-left: 35vw;
+}
+@media (max-width: 500px) {
+	.dashboard-navBar {
+		display: flex;
+		flex-direction: column;
+		height: 70px;
+		margin-bottom: 10vh;
+	}
+	.dashboard-link-login-box {
+		margin: 5px;
+	}
+	.buyer-logout-button {
+		margin-top: 10vh;
+	}
+	.homeLink {
+		margin-top: 10vh;
+	}
 }
