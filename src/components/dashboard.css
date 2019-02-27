@@ -1,6 +1,7 @@
 .dashboard-logged-out {
 	font-family: 'Sawarabi Mincho', sans-serif;
-	font-size: 60px;
+	font-size: 48px;
+	padding: 50px;
 }
 .dashboard-login-button {
 	background-image: linear-gradient(
@@ -10,13 +11,55 @@
 	);
 	border: 1px solid rgb(0, 112, 184);
 	color: white;
-	padding: 10px 20px;
+	padding: 11px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+.dashboard-home-link2 {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 11px 20px;
+	margin: 50px;
 	border-radius: 4px;
 	font-size: 21px;
 	transition: all .2s linear;
 	outline: none;
 	text-decoration: none;
 	cursor: pointer;
-	outline: none;
 	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.dashboard-buyer-display {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-image: linear-gradient(
+		rgb(177, 173, 173),
+		rgb(70, 66, 66),
+		rgb(5, 7, 11)
+	);
+	padding: 18px;
+	height: 60px;
+	width: 100vw;
+	opacity: .9;
+}
+@media (max-width: 500px) {
+	.dashboard-buyer-display {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		height: 50px
+	}
+	
 }

@@ -33,13 +33,13 @@ div {
 .seller-modal {
 	display: block;
 	padding: 10px;
-	width: 60%;
-	height: 250px;
-	max-width: 35%;
+
+	height: 315px;
+	max-width: 50%;
 	position: fixed;
 	z-index: 100;
 	left: 50%;
-	top: 20%;
+	top: 25%;
 	transform: translate(-50%, -50%);
 	background: white;
 	box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.9);
@@ -96,7 +96,7 @@ div {
 	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
 	transform: scale(1.1);
 }
-.seller-product-name {
+.seller-product-name-modal {
 	padding: 15px 50px;
 	background-image: url("https://s3.us-east-2.amazonaws.com/pcpartstrader/productname.png");
 	background-color: white;
@@ -113,10 +113,10 @@ div {
 	outline: none;
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
-.seller-product-name:hover {
+.seller-product-name-modal:hover {
 	background-color: rgba(234, 234, 234, 0.9);
 }
-.seller-product-info {
+.seller-product-info-modal {
 	padding: 15px 50px;
 	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/productInfo.png');
 	background-color: white;
@@ -133,10 +133,10 @@ div {
 	outline: none;
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
-.seller-product-info:hover {
+.seller-product-info-modal:hover {
 	background-color: rgba(234, 234, 234, 0.9);
 }
-.seller-product-img {
+.seller-product-img-modal {
 	padding: 15px 50px;
 	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/photoicon.png');
 	background-color: white;
@@ -153,10 +153,27 @@ div {
 	outline: none;
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
-.seller-product-img:hover {
+.seller-product-img-modal:hover {
 	background-color: rgba(234, 234, 234, 0.9);
 }
-.seller-modal-select {
+.seller-product-price-modal {
+	padding: 15px 50px;
+	background-image: url('https://s3.us-east-2.amazonaws.com/pcpartstrader/price.png');
+	background-color: white;
+	background-position: 10px 6px;
+	background-repeat: no-repeat;
+	background-size: 20px;
+	height: 20px;
+	margin-top: 10px;
+	border-style: none;
+	width: 100%;
+	border-radius: 15px;
+	border-bottom: 2px solid black;
+	box-sizing: border-box;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.seller-modal-select-modal {
 	margin-top: 10px;
 	background-image: linear-gradient(
 		to bottom right,
@@ -175,9 +192,7 @@ div {
 	outline: none;
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
-.seller-modal-select:select-items {
-	background-color: black;
-}
+
 .seller-myproducts-button {
 	background-image: linear-gradient(
 		to bottom right,
@@ -205,4 +220,44 @@ div {
 .seller-loginpage-button:hover {
 	background-color: rgba(102, 102, 102);
 	transform: scale(1.1);
+}
+.seller-product-product-display {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	border: 6px solid yellow;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+.seller-product-map {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	border: 1px solid black;
+	margin: 10px;
+	padding: 10px;
+	width: 350px;
+	height: 450px;
+	align-items: center;
+	align-content: center;
+}
+.seller-product-img-container {
+	border: 1px solid red;
+	position: relative;
+}
+
+.seller-product-img-sizing {
+	height: 250px;
+	width: 300px;
+}
+.seller-product-img {
+	max-width: 98%;
+	max-height: 98%;
+}
+
+@media (max-width: 400px) {
+	.seller-modal-select-modal {
+		font-size: 12px;
+	}
+	.seller-list-item-button {
+		font-size: 12px;
+	}
 }

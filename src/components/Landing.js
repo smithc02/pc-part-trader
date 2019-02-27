@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { get_user } from '../ducks/reducer';
 import './landing.css';
-import LandingProducts from './productComponents/LandingProducts';
+
 
 class Landing extends Component {
 	constructor(props) {

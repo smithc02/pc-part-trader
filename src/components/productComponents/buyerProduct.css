@@ -1,0 +1,74 @@
+.buyer-logout-button {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 10px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.parts_for_sale {
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.buyer-products-username {
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.buyer-products-product-map {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	border: 1px solid black;
+	margin: 10px;
+	padding: 10px;
+	width: 350px;
+	height: 450px;
+	align-items: center;
+	align-content: center;
+}
+.buyer-products-product-display {
+	border: 6px solid yellow;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.buyer-product-img-container {
+	height: 250px;
+	width: 300px;
+}
+.buyer-product-img {
+	max-width: 98%;
+	max-height: 98%;
+}
+
+.buyer-product-username-container {
+	border: 1px solid black;
+}
+.buyer-product-home-link-container {
+	border: 1px solid black;
+}
+.buyer-product-user-home-container {
+	display: flex;
+	align-items: center;
+	border: 1px solid black;
+}
+@media (max-width: 600px) {
+	.dashboard-buyer-display {
+		display: flex;
+		flex-direction: column;
+		
+	}
+	.buyer-product-user-home-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		
+	}
+}

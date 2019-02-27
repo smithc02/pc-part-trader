@@ -8,7 +8,6 @@ import {
 } from '../../ducks/reducer';
 import './sellerProducts.css';
 import Modal from 'react-modal';
-
 Modal.setAppElement('#root');
 
 class SellerProducts extends Component {
@@ -19,6 +18,7 @@ class SellerProducts extends Component {
 			info: '',
 			product_type: '',
 			img_url: '',
+			price: '',
 			showModal: false
 		};
 	}
@@ -26,29 +26,26 @@ class SellerProducts extends Component {
 		this.props.get_user();
 		this.props.get_products();
 	}
-
 	componentDidUpdate(prevProps) {
-		// console.log('componentDidUpdate');
-
 		if (prevProps.products.length !== this.props.products.length) {
 			this.props.get_products();
 		}
-		// console.log(this.state.products);
 	}
-
 	handleSubmit = e => {
 		e.preventDefault();
 		this.props.new_product(
 			this.state.product_name,
 			this.state.info,
 			this.state.product_type,
-			this.state.img_url
+			this.state.img_url,
+			this.state.price
 		);
 		this.setState({
 			product_name: '',
 			info: '',
 			product_type: '',
-			img_url: ''
+			img_url: '',
+			price: ''
 		});
 		this.props.get_products();
 		this.setState({ showModal: false });
@@ -69,33 +66,36 @@ class SellerProducts extends Component {
 	}
 
 	render() {
-		// console.log(this.props.products);
-		// if (this.props.products.length > 0) {
 		let productDisplay = this.props.products.map((product, i) => {
 			return (
-				<div key={product.id}>
-					<div>
+				<div className="seller-product-map" key={product.id}>
+					<div className="seller-product-img-container">
+						<div className="seller-product-img-sizing">
+							<img
+								className="seller-product-img"
+								src={product.img_url}
+								alt="product"
+							/>
+						</div>
+					</div>
+					<div className="seller-product-price">
+						{product.price}
+					</div>
+					<div className="seller-product-name">
 						{product.product_name}
 					</div>
-					<div>
+					<div className="seller-product-info">
 						{product.info}
 					</div>
-					<div>
+					<div className="seller-product-type">
 						{product.product_type}
-					</div>
-					<div>
-						<img src={product.img_url} alt="product" />
-					</div>
-					<div>
-						{product.user_id}
 					</div>
 				</div>
 			);
 		});
-
 		return (
 			<div>
-				<div>
+				{/* <div>
 					<div>
 						<div className="seller-products-button-container">
 							<a href="/sellerspecific">
@@ -122,7 +122,7 @@ class SellerProducts extends Component {
 					<div className="parts-for-sale-container">
 						<h1> All parts for sale!</h1>
 					</div>
-				</div>
+				</div> */}
 
 				<div>
 					<div>
@@ -142,7 +142,7 @@ class SellerProducts extends Component {
 							onSubmit={this.handleSubmit}>
 							<div>
 								<input
-									className="seller-product-name"
+									className="seller-product-name-modal"
 									value={this.state.product_name}
 									type="text"
 									placeholder="Product Name"
@@ -154,7 +154,7 @@ class SellerProducts extends Component {
 							</div>
 							<div>
 								<input
-									className="seller-product-info"
+									className="seller-product-info-modal"
 									value={this.state.info}
 									type="text"
 									placeholder="Product Information"
@@ -166,7 +166,7 @@ class SellerProducts extends Component {
 							</div>
 							<div>
 								<input
-									className="seller-product-img"
+									className="seller-product-img-modal"
 									value={this.state.img_url}
 									type="text"
 									placeholder="Img_url"
@@ -177,8 +177,20 @@ class SellerProducts extends Component {
 								/>
 							</div>
 							<div>
+								<input
+									className="seller-product-price-modal"
+									value={this.state.price}
+									type="money"
+									placeholder="Price"
+									onChange={e =>
+										this.setState({
+											price: e.target.value
+										})}
+								/>
+							</div>
+							<div>
 								<select
-									className="seller-modal-select"
+									className="seller-modal-select-modal"
 									onChange={e =>
 										this.listHandle(e.target.value)}>
 									<option value=""> Please Select</option>
@@ -199,16 +211,14 @@ class SellerProducts extends Component {
 							</div>
 						</form>
 					</Modal>
-					<div>
+					<div className="seller-product-product-display">
 						{productDisplay}
 					</div>
 				</div>
 			</div>
 		);
 	}
-	// }
 }
-
 const mapStateToProps = state => {
 	// console.log(state);
 	return state;

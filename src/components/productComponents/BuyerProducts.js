@@ -8,6 +8,7 @@ import {
 	delete_product,
 	purchase_confirmation
 } from '../../ducks/reducer';
+import './buyerProduct.css';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 
 class BuyerProducts extends Component {
@@ -42,59 +43,64 @@ class BuyerProducts extends Component {
 		};
 		let productDisplay = this.props.products.map((product, i) => {
 			return (
-				<div key={product.id}>
-					<div>
+				<div className="buyer-products-product-map" key={product.id}>
+					<div className="buyer-product-img-container">
+						<img
+							className="buyer-product-img"
+							src={product.img_url}
+							alt="product"
+						/>
+					</div>
+					<div className="buyer-product-name">
 						{product.product_name}
 					</div>
-					<div>
+					<div className="buyer-product-info">
 						{product.info}
 					</div>
-					<div>
+					<div className="buyer-product-type">
 						{product.product_type}
 					</div>
-					<div>
-						<img src={product.img_url} alt="product" />
+					<div className="buyer-product-amount">
+						<h2>$1</h2>
 					</div>
 					<div>
-						{product.user_id}
+						<PaypalExpressBtn
+							className="Paypalbutton"
+							env={env}
+							client={client}
+							currency={currency}
+							total={total}
+							onError={onError}
+							onCancel={onCancel}
+							onSuccess={onSuccess}
+						/>
 					</div>
-					<div>$1</div>
-					<PaypalExpressBtn
-						className="Paypalbutton"
-						env={env}
-						client={client}
-						currency={currency}
-						total={total}
-						onError={onError}
-						onCancel={onCancel}
-						onSuccess={onSuccess}
-					/>
 				</div>
 			);
 		});
 
 		return (
 			<div>
-				<h1>
+				{/* <h1>
 					<div>
-						<div>
+						<div className="buyer-products-username">
 							{this.props.user.username}: Buyer
 						</div>
 						<div>
 							<form action="/login">
 								<button
-									className="dashboard-logout-button"
+									className="buyer-logout-button"
 									onClick={() => this.props.logout()}>
 									Logout
 								</button>
 							</form>
 						</div>
 					</div>
-				</h1>
+				</h1> */}
 				<div>
 					<h1 className="parts_for_sale">All parts for sale!</h1>
 				</div>
-				<div>
+				<div className="buyer-products-product-display">
 					{productDisplay}
 				</div>
 			</div>

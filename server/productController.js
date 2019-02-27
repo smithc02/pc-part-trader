@@ -1,7 +1,7 @@
 module.exports = {
 	new_product: (req, res) => {
 		const dbInstance = req.app.get('db');
-		const { product_name, info, product_type, img_url } = req.body;
+		const { product_name, info, product_type, img_url, price } = req.body;
 
 		console.log(req.session.user);
 		if (req.session.user) {
@@ -11,7 +11,8 @@ module.exports = {
 					info,
 					product_type,
 					req.session.user.user_id,
-					img_url
+					img_url,
+					price
 				])
 				.then(data => {
 					console.log('response', data);

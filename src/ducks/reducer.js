@@ -65,14 +65,15 @@ export function get_products() {
 	};
 }
 
-export function new_product(product_name, info, product_type, img_url) {
+export function new_product(product_name, info, product_type, img_url, price) {
 	return {
 		type: NEW_PRODUCT,
 		payload: axios.post('/api/user/newproduct', {
 			product_name,
 			info,
 			product_type,
-			img_url
+			img_url,
+			price
 		})
 	};
 }
