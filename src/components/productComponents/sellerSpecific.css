@@ -87,7 +87,6 @@
 	height: 510px;
 	align-items: center;
 	align-content: center;
-	border: 1px solid black;
 }
 .seller-specific-display {
 	display: flex;
@@ -100,8 +99,11 @@
 	max-width: 70%;
 	max-height: 70%;
 }
-.seller-specific-another-container{
-	border: 2px solid yellow;
-	height: 50%;
-
+.seller-specific-product-container {
+	height: 40%;
 }
+.seller-specific-another-container {
+	height: 56%;
+	position:relative;
+}
+

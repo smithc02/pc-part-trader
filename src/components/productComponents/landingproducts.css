@@ -1,0 +1,63 @@
+div {
+	align-content: center;
+}
+
+.lp-navbar {
+	height: 200px;
+	background-image: linear-gradient(
+		rgb(46, 46, 46),
+		rgb(160, 160, 160),
+		rgb(255, 255, 255)
+	);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.lp-secret {
+	color: white;
+	text-shadow: 2px 2px rgb(23, 21, 21);
+	border-bottom: 1px solid white;
+	box-shadow: 0px 1px black;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.landing-products-img-bigger-container {
+	
+}
+.landing-products-img-container {
+   
+    margin: 0 auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.landing-products-img-sizing {
+    
+   
+}
+.lp-whole-container {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	
+	margin: 10px;
+	padding: 10px;
+	width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+	align-content: center;
+}
+.lp-text-container {
+	height: 40%;
+}
+.lp-img {
+	max-width: 80%;
+	max-height: 80%;
+}
+.lp-product-display {
+    display: flex;
+    
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}

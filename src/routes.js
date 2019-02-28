@@ -8,8 +8,8 @@ import Landing from './components/Landing';
 import SellerProducts from './components/productComponents/SellerProducts';
 import BuyerProducts from './components/productComponents/BuyerProducts';
 import SellerSpecific from './components/productComponents/SellerSpecific';
+import LandingProducts from './components/productComponents/LandingProducts';
 
-// import Paypal from './components/paypal/PaypalButtonParent';
 export default (
 	<Switch>
 		<Route exact path="/" component={Landing} />
@@ -19,6 +19,7 @@ export default (
 		<Route path="sellerdashboard" component={SellerProducts} />
 		<Route path="buyerdashboard" component={BuyerProducts} />
 		<Route path="/sellerspecific" component={SellerSpecific} />
+		<Route path="/landingproducts" component={LandingProducts} />
 		<Route
 			path="*"
 			render={() =>

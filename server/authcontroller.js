@@ -71,6 +71,7 @@ module.exports = {
 					if (!isMatch) {
 						res.status(401).json({ error: 'Shitty H4x0r' });
 					} else {
+						console.log("logged in")
 						req.session.user = {
 							username: response[0].username,
 							email: response[0].email,

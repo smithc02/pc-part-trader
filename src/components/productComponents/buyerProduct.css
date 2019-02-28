@@ -1,10 +1,9 @@
 .buyer-products-product-map {
 	font-family: 'Sawarabi Mincho', sans-serif;
-	border: 2px solid pink;
 	margin: 10px;
 	padding: 10px;
-	width:400px;
-	height: 475px;
+	width: 400px;
+	height: 500px;
 	align-items: center;
 	align-content: center;
 }
@@ -23,20 +22,16 @@
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
 .buyer-product-just-another-container {
-	border: 1px solid red;
-	height: 65%;
+	height: 60%;
 }
-.buyer-product-img-container {
-	border: 2px solid yellow;
-}
-.buyer-product-text-container{
-	border: 1px solid black;
+
+.buyer-product-text-container {
 	overflow: auto;
 	height: 40%;
 }
 .buyer-product-info {
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
-.buyer-product-name{
+.buyer-product-name {
 	font-family: 'Sawarabi Mincho', sans-serif;
 }

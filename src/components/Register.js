@@ -115,16 +115,7 @@ class Register extends Component {
 										onChange={this.handleChange}
 									/>
 								</div>
-								<div>
-									<input
-										className="register-modal-img"
-										value={this.state.img_url}
-										type="img_url"
-										name="img_url"
-										placeholder="Img_url"
-										onChange={this.handleChange}
-									/>
-								</div>
+
 								<div>
 									<select
 										className="register-select"
@@ -147,16 +138,13 @@ class Register extends Component {
 					</div>
 				</div>
 			);
-		}
-		return (
-			<div>
+		} else {
+			return (
 				<div>
-					<div>
-						<Redirect to="/"> Home </Redirect>
-					</div>
+					<Redirect to="/"> Home </Redirect>
 				</div>
-			</div>
-		);
+			);
+		}
 	}
 }
 const mapStateToProps = state => {

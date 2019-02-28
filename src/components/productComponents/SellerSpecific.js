@@ -54,7 +54,7 @@ class SellerSpecific extends Component {
 							</div>
 						</div>
 					</div>
-					<div className="seller-specific-">
+					<div className="seller-specific-product-container">
 						<div className="seller-specific-price">
 							{product.price}
 						</div>
