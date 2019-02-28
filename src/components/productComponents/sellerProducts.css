@@ -47,6 +47,7 @@ div {
 	border-style: none;
 	border-radius: 15px;
 	font-family: 'Sawarabi Mincho', sans-serif;
+
 }
 .seller-modal-form {
 	width: 100%;
@@ -69,6 +70,7 @@ div {
 	cursor: pointer;
 	outline: none;
 	font-family: 'Sawarabi Mincho', sans-serif;
+	margin: 10px;
 }
 .seller-modal-open:hover {
 	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);

@@ -1,5 +1,5 @@
 .login-page {
-	background-color: grey;
+	background-color: blue;
 }
 .login-button {
 	background-image: linear-gradient(
@@ -35,7 +35,7 @@
 	top: 25%;
 	transform: translate(-50%, -50%);
 	background: white;
-	box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.9);
+	box-shadow: 0 0 2000px 240px rgba(0, 0, 0, 0.9);
 	outline: none;
 	border-style: none;
 	border-radius: 15px;
@@ -83,6 +83,16 @@
 .password-modal-input:hover {
 	background-color: rgba(234, 234, 234, 0.9);
 }
-
-@media (max-width: 650px) {
+element.style {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(165, 40, 40, 0.75);
+}
+@media (max-width: 400px) {
+	.login-modal-title {
+		font-size:25px
+	}
 }

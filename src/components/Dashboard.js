@@ -52,14 +52,18 @@ class Dashboard extends Component {
 										</div>
 									</div>
 								</header>
-
 								<div>
 									<BuyerProducts />
 								</div>
 							</div>
 						: <div>
-								<div className="dashboard">
-									<header>
+								<header className="dashboard-navBar">
+									<div className="dashboard-products-username-container">
+										<h1 className="dashboard-username">
+											{this.props.user.username}: Seller
+										</h1>
+									</div>
+									<div className="dashboard-stuff-container">
 										<div className="dashboard-products-button-container">
 											<a href="/sellerspecific">
 												<button className="dashboard-myproducts-button">
@@ -67,10 +71,13 @@ class Dashboard extends Component {
 												</button>
 											</a>
 										</div>
-										<div className="dashboard-products-username-container">
-											<h1 className="dashboard-username">
-												{this.props.user.username}: Seller
-											</h1>
+
+										<div className="dashboard-home-link-box">
+											<Link
+												className="dashboard-home-link"
+												to="/">
+												{' '}Home{' '}
+											</Link>
 										</div>
 										<div className="dashboard-logout-button-container">
 											<form action="/login">
@@ -82,14 +89,9 @@ class Dashboard extends Component {
 												</button>
 											</form>
 										</div>
-										<div className="parts-for-sale-container">
-											<h1> All parts for sale!</h1>
-										</div>
-										<div>
-											<Link to="/"> Home </Link>
-										</div>
-									</header>
-								</div>
+									</div>
+								</header>
+
 								<div>
 									<SellerProducts />
 								</div>

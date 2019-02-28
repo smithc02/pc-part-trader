@@ -65,3 +65,28 @@
 	cursor: pointer;
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
+.seller-specific-map {
+	font-family: 'Sawarabi Mincho', sans-serif;
+	border: 1px solid black;
+	margin: 10px;
+	padding: 10px;
+	width: 350px;
+	height: 450px;
+	align-items: center;
+	align-content: center;
+}
+.seller-specific-display {
+	border: 6px solid yellow;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+.seller-specific-img-container {
+	height: 250px;
+	width: 300px;
+}
+.seller-specific-img {
+	max-width: 75%;
+	max-height: 75%;
+}

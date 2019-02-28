@@ -42,18 +42,24 @@ class SellerSpecific extends Component {
 
 		let sellerSpecific = this.props.userProducts.map((product, i) => {
 			return (
-				<div key={product.id}>
-					<div>
+				<div className="seller-specific-map" key={product.id}>
+				<div className="seller-specific-img-container">
+					<div className="seller-specific-img-sizing">
+						<img className="seller-specific-img" src={product.img_url} alt="img" />
+					</div>
+
+				</div>
+					<div className="seller-specific-price">
+						{product.price}
+					</div>
+					<div className="seller-specific-name">
 						{product.product_name}
 					</div>
-					<div>
+					<div className="seller-specific-info">
 						{product.info}
 					</div>
-					<div>
+					<div className="seller-specific-type">
 						{product.product_type}
-					</div>
-					<div>
-						<img src={product.img_url} alt="" />
 					</div>
 					<div>
 						<button
@@ -78,7 +84,7 @@ class SellerSpecific extends Component {
 								My Dashboard
 							</button>
 						</a>
-						<div className="seller-specific-container">
+						<div className="seller-specific-display">
 							{sellerSpecific}
 						</div>
 					</div>
@@ -88,10 +94,14 @@ class SellerSpecific extends Component {
 			return (
 				<div>
 					<div>
-						<h1 className="seller-specific-logged-out">You are not logged in!</h1>
+						<h1 className="seller-specific-logged-out">
+							You are not logged in!
+						</h1>
 					</div>
 					<div>
-						<Link className="seller-specific-login" to="/login">Login</Link>
+						<Link className="seller-specific-login" to="/login">
+							Login
+						</Link>
 					</div>
 				</div>
 			);

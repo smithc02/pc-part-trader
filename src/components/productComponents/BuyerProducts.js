@@ -60,8 +60,8 @@ class BuyerProducts extends Component {
 					<div className="buyer-product-type">
 						{product.product_type}
 					</div>
-					<div className="buyer-product-amount">
-						<h2>$1</h2>
+					<div className="buyer-product-price">
+						{product.price}
 					</div>
 					<div>
 						<PaypalExpressBtn

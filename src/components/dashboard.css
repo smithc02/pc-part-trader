@@ -20,7 +20,28 @@
 	outline: none;
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
-
+.dashboard-myproducts-button {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 11px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.dashboard-stuff-container {
+	display: flex;
+	flex-direction: wrap;
+	align-items: center;
+}
 /* .dashboard-home-link2 {
 	background-image: linear-gradient(
 		to bottom right,
@@ -69,12 +90,12 @@
 	align-items: center;
 	justify-content: space-around;
 	background-image: linear-gradient(
-		rgb(77, 75, 75),
 		rgb(48, 47, 47),
-		rgb(0, 0, 0)
+		
+		rgb(255, 255, 255)
 	);
 
-	height: 90px;
+	height: 200px;
 	width: 100%;
 	opacity: .9;
 }
@@ -102,6 +123,7 @@
 	text-decoration: none;
 	cursor: pointer;
 	font-family: 'Sawarabi Mincho', sans-serif;
+	margin-left: 15px;
 }
 .homeLink {
 	transition: all .2s linear;
@@ -117,35 +139,39 @@
 	padding: 10px 20px;
 	border-radius: 4px;
 	font-size: 21px;
-	transition: all .2s linear;
 	outline: none;
 	text-decoration: none;
 	cursor: pointer;
 	font-family: 'Sawarabi Mincho', sans-serif;
 	margin-left: 15px;
 }
+.dashboard-username {
+	color: white;
+	font-family: 'Sawarabi Mincho', sans-serif;
+	font-size: 40px;
+	font-weight: 200;
+	border-bottom: 1px solid rgb(255, 255, 255);
+	text-shadow: 2px 2px rgb(23, 21, 21);
+}
 .buyer-logout-button:hover {
 	background-color: rgba(102, 102, 102);
 }
 .dashboard-link-login-box {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	margin-left: 35vw;
 }
-@media (max-width: 500px) {
+@media (max-width: 625px) {
 	.dashboard-navBar {
 		display: flex;
 		flex-direction: column;
-		height: 70px;
-		margin-bottom: 10vh;
+		height: 200px;
+		
 	}
 	.dashboard-link-login-box {
-		margin: 5px;
+		margin-left:0;
 	}
-	.buyer-logout-button {
-		margin-top: 10vh;
-	}
-	.homeLink {
-		margin-top: 10vh;
-	}
+	
+	
 }

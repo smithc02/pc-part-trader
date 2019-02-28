@@ -14,13 +14,13 @@
 	text-decoration: none;
 	cursor: pointer;
 	font-family: 'Sawarabi Mincho', sans-serif;
-}
-.parts_for_sale {
+} */
+/* .parts_for_sale {
 	font-family: 'Sawarabi Mincho', sans-serif;
-}
-.buyer-products-username {
+} */
+/* .buyer-products-username {
 	font-family: 'Sawarabi Mincho', sans-serif;
-}
+} */
 .buyer-products-product-map {
 	font-family: 'Sawarabi Mincho', sans-serif;
 	border: 1px solid black;
@@ -54,19 +54,5 @@
 .buyer-product-home-link-container {
 	border: 1px solid black;
 }
-.buyer-product-user-home-container {
-	display: flex;
-	align-items: center;
-	border: 1px solid black;
-}
-@media (max-width: 600px) {
-	.dashboard-buyer-display {
-		display: flex;
-		flex-direction: column;
-		
-	}
-	.buyer-product-user-home-container {
-		
-		
-	}
-} */
+
+

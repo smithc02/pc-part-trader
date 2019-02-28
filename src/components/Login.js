@@ -46,7 +46,7 @@ class Login extends Component {
 		}
 		if (this.state.showModal === true) {
 			return (
-				<div className="login-page">
+				<div className="style">
 					<div>
 						<Modal
 							className="modal"
