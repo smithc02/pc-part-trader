@@ -43,33 +43,40 @@ class SellerSpecific extends Component {
 		let sellerSpecific = this.props.userProducts.map((product, i) => {
 			return (
 				<div className="seller-specific-map" key={product.id}>
-				<div className="seller-specific-img-container">
-					<div className="seller-specific-img-sizing">
-						<img className="seller-specific-img" src={product.img_url} alt="img" />
+					<div className="seller-specific-another-container">
+						<div className="seller-specific-img-container">
+							<div className="seller-specific-img-sizing">
+								<img
+									className="seller-specific-img"
+									src={product.img_url}
+									alt="img"
+								/>
+							</div>
+						</div>
 					</div>
-
-				</div>
-					<div className="seller-specific-price">
-						{product.price}
-					</div>
-					<div className="seller-specific-name">
-						{product.product_name}
-					</div>
-					<div className="seller-specific-info">
-						{product.info}
-					</div>
-					<div className="seller-specific-type">
-						{product.product_type}
-					</div>
-					<div>
-						<button
-							className="seller-specific-remove-button"
-							onClick={() => this.handleDelete(product.id)}>
-							Remove
-						</button>
-					</div>
-					<div>
-						<UpdateProducts id={product.id} />
+					<div className="seller-specific-">
+						<div className="seller-specific-price">
+							{product.price}
+						</div>
+						<div className="seller-specific-name">
+							{product.product_name}
+						</div>
+						<div className="seller-specific-info">
+							{product.info}
+						</div>
+						<div className="seller-specific-type">
+							{product.product_type}
+						</div>
+						<div>
+							<button
+								className="seller-specific-remove-button"
+								onClick={() => this.handleDelete(product.id)}>
+								Remove
+							</button>
+						</div>
+						<div>
+							<UpdateProducts id={product.id} />
+						</div>
 					</div>
 				</div>
 			);
@@ -77,16 +84,17 @@ class SellerSpecific extends Component {
 		//returns the mapped array of seller specific products
 		if (this.props.user.username) {
 			return (
-				<div className="seller-specific-container">
-					<div>
+				<div className="">
+					<div className="seller-specific-navBar">
 						<a href="/dashboard">
 							<button className="seller-specific-dashboard-button">
 								My Dashboard
 							</button>
 						</a>
-						<div className="seller-specific-display">
-							{sellerSpecific}
-						</div>
+					</div>
+
+					<div className="seller-specific-display">
+						{sellerSpecific}
 					</div>
 				</div>
 			);

@@ -69,61 +69,36 @@ class SellerProducts extends Component {
 		let productDisplay = this.props.products.map((product, i) => {
 			return (
 				<div className="seller-product-map" key={product.id}>
-					<div className="seller-product-img-container">
-						<div className="seller-product-img-sizing">
-							<img
-								className="seller-product-img"
-								src={product.img_url}
-								alt="product"
-							/>
+					<div className="seller-product-just-another-container">
+						<div className="seller-product-img-container">
+							<div className="seller-product-img-sizing">
+								<img
+									className="seller-product-img"
+									src={product.img_url}
+									alt="product"
+								/>
+							</div>
 						</div>
 					</div>
-					<div className="seller-product-price">
-						{product.price}
-					</div>
-					<div className="seller-product-name">
-						{product.product_name}
-					</div>
-					<div className="seller-product-info">
-						{product.info}
-					</div>
-					<div className="seller-product-type">
-						{product.product_type}
+					<div className="seller-text-product-container">
+						<div className="seller-product-price">
+							{product.price}
+						</div>
+						<div className="seller-product-name">
+							{product.product_name}
+						</div>
+						<div className="seller-product-info">
+							{product.info}
+						</div>
+						<div className="seller-product-type">
+							{product.product_type}
+						</div>
 					</div>
 				</div>
 			);
 		});
 		return (
 			<div>
-				{/* <div>
-					<div>
-						<div className="seller-products-button-container">
-							<a href="/sellerspecific">
-								<button className="seller-myproducts-button">
-									My Products
-								</button>
-							</a>
-						</div>
-					</div>
-					<div className="seller-products-username-container">
-						<h1 className="seller-username">
-							{this.props.user.username}: Seller
-						</h1>
-					</div>
-					<div className="seller-logout-button-container">
-						<form action="/login">
-							<button
-								className="seller-logout-button"
-								onClick={() => this.props.logout()}>
-								Logout
-							</button>
-						</form>
-					</div>
-					<div className="parts-for-sale-container">
-						<h1> All parts for sale!</h1>
-					</div>
-				</div> */}
-
 				<div>
 					<div>
 						<button
@@ -143,6 +118,7 @@ class SellerProducts extends Component {
 							<div>
 								<input
 									className="seller-product-name-modal"
+									maxLength="36"
 									value={this.state.product_name}
 									type="text"
 									placeholder="Product Name"
@@ -155,6 +131,7 @@ class SellerProducts extends Component {
 							<div>
 								<input
 									className="seller-product-info-modal"
+									maxLength="60"
 									value={this.state.info}
 									type="text"
 									placeholder="Product Information"

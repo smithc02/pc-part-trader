@@ -57,8 +57,10 @@
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
 .register-link:hover {
-	background-color: rgba(102, 102, 102);
+	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
+	transform: scale(1.1);
 }
+
 .login-link {
 	font-family: 'Sawarabi Mincho', sans-serif;
 
@@ -78,7 +80,8 @@
 	cursor: pointer;
 }
 .login-link:hover {
-	background-color: rgba(102, 102, 102);
+	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
+	transform: scale(1.1);
 }
 .landing-link-box {
 	margin-top: 6px;

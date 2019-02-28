@@ -1,3 +1,24 @@
+.dashboard-home-link {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(234, 234, 234, 0.571),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 11px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	margin-right: 15px;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.dashboard-home-link:hover {
+	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
+}
 .dashboard-logged-out {
 	font-family: 'Sawarabi Mincho', sans-serif;
 	font-size: 48px;
@@ -20,6 +41,9 @@
 	outline: none;
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
+.dashboard-login-button:hover {
+	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
+}
 .dashboard-myproducts-button {
 	background-image: linear-gradient(
 		to bottom right,
@@ -37,65 +61,22 @@
 	outline: none;
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
+.dashboard-myproducts-button:hover {
+	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
+}
 .dashboard-stuff-container {
 	display: flex;
 	flex-direction: wrap;
 	align-items: center;
 }
-/* .dashboard-home-link2 {
-	background-image: linear-gradient(
-		to bottom right,
-		rgba(102, 102, 102, .4),
-		black
-	);
-	border: 1px solid rgb(0, 112, 184);
-	color: white;
-	padding: 11px 20px;
-	margin: 50px;
-	border-radius: 4px;
-	font-size: 21px;
-	transition: all .2s linear;
-	outline: none;
-	text-decoration: none;
-	cursor: pointer;
-	font-family: 'Sawarabi Mincho', sans-serif;
-} */
-/* .dashboard-buyer-display {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	background-image: linear-gradient(
-		rgb(177, 173, 173),
-		rgb(70, 66, 66),
-		rgb(5, 7, 11)
-	);
-	padding: 18px;
-	height: 60px;
-	width: 100vw;
-	opacity: .9;
-} */
-/* @media (max-width: 500px) {
-	.dashboard-buyer-display {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		height: 50px
-	}
-	
-} */
 .dashboard-navBar {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
-	background-image: linear-gradient(
-		rgb(48, 47, 47),
-		
-		rgb(255, 255, 255)
-	);
+	background-image: linear-gradient(rgb(48, 47, 47), rgb(255, 255, 255));
 
-	height: 200px;
+	height: 150px;
 	width: 100%;
 	opacity: .9;
 }
@@ -107,27 +88,7 @@
 	font-weight: 200;
 	border-bottom: 1px solid rgb(255, 255, 255);
 }
-.dashboard-home-link {
-	background-image: linear-gradient(
-		to bottom right,
-		rgba(102, 102, 102, .4),
-		black
-	);
-	border: 1px solid rgb(0, 112, 184);
-	color: white;
-	padding: 12px 20px;
-	border-radius: 4px;
-	font-size: 21px;
-	transition: all .2s linear;
-	outline: none;
-	text-decoration: none;
-	cursor: pointer;
-	font-family: 'Sawarabi Mincho', sans-serif;
-	margin-left: 15px;
-}
-.homeLink {
-	transition: all .2s linear;
-}
+
 .dashboard-logout-button {
 	background-image: linear-gradient(
 		to bottom right,
@@ -136,7 +97,7 @@
 	);
 	border: 1px solid rgb(0, 112, 184);
 	color: white;
-	padding: 10px 20px;
+	padding: 11px 20px;
 	border-radius: 4px;
 	font-size: 21px;
 	outline: none;
@@ -145,6 +106,10 @@
 	font-family: 'Sawarabi Mincho', sans-serif;
 	margin-left: 15px;
 }
+.dashboard-logout-button:hover {
+	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
+}
+
 .dashboard-username {
 	color: white;
 	font-family: 'Sawarabi Mincho', sans-serif;
@@ -167,11 +132,19 @@
 		display: flex;
 		flex-direction: column;
 		height: 200px;
-		
 	}
 	.dashboard-link-login-box {
-		margin-left:0;
+		margin-left: 0;
 	}
-	
-	
+}
+@media (max-width: 500px) {
+	.dashboard-home-link {
+		font-size: 11px;
+	}
+	.dashboard-myproducts-button{
+		font-size: 11px;
+	}
+	.dashboard-logout-button{
+		font-size: 11px;
+	}
 }

@@ -71,6 +71,7 @@ class UpdateProducts extends Component {
 						<div>
 							<input
 								className="update-product-name"
+								maxLength="30"
 								value={this.state.product_name}
 								type="text"
 								placeholder="Product Name"
@@ -83,6 +84,7 @@ class UpdateProducts extends Component {
 						<div>
 							<input
 								className="update-product-info"
+								maxLength="36"
 								value={this.state.info}
 								type="text"
 								placeholder="Product Info"

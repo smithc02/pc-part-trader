@@ -44,61 +44,52 @@ class BuyerProducts extends Component {
 		let productDisplay = this.props.products.map((product, i) => {
 			return (
 				<div className="buyer-products-product-map" key={product.id}>
-					<div className="buyer-product-img-container">
-						<img
-							className="buyer-product-img"
-							src={product.img_url}
-							alt="product"
-						/>
+					<div className="buyer-product-just-another-container">
+						<div className="buyer-product-img-container">
+							<div className="buyer-product-img-sizing">
+								<img
+									className="buyer-product-img"
+									src={product.img_url}
+									alt="product"
+								/>
+							</div>
+						</div>
 					</div>
-					<div className="buyer-product-name">
-						{product.product_name}
-					</div>
-					<div className="buyer-product-info">
-						{product.info}
-					</div>
-					<div className="buyer-product-type">
-						{product.product_type}
-					</div>
-					<div className="buyer-product-price">
-						{product.price}
-					</div>
-					<div>
-						<PaypalExpressBtn
-							className="Paypalbutton"
-							env={env}
-							client={client}
-							currency={currency}
-							total={total}
-							onError={onError}
-							onCancel={onCancel}
-							onSuccess={onSuccess}
-						/>
+					<div className="buyer-product-text-container">
+						<div className="buyer-product-name">
+							{product.product_name}
+						</div>
+						<div className="buyer-product-info">
+							{product.info}
+						</div>
+						<div className="buyer-product-type">
+							{product.product_type}
+						</div>
+						<div className="buyer-product-price">
+							{product.price}
+						</div>
+						<div>
+							<PaypalExpressBtn
+								className="Paypalbutton"
+								env={env}
+								client={client}
+								currency={currency}
+								total={total}
+								onError={onError}
+								onCancel={onCancel}
+								onSuccess={onSuccess}
+							/>
+						</div>
 					</div>
 				</div>
 			);
 		});
-
 		return (
 			<div>
-				{/* <h1>
-					<div>
-						<div className="buyer-products-username">
-							{this.props.user.username}: Buyer
-						</div>
-						<div>
-							<form action="/login">
-								<button
-									className="buyer-logout-button"
-									onClick={() => this.props.logout()}>
-									Logout
-								</button>
-							</form>
-						</div>
-					</div>
-				</h1> */}
 				<div>
-					<h1 className="parts_for_sale">All parts for sale!</h1>
+					<div>
+						<h1 className="parts-for-sale">All Parts for Sale!</h1>
+					</div>
 				</div>
 				<div className="buyer-products-product-display">
 					{productDisplay}

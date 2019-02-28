@@ -1,6 +1,13 @@
-.seller-specific-container {
-	text-align: center;
-	border: 2px solid black;
+.seller-specific-navBar {
+	justify-content: space-between;
+	background-image: linear-gradient(
+		rgb(38, 38, 38),
+		rgb(200, 200, 200),
+		rgb(255, 255, 255)
+	);
+	padding: 18px;
+	height: 100px;
+	width: 100vw;
 }
 .seller-specific-dashboard-button {
 	background-image: linear-gradient(
@@ -33,7 +40,9 @@
 	color: white;
 	padding: 10px 20px;
 	border-radius: 4px;
-	font-size: 21px;
+	font-size: 18px;
+	margin-bottom: 10px;
+	margin-top: 10px;
 	transition: all .2s linear;
 	outline: none;
 	text-decoration: none;
@@ -44,6 +53,7 @@
 	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.9);
 	transform: scale(1.1);
 }
+
 .seller-specific-logged-out {
 	font-family: 'Sawarabi Mincho', sans-serif;
 	font-size: 60px;
@@ -65,28 +75,33 @@
 	cursor: pointer;
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
+.seller-specific-login:hover {
+	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
+	transform: scale(1.1);
+}
 .seller-specific-map {
 	font-family: 'Sawarabi Mincho', sans-serif;
-	border: 1px solid black;
 	margin: 10px;
 	padding: 10px;
-	width: 350px;
-	height: 450px;
+	width: 375px;
+	height: 510px;
 	align-items: center;
 	align-content: center;
+	border: 1px solid black;
 }
 .seller-specific-display {
-	border: 6px solid yellow;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
-.seller-specific-img-container {
-	height: 250px;
-	width: 300px;
-}
+
 .seller-specific-img {
-	max-width: 75%;
-	max-height: 75%;
+	max-width: 70%;
+	max-height: 70%;
+}
+.seller-specific-another-container{
+	border: 2px solid yellow;
+	height: 50%;
+
 }

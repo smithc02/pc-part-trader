@@ -64,6 +64,13 @@ class Dashboard extends Component {
 										</h1>
 									</div>
 									<div className="dashboard-stuff-container">
+										<div className="dashboard-home-link-box">
+											<Link
+												className="dashboard-home-link"
+												to="/">
+												{' '}Home{' '}
+											</Link>
+										</div>
 										<div className="dashboard-products-button-container">
 											<a href="/sellerspecific">
 												<button className="dashboard-myproducts-button">
@@ -72,13 +79,6 @@ class Dashboard extends Component {
 											</a>
 										</div>
 
-										<div className="dashboard-home-link-box">
-											<Link
-												className="dashboard-home-link"
-												to="/">
-												{' '}Home{' '}
-											</Link>
-										</div>
 										<div className="dashboard-logout-button-container">
 											<form action="/login">
 												<button
