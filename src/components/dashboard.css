@@ -19,6 +19,29 @@
 .dashboard-home-link:hover {
 	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
 }
+.dashboard-home-link2 {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(234, 234, 234, 0.571),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 11px 20px;
+	transition: 2s;
+	border-radius: 4px;
+	font-size: 21px;
+	margin-right: 15px;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.dashboard-home-link2:hover {
+	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
+	transition: .2s;
+}
 .dashboard-logged-out {
 	font-family: 'Sawarabi Mincho', sans-serif;
 	font-size: 48px;
@@ -64,10 +87,33 @@
 .dashboard-myproducts-button:hover {
 	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
 }
+.dashboard-myproducts-button2 {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	transition: 2s;
+	padding: 11px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.dashboard-myproducts-button2:hover {
+	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
+	transition: .2s;
+}
 .dashboard-stuff-container {
 	display: flex;
 	flex-direction: wrap;
 	align-items: center;
+	
 }
 .dashboard-navBar {
 	display: flex;
@@ -109,6 +155,28 @@
 .dashboard-logout-button:hover {
 	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
 }
+.dashboard-logout-button2 {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .6),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 11px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	transition: 2s;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	font-family: 'Sawarabi Mincho', sans-serif;
+	margin-left: 15px;
+}
+.dashboard-logout-button2:hover {
+	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
+	transition: .2s;
+}
 
 .dashboard-username {
 	color: white;
@@ -123,9 +191,9 @@
 }
 .dashboard-link-login-box {
 	display: flex;
-	flex-wrap: wrap;
+
 	align-items: center;
-	margin-left: 35vw;
+	margin-left: 35%;
 }
 @media (max-width: 625px) {
 	.dashboard-navBar {
@@ -137,14 +205,23 @@
 		margin-left: 0;
 	}
 }
-@media (max-width: 500px) {
+@media (max-width: 450px) {
+	.dashboard-home-link2 {
+		font-size: 11px;
+	}
+	.dashboard-myproducts-button2 {
+		font-size: 11px;
+	}
+	.dashboard-logout-button2 {
+		font-size: 11px;
+	}
+}
+
+@media (max-width: 350px) {
 	.dashboard-home-link {
 		font-size: 11px;
 	}
-	.dashboard-myproducts-button{
-		font-size: 11px;
-	}
-	.dashboard-logout-button{
+	.dashboard-logout-button {
 		font-size: 11px;
 	}
 }

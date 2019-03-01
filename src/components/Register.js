@@ -50,7 +50,7 @@ class Register extends Component {
 			email: '',
 			img_url: '',
 			role: '',
-			registered: true
+			showModal: false
 		});
 	};
 
@@ -141,7 +141,7 @@ class Register extends Component {
 		} else {
 			return (
 				<div>
-					<Redirect to="/"> Home </Redirect>
+					<Redirect to="/login"></Redirect>
 				</div>
 			);
 		}

@@ -89,7 +89,7 @@
 .user-dashboard-link {
 	background-image: linear-gradient(
 		to bottom right,
-		rgba(102, 102, 102, .4),
+		rgba(216, 215, 215, 0.4),
 		black
 	);
 	border: 1px solid rgb(0, 112, 184);
@@ -114,10 +114,16 @@
 	font-family: 'Sawarabi Mincho', sans-serif;
 	color: rgb(183, 183, 183);
 }
-
 .landing-info-holder {
 	margin-top: 6vh;
 	width: 100%;
+}
+.landing-secret-page {
+	color: transparent;
+	text-decoration: none;
+	position: fixed;
+	top: 64.5%;
+	left: 31.25%;
 }
 
 @media (max-width: 600px) {

@@ -66,14 +66,14 @@ class Dashboard extends Component {
 									<div className="dashboard-stuff-container">
 										<div className="dashboard-home-link-box">
 											<Link
-												className="dashboard-home-link"
+												className="dashboard-home-link2"
 												to="/">
 												{' '}Home{' '}
 											</Link>
 										</div>
 										<div className="dashboard-products-button-container">
 											<a href="/sellerspecific">
-												<button className="dashboard-myproducts-button">
+												<button className="dashboard-myproducts-button2">
 													My Products
 												</button>
 											</a>
@@ -82,7 +82,7 @@ class Dashboard extends Component {
 										<div className="dashboard-logout-button-container">
 											<form action="/login">
 												<button
-													className="dashboard-logout-button"
+													className="dashboard-logout-button2"
 													onClick={() =>
 														this.props.logout()}>
 													Logout

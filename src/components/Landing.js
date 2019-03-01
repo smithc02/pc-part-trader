@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { get_user } from '../ducks/reducer';
 import './landing.css';
 
-
 class Landing extends Component {
 	constructor(props) {
 		super(props);
@@ -47,31 +46,39 @@ class Landing extends Component {
 			);
 		} else {
 			return (
-				<div className="landing-background">
-					<div className="landing">
-						<header className="navBar">
-							<div>
-								<h1 className="landing-page-name">
-									PcPartsTraders
+				<div>
+					<div className="landing-background">
+						<div className="landing">
+							<header className="navBar">
+								<div>
+									<h1 className="landing-page-name">
+										PcPartsTraders
+									</h1>
+								</div>
+								<div className="landing-link-box">
+									<Link className="login-link" to="/login">
+										Login
+									</Link>
+									<Link
+										className="register-link"
+										to="/register">
+										Register
+									</Link>
+								</div>
+							</header>
+							<div className="landing-info-holder">
+								<h1 className="landing-info-box">
+									Welcome to the Future of PC parts!
 								</h1>
 							</div>
-							<div className="landing-link-box">
-								<Link className="login-link" to="/login">
-									Login
-								</Link>
-								<Link className="register-link" to="/register">
-									Register
-								</Link>
-							</div>
-						</header>
-						<div className="landing-info-holder">
-							<h1 className="landing-info-box">
-							Welcome to the Future of PC parts!
-							</h1>
 						</div>
-						<div className="landing-products">
-							{/* <LandingProducts /> */}
-						</div>
+					</div>
+					<div>
+						<Link
+							className="landing-secret-page"
+							to="/landingproducts">
+							*
+						</Link>
 					</div>
 				</div>
 			);

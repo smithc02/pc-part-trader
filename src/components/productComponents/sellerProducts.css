@@ -54,7 +54,7 @@ div {
 .seller-modal-open {
 	background-image: linear-gradient(
 		to bottom right,
-		rgba(102, 102, 102, .4),
+		rgba(186, 186, 186, 0.4),
 		black
 	);
 	border: 1px solid rgb(0, 112, 184);
