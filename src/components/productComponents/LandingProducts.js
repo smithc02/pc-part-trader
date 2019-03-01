@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { buyer_product, get_user } from '../../ducks/reducer';
 import './landingproducts.css';
 class LandingProducts extends Component {
@@ -53,9 +54,10 @@ class LandingProducts extends Component {
 			return (
 				<div>
 					<div>
-						<header>
+						<header className="secret-nav-container">
 							<nav className="lp-navbar">
 								<h1 className="lp-secret">SECRET PAGE</h1>
+								<Link className="secret-home-link" to="/">Home</Link>
 							</nav>
 						</header>
 					</div>

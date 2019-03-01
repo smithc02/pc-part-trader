@@ -3,37 +3,41 @@ div {
 }
 
 .lp-navbar {
-	height: 200px;
+	height: 150px;
 	background-image: linear-gradient(
 		rgb(46, 46, 46),
 		rgb(160, 160, 160),
 		rgb(255, 255, 255)
 	);
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+
+	justify-content: space-evenly;
 	align-items: center;
+	width: 100%;
 }
 .lp-secret {
 	color: white;
+
 	text-shadow: 2px 2px rgb(23, 21, 21);
 	border-bottom: 1px solid white;
 	box-shadow: 0px 1px black;
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
 .landing-products-img-container {
-    margin: 0 auto;
+	margin: 0 auto;
 	max-width: 100%;
 	max-height: 100%;
 }
 .lp-whole-container {
 	font-family: 'Sawarabi Mincho', sans-serif;
-	
+
 	margin: 10px;
 	padding: 10px;
 	width: 400px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
 	align-content: center;
 }
@@ -45,9 +49,31 @@ div {
 	max-height: 80%;
 }
 .lp-product-display {
-    display: flex;
+	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.secret-home-link {
+	background-image: linear-gradient(
+		to bottom right,
+		rgba(102, 102, 102, .4),
+		black
+	);
+	border: 1px solid rgb(0, 112, 184);
+	color: white;
+	padding: 10px 20px;
+	border-radius: 4px;
+	font-size: 21px;
+	transition: all .2s linear;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+.secret-home-link:hover {
+	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
+	transform: scale(1.1);
 }
