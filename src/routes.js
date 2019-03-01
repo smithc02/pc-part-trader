@@ -9,6 +9,7 @@ import SellerProducts from './components/productComponents/SellerProducts';
 import BuyerProducts from './components/productComponents/BuyerProducts';
 import SellerSpecific from './components/productComponents/SellerSpecific';
 import LandingProducts from './components/productComponents/LandingProducts';
+import Carousel from './components/Carousel';
 
 export default (
 	<Switch>
@@ -20,6 +21,7 @@ export default (
 		<Route path="buyerdashboard" component={BuyerProducts} />
 		<Route path="/sellerspecific" component={SellerSpecific} />
 		<Route path="/landingproducts" component={LandingProducts} />
+		<Route path="/carousel" component={Carousel} />
 		<Route
 			path="*"
 			render={() =>

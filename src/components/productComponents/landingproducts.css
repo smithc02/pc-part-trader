@@ -25,13 +25,10 @@ div {
 	font-family: 'Sawarabi Mincho', sans-serif;
 }
 .landing-products-img-container {
-	margin: 0 auto;
-	max-width: 100%;
-	max-height: 100%;
+	
 }
 .lp-whole-container {
 	font-family: 'Sawarabi Mincho', sans-serif;
-
 	margin: 10px;
 	padding: 10px;
 	width: 400px;
@@ -39,14 +36,19 @@ div {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	align-content: center;
+	justify-content: space-between;
+	/* border: 3px solid blue; */
 }
 .lp-text-container {
-	height: 40%;
+	margin: 0 auto;
+	max-width: 90%;
+	max-height: 100%;
+	/* border: 3px solid salmon; */
 }
 .lp-img {
-	max-width: 80%;
-	max-height: 80%;
+	/* border: 3px solid pink; */
+	width: 80%;
+	height: 80%;
 }
 .lp-product-display {
 	display: flex;

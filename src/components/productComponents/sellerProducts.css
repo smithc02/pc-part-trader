@@ -29,7 +29,6 @@ div {
 	box-shadow: 0 0 10px 2px rgba(102, 102, 102);
 	transform: scale(1.1);
 }
-
 .seller-modal {
 	display: block;
 	padding: 10px;
@@ -230,20 +229,19 @@ div {
 	margin: 10px;
 	padding: 10px;
 	width: 375px;
-	height: 475px;
+	height: 400px;
 	align-items: center;
 	align-content: space-around;
 }
 .seller-product-img {
-	max-width: 90%;
-	max-height: 90%;
+	max-width: 70%;
 }
 .seller-text-product-container {
 	overflow: auto;
-	height: 30%;
+	height: 50%;
 }
 .seller-product-just-another-container {
-	height: 72%;
+	height: 70%;
 }
 @media (max-width: 400px) {
 	.seller-modal-select-modal {

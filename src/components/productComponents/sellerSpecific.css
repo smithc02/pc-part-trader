@@ -83,27 +83,40 @@
 	font-family: 'Sawarabi Mincho', sans-serif;
 	margin: 10px;
 	padding: 10px;
-	width: 375px;
-	height: 510px;
+	width: 400px;
+	height: 540px;
 	align-items: center;
 	align-content: center;
+	/* border: 3px solid black; */
 }
 .seller-specific-display {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+	/* border: 3px solid pink; */
 }
 
 .seller-specific-img {
-	max-width: 70%;
-	max-height: 70%;
+	max-width: 65%;
+	max-height: 60%;
+	/* border: 3px solid red; */
 }
 .seller-specific-product-container {
-	height: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 50%;
+	/* border: 3px solid blue; */
 }
 .seller-specific-another-container {
-	height: 56%;
-	position:relative;
+	height: 50%;
+	/* border: 3px solid yellow; */
 }
-
+.seller-specific-button-holder {
+	/* border: 3px solid purple; */
+	max-height: 40%;
+}
+/* .seller-specific-info-holder {
+	border: 3px solid lightblue;
+} */

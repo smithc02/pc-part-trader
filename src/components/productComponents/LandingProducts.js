@@ -20,32 +20,28 @@ class LandingProducts extends Component {
 				return (
 					<div className="lp-whole-container" key={product.id}>
 						<div>
-							<div className="landing-products-img-bigger-container">
-								<div className="landing-products-img-container">
-									<div className="landing-products-img-sizing">
-										<img
-											className="lp-img"
-											src={product.img_url}
-											alt="product"
-										/>
-									</div>
-								</div>
+							<div className="landing-products-img-sizing">
+								<img
+									className="lp-img"
+									src={product.img_url}
+									alt="product"
+								/>
 							</div>
-							<div className="lp-text-container">
-								<div className="lp-name">
-									{product.product_name}
-								</div>
+						</div>
+						<div className="lp-text-container">
+							<div className="lp-name">
+								{product.product_name}
+							</div>
 
-								<div className="lp-username">
-									Username: {product.username}
-								</div>
+							<div className="lp-username">
+								Username: {product.username}
+							</div>
 
-								<div className="lp-info">
-									{product.info}
-								</div>
-								<div className="lp-userid">
-									{product.user_id}
-								</div>
+							<div className="lp-info">
+								{product.info}
+							</div>
+							<div className="lp-userid">
+								{product.user_id}
 							</div>
 						</div>
 					</div>
@@ -57,7 +53,9 @@ class LandingProducts extends Component {
 						<header className="secret-nav-container">
 							<nav className="lp-navbar">
 								<h1 className="lp-secret">SECRET PAGE</h1>
-								<Link className="secret-home-link" to="/">Home</Link>
+								<Link className="secret-home-link" to="/">
+									Home
+								</Link>
 							</nav>
 						</header>
 					</div>

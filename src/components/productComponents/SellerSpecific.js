@@ -55,27 +55,32 @@ class SellerSpecific extends Component {
 						</div>
 					</div>
 					<div className="seller-specific-product-container">
-						<div className="seller-specific-price">
-							{product.price}
+						<div className="seller-specific-info-holder">
+							<div className="seller-specific-price">
+								{product.price}
+							</div>
+							<div className="seller-specific-name">
+								{product.product_name}
+							</div>
+							<div className="seller-specific-info">
+								{product.info}
+							</div>
+							<div className="seller-specific-type">
+								{product.product_type}
+							</div>
 						</div>
-						<div className="seller-specific-name">
-							{product.product_name}
-						</div>
-						<div className="seller-specific-info">
-							{product.info}
-						</div>
-						<div className="seller-specific-type">
-							{product.product_type}
-						</div>
-						<div>
-							<button
-								className="seller-specific-remove-button"
-								onClick={() => this.handleDelete(product.id)}>
-								Remove
-							</button>
-						</div>
-						<div>
-							<UpdateProducts id={product.id} />
+						<div className="seller-specific-button-holder">
+							<div>
+								<button
+									className="seller-specific-remove-button"
+									onClick={() =>
+										this.handleDelete(product.id)}>
+									Remove
+								</button>
+							</div>
+							<div>
+								<UpdateProducts id={product.id} />
+							</div>
 						</div>
 					</div>
 				</div>
