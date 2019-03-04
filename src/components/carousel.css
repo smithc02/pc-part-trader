@@ -1,36 +1,25 @@
 
-.c-whole-page {
-	border: 3px solid salmon;
-	
-}
 .c-container {
 	border: 5px solid cyan;
-	max-width: 500px;
-	max-height: 500px;
-	
-	
-	
+	max-width: 300px;
+	max-height: 300px;
+	margin: 10px;
+	display: block;
 }
-
-	
-
-
 .c-pic-container {
 	height: 500px;
-	
+
 	border: 2px solid red;
 }
 .picture {
 	border: 1px solid black;
-	height: 50%;
-	width: 50%;
+	height: 10em;
+	width: 13m;
 	margin: 0 auto;
 }
-
 .slick-prev:before {
 	color: black;
 }
-
 .slick-next:before {
 	color: black;
 }

@@ -7,6 +7,7 @@ const { json } = require('body-parser');
 const auth = require('./authcontroller');
 const product = require('./productController');
 const paypal = require('./paypalController');
+const path = retuir('path');
 
 app.use(json());
 
@@ -66,6 +67,10 @@ app.get('/api/user/productbuyer', product.get_product_buyer); // get joined stat
 
 //paypal endpoints
 app.post('/api/paypal/confirmation', paypal.purchaseConfirmation);
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(process.env.EXPRESS_PORT, () => {
 	console.log(`Server - Listening on ${process.env.EXPRESS_PORT}`);
