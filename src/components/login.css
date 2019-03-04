@@ -94,6 +94,12 @@ element.style {
 		font-size: 25px;
 	}
 	.modal {
-		max-width: 60%;
+		max-width: 75%;
+	}
+}
+
+@media (max-width: 550px) {
+	.modal {
+		max-width: 75%;
 	}
 }
