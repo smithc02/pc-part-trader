@@ -26,8 +26,6 @@
 .modal {
 	display: block;
 	padding: 10px;
-	width: 60%;
-	height: 310px;
 	max-width: 35%;
 	position: fixed;
 	z-index: 100;
@@ -84,15 +82,18 @@
 	background-color: rgba(234, 234, 234, 0.9);
 }
 element.style {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    background-color: rgba(165, 40, 40, 0.75);
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: rgba(165, 40, 40, 0.75);
 }
 @media (max-width: 400px) {
 	.login-modal-title {
-		font-size:25px
+		font-size: 25px;
+	}
+	.modal {
+		max-width: 60%;
 	}
 }
