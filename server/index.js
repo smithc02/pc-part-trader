@@ -7,7 +7,7 @@ const { json } = require('body-parser');
 const auth = require('./authcontroller');
 const product = require('./productController');
 const paypal = require('./paypalController');
-const path = retuir('path');
+const path = require('path');
 
 app.use(json());
 
