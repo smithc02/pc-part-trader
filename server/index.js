@@ -22,27 +22,8 @@ app.use(
 	})
 );
 
+//hosting pointing to build folder
 app.use(express.static(`${__dirname}/../build`));
-// io constants
-// const http = require('http').Server(app);
-// const io = require('socket.io')(http);
-
-// io.set('origins', '*:*');
-
-// socket event listeners
-// io.on('connection', socket => {
-// 	console.log('User connected'), socket.emit('Hello', { Hello: 'Hello!' });
-
-// 	socket.on('disconnect', () => {
-// 		console.log('user disconnected');
-// 	});
-// 	socket.on('room', data => {
-// 		socket.join(data.room).emit('Joinedroom', data.room);
-// 	});
-// 	socket.on('leave', room => {
-// 		socket.emit('leave', room).leave(room);
-// 	});
-// });
 
 //paypal
 
@@ -68,7 +49,7 @@ app.get('/api/user/userproduct', product.get_user_product); // get all active us
 app.get('/api/user/productbuyer', product.get_product_buyer); // get joined statement of products with User Ids.
 
 //paypal endpoints
-app.post('/api/paypal/confirmation', paypal.purchaseConfirmation);
+app.post('/api/paypal/confirmation', paypal.purchaseConfirmation); //sends email to the users email of purchase confirmation
 
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, '../build/index.html'));

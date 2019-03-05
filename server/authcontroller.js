@@ -69,9 +69,9 @@ module.exports = {
 						response[0].hash
 					);
 					if (!isMatch) {
-						res.status(401).json({ error: 'Shitty H4x0r' });
+						res.status(401).json({ error: 'No User Found' });
 					} else {
-						console.log("logged in")
+						console.log('logged in');
 						req.session.user = {
 							username: response[0].username,
 							email: response[0].email,
