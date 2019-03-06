@@ -10,6 +10,7 @@ import {
 } from '../../ducks/reducer';
 import './buyerProduct.css';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
+import Slider from 'react-slick';
 
 class BuyerProducts extends Component {
 	componentWillMount() {
@@ -18,6 +19,14 @@ class BuyerProducts extends Component {
 	}
 
 	render() {
+		const settings = {
+			dots: false,
+			infinite: true,
+			speed: 500,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: true
+		};
 		const onSuccess = payment => {
 			this.props.purchase_confirmation(
 				payment.address,
@@ -47,11 +56,29 @@ class BuyerProducts extends Component {
 					<div className="buyer-product-just-another-container">
 						<div className="buyer-product-img-container">
 							<div className="buyer-product-img-sizing">
-								<img
-									className="buyer-product-img"
-									src={product.img_url}
-									alt="product"
-								/>
+								<Slider {...settings}>
+									<div>
+										<img
+											className="picture"
+											src={product.img_url}
+											alt=""
+										/>
+									</div>
+									<div>
+										<img
+											className="picture"
+											src={product.img_url2}
+											alt=""
+										/>
+									</div>
+									<div>
+										<img
+											className="picture"
+											src={product.img_url3}
+											alt=""
+										/>
+									</div>
+								</Slider>
 							</div>
 						</div>
 					</div>

@@ -7,6 +7,7 @@ import {
 	new_product
 } from '../../ducks/reducer';
 import './sellerProducts.css';
+import Slider from 'react-slick';
 import Modal from 'react-modal';
 Modal.setAppElement('#root');
 
@@ -66,17 +67,43 @@ class SellerProducts extends Component {
 	}
 
 	render() {
+		const settings = {
+			dots: false,
+			infinite: true,
+			speed: 500,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: true
+		};
 		let productDisplay = this.props.products.map((product, i) => {
 			return (
 				<div className="seller-product-map" key={product.id}>
 					<div className="seller-product-just-another-container">
 						<div className="seller-product-img-container">
 							<div className="seller-product-img-sizing">
-								<img
-									className="seller-product-img"
-									src={product.img_url}
-									alt="product"
-								/>
+								<Slider {...settings}>
+									<div>
+										<img
+											className="picture"
+											src={product.img_url}
+											alt=""
+										/>
+									</div>
+									<div>
+										<img
+											className="picture"
+											src={product.img_url2}
+											alt=""
+										/>
+									</div>
+									<div>
+										<img
+											className="picture"
+											src={product.img_url3}
+											alt=""
+										/>
+									</div>
+								</Slider>
 							</div>
 						</div>
 					</div>

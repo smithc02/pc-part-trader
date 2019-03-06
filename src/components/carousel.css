@@ -12,9 +12,9 @@
 	border: 2px solid red;
 }
 .picture {
-	border: 1px solid black;
-	height: 10em;
-	width: 13m;
+	
+	height: 13em;
+	
 	margin: 0 auto;
 }
 .slick-prev:before {
