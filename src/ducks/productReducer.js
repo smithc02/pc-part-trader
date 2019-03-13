@@ -11,7 +11,6 @@ const initialState = {
 	loading: false,
 	buyerProduct: []
 };
-
 //action types
 const GET_PRODUCTS = 'GET_PRODUCTS';
 const NEW_PRODUCT = 'NEW_PRODUCT';
@@ -27,7 +26,6 @@ export function get_products() {
 		payload: axios.get('/api/product')
 	};
 }
-
 export function new_product(product_name, info, product_type, img_url, price) {
 	return {
 		type: NEW_PRODUCT,
@@ -69,7 +67,6 @@ export function update_product(id, content) {
 		})
 	};
 }
-
 //export default function of each action type/creators
 export default function reducerr(state = initialState, action) {
 	switch (action.type) {
@@ -79,37 +76,31 @@ export default function reducerr(state = initialState, action) {
 			return { ...state, products: action.payload.data, loading: false };
 		case `${GET_PRODUCTS}_REJECTED`:
 			return { ...state, error: 'Get_products was not successfull' };
-
 		case `${NEW_PRODUCT}_PENDING`:
 			return { ...state, loading: true };
 		case `${NEW_PRODUCT}_FULFILLED`:
 			return { ...state, products: action.payload.data, loading: false };
 		case `${NEW_PRODUCT}_REJECTED`:
 			return { ...state, error: 'new_product was not successfull' };
-
 		case `${GET_USER_PRODUCT}_PENDING`:
 			return {
 				...state,
-
 				loading: true
 			};
 		case `${GET_USER_PRODUCT}_FULFILLED`:
 			return {
 				...state,
-
 				userProducts: action.payload.data,
 				loading: false
 			};
 		case `${GET_USER_PRODUCT}_REJECTED`:
 			return { ...state, error: 'new_product was not successfull' };
-
 		case `${DELETE_PRODUCT}_PENDING`:
 			return { ...state, loading: true };
 		case `${DELETE_PRODUCT}_FULFILLED`:
 			return { ...state, products: action.payload.data, loading: false };
 		case `${DELETE_PRODUCT}_REJECTED`:
 			return { ...state, error: 'Delete_product attempt failed.' };
-
 		case `${BUYER_PRODUCT}_PENDING`:
 			return { ...state, loading: true };
 		case `${BUYER_PRODUCT}_FULFILLED`:

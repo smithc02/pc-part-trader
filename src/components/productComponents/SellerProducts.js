@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-	get_user,
-	get_products,
-	logout,
-	new_product
-} from '../../ducks/reducer';
+import { get_user, logout } from '../../ducks/userReducer';
+import { get_products, new_product } from '../../ducks/productReducer';
 import './sellerProducts.css';
 import Slider from 'react-slick';
 import Modal from 'react-modal';
@@ -24,17 +20,17 @@ class SellerProducts extends Component {
 		};
 	}
 	componentDidMount() {
-		this.props.get_user();
-		this.props.get_products();
+		this.props.uR.get_user();
+		this.props.prodR.get_products();
 	}
 	componentDidUpdate(prevProps) {
-		if (prevProps.products.length !== this.props.products.length) {
-			this.props.get_products();
+		if (prevProps.products.length !== this.props.prodsR.products.length) {
+			this.props.prodR.get_products();
 		}
 	}
 	handleSubmit = e => {
 		e.preventDefault();
-		this.props.new_product(
+		this.props.prodR.new_product(
 			this.state.product_name,
 			this.state.info,
 			this.state.product_type,
@@ -48,7 +44,7 @@ class SellerProducts extends Component {
 			img_url: '',
 			price: ''
 		});
-		this.props.get_products();
+		this.props.prodR.get_products();
 		this.setState({ showModal: false });
 	};
 
@@ -75,7 +71,7 @@ class SellerProducts extends Component {
 			slidesToScroll: 1,
 			arrows: true
 		};
-		let productDisplay = this.props.products.map((product, i) => {
+		let productDisplay = this.props.prodR.products.map((product, i) => {
 			return (
 				<div className="seller-product-map" key={product.id}>
 					<div className="seller-product-just-another-container">

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { get_user, update_product } from '../../ducks/reducer';
+import { get_user } from '../../ducks/userReducer';
+import { update_product } from '../../ducks/productReducer';
 import Modal from 'react-modal';
 import './updateProducts.css';
 Modal.setAppElement('#root');
@@ -18,14 +19,14 @@ class UpdateProducts extends Component {
 	}
 
 	componentDidMount() {
-		this.props.get_user();
+		this.props.uR.get_user();
 	}
 	handleUpdate = e => {
-		console.log('props.id', this.props.id);
+		console.log('props.id', this.props.prodR.id);
 		e.preventDefault();
 		// console.log('handle update', id, e);
 		let { product_name, info, product_type, img_url } = this.state;
-		this.props.update_product(this.props.id, {
+		this.props.prodR.update_product(this.props.prodR.id, {
 			product_name,
 			info,
 			product_type,

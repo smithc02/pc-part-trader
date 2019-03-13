@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { login } from '../ducks/reducer';
+import { login } from '../ducks/userReducer';
 import { Redirect } from 'react-router-dom';
 import Modal from 'react-modal';
 import './login.css';
@@ -33,7 +33,7 @@ class Login extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
-		this.props.login(this.state.username, this.state.password);
+		this.props.uR.login(this.state.username, this.state.password);
 	};
 	showMenu = () => {
 		this.setState({ secretMenu: !this.state.secretMenu });
@@ -41,7 +41,7 @@ class Login extends Component {
 
 	render() {
 		// console.log(this.props.user);
-		if (this.props.user.username) {
+		if (this.props.uR.user.username) {
 			return <Redirect push to="/dashboard" />;
 		}
 		if (this.state.showModal === true) {

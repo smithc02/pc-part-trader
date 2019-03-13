@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { get_user, logout } from '../../ducks/userReducer';
 import {
-	get_user,
 	get_products,
-	logout,
 	buyer_product,
-	delete_product,
-	purchase_confirmation
-} from '../../ducks/reducer';
+	delete_product
+} from '../../ducks/productReducer';
+import { purchase_confirmation } from '../../ducks/paypalReducer';
 import './buyerProduct.css';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 import Slider from 'react-slick';
 
 class BuyerProducts extends Component {
 	componentWillMount() {
-		this.props.get_user();
-		this.props.get_products();
+		this.props.uR.get_user();
+		this.props.prodR.get_products();
 	}
 
 	render() {
@@ -28,7 +27,7 @@ class BuyerProducts extends Component {
 			arrows: true
 		};
 		const onSuccess = payment => {
-			this.props.purchase_confirmation(
+			this.props.pR.purchase_confirmation(
 				payment.address,
 				payment.paymentID
 			);
@@ -50,7 +49,7 @@ class BuyerProducts extends Component {
 			sandbox:
 				'AVbl63z427KBmZVKdWnjO8vI4jLxQHI9oKyTro9G1YIalW4ztU-xe3GjrH_kWkp2ha0TYcAkN8DMUptN'
 		};
-		let productDisplay = this.props.products.map((product, i) => {
+		let productDisplay = this.props.prodR.products.map((product, i) => {
 			return (
 				<div className="buyer-products-product-map" key={product.id}>
 					<div className="buyer-product-just-another-container">

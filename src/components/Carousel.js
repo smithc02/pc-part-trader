@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { connect } from 'react-redux';
-import { get_products, get_user } from '../ducks/reducer';
+import { get_user } from '../ducks/userReducer';
+import { get_products } from '../ducks/productReducer';
 import './carousel.css';
 
 class Carousel extends Component {
 	componentDidMount() {
-		this.props.get_user();
-		this.props.get_products();
+		this.props.uR.get_user();
+		this.props.prodR.get_products();
 	}
 
 	render() {
@@ -19,8 +20,8 @@ class Carousel extends Component {
 			slidesToScroll: 1,
 			arrows: true
 		};
-		let productDisplay = this.props.products.map((product, i) => {
-			console.log(this.props.products);
+		let productDisplay = this.props.prodR.products.map((product, i) => {
+			console.log(this.props.prodR.products);
 			return (
 				<div key={i} className="c-container">
 					<div className="c-another-container">

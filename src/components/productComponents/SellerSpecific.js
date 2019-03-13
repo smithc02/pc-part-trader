@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import UpdateProducts from './UpdateProducts';
+import { get_user } from '../../ducks/userReducer';
 import {
-	get_user,
 	get_products,
 	get_user_product,
 	delete_product
-} from '../../ducks/reducer';
+} from '../../ducks/productReducer';
+
 import './sellerSpecific.css';
 
 class SellerSpecific extends Component {
@@ -17,30 +18,33 @@ class SellerSpecific extends Component {
 	}
 	//gets user of active session, and uses get_user_product to get the user specific product from database
 	componentDidMount() {
-		this.props.get_user();
+		this.props.uR.get_user();
 		// console.log('seller specific user', this.props.user);
-		this.props.get_user_product();
+		this.props.prodR.get_user_product();
 		// console.log('seller specific products', this.props.userProducts);
 	}
 
 	componentDidUpdate(prevProps) {
 		// console.log('componentdidmount', prevProps);
-		if (prevProps.userProducts.length !== this.props.userProducts.length) {
-			this.props.get_user_product();
+		if (
+			prevProps.userProducts.length !==
+			this.props.prodR.userProducts.length
+		) {
+			this.props.prodR.get_user_product();
 			// console.log('component update 2', this.props.userProducts);
 		}
 	}
 
 	handleDelete(id) {
-		this.props.delete_product(id);
-		this.props.get_user_product();
-		this.props.get_products();
+		this.props.prodR.delete_product(id);
+		this.props.prodR.get_user_product();
+		this.props.prodR.get_products();
 	}
 
 	render() {
 		// maps over user specific array brought in from props
 
-		let sellerSpecific = this.props.userProducts.map((product, i) => {
+		let sellerSpecific = this.props.prodR.userProducts.map((product, i) => {
 			return (
 				<div className="seller-specific-map" key={product.id}>
 					<div className="seller-specific-another-container">
@@ -87,7 +91,7 @@ class SellerSpecific extends Component {
 			);
 		});
 		//returns the mapped array of seller specific products
-		if (this.props.user.username) {
+		if (this.props.uR.user.username) {
 			return (
 				<div className="">
 					<div className="seller-specific-navBar">

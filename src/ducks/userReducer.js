@@ -9,7 +9,7 @@ const initialState = {
 const GET_USER = 'GET_USER';
 const LOGIN = 'LOGIN';
 const REGISTER = 'REGISTER';
-
+const LOGOUT = 'LOGOUT';
 //action creators
 export function get_user() {
 	return {

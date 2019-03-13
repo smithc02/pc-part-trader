@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { register } from '../ducks/reducer';
+import { register } from '../ducks/userReducer';
 import Modal from 'react-modal';
 import { Redirect } from 'react-router-dom';
 import './register.css';
@@ -36,7 +36,7 @@ class Register extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
-		this.props.register(
+		this.props.uR.register(
 			this.state.username,
 			this.state.password,
 			this.state.email,
@@ -141,7 +141,7 @@ class Register extends Component {
 		} else {
 			return (
 				<div>
-					<Redirect to="/login"></Redirect>
+					<Redirect to="/login" />
 				</div>
 			);
 		}
