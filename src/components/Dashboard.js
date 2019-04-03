@@ -19,10 +19,10 @@ class Dashboard extends Component {
 		this.props.uR.get_user();
 	}
 	render() {
-		if (this.props.uR.user.username) {
+		if (this.props.user.username) {
 			return (
 				<div>
-					{' '}{this.props.uR.user.role === 'Buyer'
+					{' '}{this.props.user.role === 'Buyer'
 						? <div className="dashboard-landing">
 								<header className="dashboard-navBar">
 									<div>
@@ -45,7 +45,7 @@ class Dashboard extends Component {
 												<button
 													className="dashboard-logout-button"
 													onClick={() =>
-														this.props.uR.logout()}>
+														this.props.logout()}>
 													Logout
 												</button>
 											</form>
@@ -113,7 +113,12 @@ class Dashboard extends Component {
 	}
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => {
+	return {
+		user: state.uR.user,
+		
+	}
+}
 
 export default connect(mapStateToProps, {
 	get_user,
