@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { login } from '../ducks/reducer';
+import { login } from '../ducks/userReducer';
 import { Redirect } from 'react-router-dom';
 import Modal from 'react-modal';
 import './login.css';
@@ -40,71 +40,67 @@ class Login extends Component {
 	};
 
 	render() {
-		// console.log(this.props.user);
-		if (this.props.user.username) {
+		// console.log(this.props);
+		// console.log(this.props.user.username);
+		if (this.props.uR.loggedIn) {
 			return <Redirect push to="/dashboard" />;
 		}
 		if (this.state.showModal === true) {
 			return (
 				<div className="style">
-					<div>
-						<Modal
-							className="modal"
-							isOpen={this.state.showModal}
-							contentLabel="Login Modal"
-							onRequestClose={this.handleCloseModal}>
-							<form
-								className="login-input-form"
-								onSubmit={this.handleSubmit}>
-								<div className="modal-form-container">
-									<div>
-										<FontAwesomeIcon
-											className="-login-person-icon"
-											icon={faUser}
-											size="5x"
-										/>
-									</div>
-									<div>
-										<h1 className="login-modal-title">
-											LOGIN
-										</h1>
-									</div>
-									<div>
+					<Modal
+						className="modal"
+						isOpen={this.state.showModal}
+						contentLabel="Login Modal"
+						onRequestClose={this.handleCloseModal}>
+						<form
+							className="login-input-form"
+							onSubmit={this.handleSubmit}>
+							<div className="modal-form-container">
+								<div>
+									<FontAwesomeIcon
+										className="-login-person-icon"
+										icon={faUser}
+										size="5x"
+									/>
+								</div>
+								<div>
+									<h1 className="login-modal-title">LOGIN</h1>
+								</div>
+								<div>
+									<input
+										className="username-modal-input"
+										value={this.state.username}
+										type="username"
+										name="username"
+										placeholder=" Username"
+										onChange={e => this.handleChange(e)}
+										required
+									/>
+								</div>
+								<div>
+									<div className="password-modal-container">
 										<input
-											className="username-modal-input"
-											value={this.state.username}
-											type="username"
-											name="username"
-											placeholder=" Username"
+											className="password-modal-input"
+											value={this.state.password}
+											type="password"
+											name="password"
+											placeholder=" Password"
 											onChange={e => this.handleChange(e)}
 											required
 										/>
 									</div>
 									<div>
-										<div className="password-modal-container">
-											<input
-												className="password-modal-input"
-												value={this.state.password}
-												type="password"
-												name="password"
-												placeholder=" Password"
-												onChange={e =>
-													this.handleChange(e)}
-												required
-											/>
-										</div>
-										<div>
-											<input
-												className="login-button"
-												type="submit"
-												value="Login"
-											/>
-										</div>
+										<input
+											className="login-button"
+											type="submit"
+											value="Login"
+										/>
 									</div>
 								</div>
-							</form>
-						</Modal>
-					</div>
+							</div>
+						</form>
+					</Modal>
 				</div>
 			);
 		}
@@ -116,10 +112,6 @@ class Login extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		user: state.user
-	};
-};
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps, { login })(Login);

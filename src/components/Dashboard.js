@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { get_user, logout } from '../ducks/reducer';
+import { get_user, logout } from '../ducks/userReducer';
 import BuyerProducts from './productComponents/BuyerProducts';
 import SellerProducts from './productComponents/SellerProducts';
 import './dashboard.css';
@@ -19,15 +19,15 @@ class Dashboard extends Component {
 		this.props.get_user();
 	}
 	render() {
-		if (this.props.user.username) {
+		if (this.props.uR.user.username) {
 			return (
 				<div>
-					{' '}{this.props.user.role === 'Buyer'
+					{this.props.uR.user.role === 'Buyer'
 						? <div className="dashboard-landing">
 								<header className="dashboard-navBar">
 									<div>
 										<h1 className="dashboard-username-container">
-											{this.props.user.username}
+											{this.props.uR.user.username}
 										</h1>
 									</div>
 									<div className="dashboard-link-login-box">
@@ -60,7 +60,7 @@ class Dashboard extends Component {
 								<header className="dashboard-navBar">
 									<div className="dashboard-products-username-container">
 										<h1 className="dashboard-username">
-											{this.props.user.username}: Seller
+											{this.props.uR.user.username}: Seller
 										</h1>
 									</div>
 									<div className="dashboard-stuff-container">
@@ -91,7 +91,6 @@ class Dashboard extends Component {
 										</div>
 									</div>
 								</header>
-
 								<div>
 									<SellerProducts />
 								</div>

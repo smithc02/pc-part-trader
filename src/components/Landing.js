@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { get_user } from '../ducks/reducer';
+import { get_user } from '../ducks/userReducer';
 import './landing.css';
 
 class Landing extends Component {
@@ -16,7 +16,7 @@ class Landing extends Component {
 		this.props.get_user();
 	}
 	render() {
-		if (this.props.user.username) {
+		if (this.props.uR.user.username) {
 			return (
 				<div className="landing-background">
 					<div className="landing">

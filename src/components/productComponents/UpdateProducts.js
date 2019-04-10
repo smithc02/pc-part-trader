@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { get_user, update_product } from '../../ducks/reducer';
+import { get_user } from '../../ducks/userReducer';
+import { update_product } from '../../ducks/productReducer';
 import Modal from 'react-modal';
 import './updateProducts.css';
 Modal.setAppElement('#root');
@@ -20,12 +21,13 @@ class UpdateProducts extends Component {
 	componentDidMount() {
 		this.props.get_user();
 	}
-	handleUpdate = e => {
-		console.log('props.id', this.props.id);
+	handleUpdate = (e, id) => {
+		// console.log('userProducts', this.props.prodR.userProducts);
 		e.preventDefault();
-		// console.log('handle update', id, e);
+		// console.log('handleupdate', e);
 		let { product_name, info, product_type, img_url } = this.state;
-		this.props.update_product(this.props.id, {
+		console.log('this.props handleupdate', this.props);
+		this.props.update_product(id, {
 			product_name,
 			info,
 			product_type,
@@ -67,7 +69,7 @@ class UpdateProducts extends Component {
 					onRequestClose={this.handleCloseModal}>
 					<form
 						className="update-product-modal-form"
-						onSubmit={e => this.handleUpdate(e)}>
+						onSubmit={e => this.handleUpdate(e, this.props.id)}>
 						<div>
 							<input
 								className="update-product-name"

@@ -25,8 +25,7 @@ app.use(
 //hosting pointing to build folder
 app.use(express.static(`${__dirname}/../build`));
 
-//paypal
-
+//paypal reducer
 massive(process.env.CONNECTION_STRING)
 	.then(dbInstance => {
 		app.set('db', dbInstance);
