@@ -20,17 +20,19 @@ class SellerProducts extends Component {
 		};
 	}
 	componentDidMount() {
-		this.props.uR.get_user();
-		this.props.prodR.get_products();
+		this.props.get_user();
+		this.props.get_products();
 	}
 	componentDidUpdate(prevProps) {
-		if (prevProps.products.length !== this.props.prodsR.products.length) {
-			this.props.prodR.get_products();
+		if (
+			prevProps.prodR.products.length !== this.props.prodR.products.length
+		) {
+			this.props.get_products();
 		}
 	}
 	handleSubmit = e => {
 		e.preventDefault();
-		this.props.prodR.new_product(
+		this.props.new_product(
 			this.state.product_name,
 			this.state.info,
 			this.state.product_type,
@@ -44,7 +46,7 @@ class SellerProducts extends Component {
 			img_url: '',
 			price: ''
 		});
-		this.props.prodR.get_products();
+		this.props.get_products();
 		this.setState({ showModal: false });
 	};
 
@@ -219,10 +221,8 @@ class SellerProducts extends Component {
 		);
 	}
 }
-const mapStateToProps = state => {
-	// console.log(state);
-	return state;
-};
+const mapStateToProps = state => state;
+
 export default connect(mapStateToProps, {
 	get_user,
 	get_products,

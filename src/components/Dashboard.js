@@ -16,13 +16,13 @@ class Dashboard extends Component {
 		};
 	}
 	componentDidMount() {
-		this.props.uR.get_user();
+		this.props.get_user();
 	}
 	render() {
-		if (this.props.user.username) {
+		if (this.props.uR.user.username) {
 			return (
 				<div>
-					{' '}{this.props.user.role === 'Buyer'
+					{this.props.uR.user.role === 'Buyer'
 						? <div className="dashboard-landing">
 								<header className="dashboard-navBar">
 									<div>
@@ -60,7 +60,7 @@ class Dashboard extends Component {
 								<header className="dashboard-navBar">
 									<div className="dashboard-products-username-container">
 										<h1 className="dashboard-username">
-											{this.props.user.uR.username}: Seller
+											{this.props.uR.user.username}: Seller
 										</h1>
 									</div>
 									<div className="dashboard-stuff-container">
@@ -84,14 +84,13 @@ class Dashboard extends Component {
 												<button
 													className="dashboard-logout-button2"
 													onClick={() =>
-														this.props.uR.logout()}>
+														this.props.logout()}>
 													Logout
 												</button>
 											</form>
 										</div>
 									</div>
 								</header>
-
 								<div>
 									<SellerProducts />
 								</div>
@@ -113,12 +112,7 @@ class Dashboard extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		user: state.uR.user,
-		
-	}
-}
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps, {
 	get_user,

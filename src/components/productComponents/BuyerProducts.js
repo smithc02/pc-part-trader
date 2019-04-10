@@ -13,8 +13,8 @@ import Slider from 'react-slick';
 
 class BuyerProducts extends Component {
 	componentWillMount() {
-		this.props.uR.get_user();
-		this.props.prodR.get_products();
+		this.props.get_user();
+		this.props.get_products();
 	}
 
 	render() {
@@ -27,7 +27,7 @@ class BuyerProducts extends Component {
 			arrows: true
 		};
 		const onSuccess = payment => {
-			this.props.pR.purchase_confirmation(
+			this.props.purchase_confirmation(
 				payment.address,
 				payment.paymentID
 			);

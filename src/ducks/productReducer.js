@@ -21,6 +21,7 @@ const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 
 //action creators
 export function get_products() {
+	// console.log('hit');
 	return {
 		type: GET_PRODUCTS,
 		payload: axios.get('/api/product')

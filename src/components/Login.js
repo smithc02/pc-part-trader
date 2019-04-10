@@ -40,8 +40,9 @@ class Login extends Component {
 	};
 
 	render() {
+		// console.log(this.props);
 		// console.log(this.props.user.username);
-		if (this.props.user.username) {
+		if (this.props.uR.loggedIn) {
 			return <Redirect push to="/dashboard" />;
 		}
 		if (this.state.showModal === true) {
@@ -111,11 +112,6 @@ class Login extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	console.log(state)
-	return {
-		user: state.uR.user
-	};
-};
+const mapStateToProps = state => state;
 
 export default connect(mapStateToProps, { login })(Login);

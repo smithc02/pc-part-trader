@@ -18,27 +18,25 @@ class SellerSpecific extends Component {
 	}
 	//gets user of active session, and uses get_user_product to get the user specific product from database
 	componentDidMount() {
-		this.props.uR.get_user();
-		// console.log('seller specific user', this.props.user);
-		this.props.prodR.get_user_product();
-		// console.log('seller specific products', this.props.userProducts);
+		this.props.get_user();
+		this.props.get_user_product();
 	}
 
 	componentDidUpdate(prevProps) {
 		// console.log('componentdidmount', prevProps);
 		if (
-			prevProps.userProducts.length !==
+			prevProps.prodR.userProducts.length !==
 			this.props.prodR.userProducts.length
 		) {
-			this.props.prodR.get_user_product();
+			this.props.get_user_product();
 			// console.log('component update 2', this.props.userProducts);
 		}
 	}
 
 	handleDelete(id) {
-		this.props.prodR.delete_product(id);
-		this.props.prodR.get_user_product();
-		this.props.prodR.get_products();
+		this.props.delete_product(id);
+		this.props.get_user_product();
+		this.props.get_products();
 	}
 
 	render() {

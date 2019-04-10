@@ -72,9 +72,8 @@ class LandingProducts extends Component {
 		}
 	}
 }
-const mapStateToProps = state => {
-	return state;
-};
+const mapStateToProps = state => state;
+
 export default connect(mapStateToProps, { buyer_product, get_user })(
 	LandingProducts
 );
