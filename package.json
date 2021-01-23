@@ -11,7 +11,7 @@
 		"@material-ui/core": "^3.9.2",
 		"@material-ui/icons": "^3.0.2",
 		"@paypal/checkout-server-sdk": "^1.0.0",
-		"axios": "^0.18.0",
+		"axios": "^0.21.1",
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.18.3",
 		"dotenv": "^6.2.0",
